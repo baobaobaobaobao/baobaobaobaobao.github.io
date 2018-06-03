@@ -1,310 +1,1721 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <meta name="description" content="yanm1ng&#39;s blog">
-  <meta name="keyword" content="hexo-theme, vuejs">
-  
-    <link rel="shortcut icon" href="/css/images/logo.png">
-  
-  <title>
-    
-      Hexo
-    
-  </title>
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
-  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
-  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="/js/qrious.js"></script>
-<script src="/js/gitment.js"></script>
-  
-  
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
+
+
   
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="baobaobao" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="求道者">
+<meta property="og:type" content="website">
+<meta property="og:title" content="baobaobao">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="baobaobao">
+<meta property="og:description" content="求道者">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="baobaobao">
+<meta name="twitter:description" content="求道者">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'baobaobao'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>baobaobao</title>
+  
+
+
+
+
+
+
 
 
 </head>
-<div class="wechat-share">
-  <img src="/css/images/logo.png" />
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">baobaobao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-  <body>
-    <header class="header fixed-header">
-  <div class="header-container">
-    <a class="home-link" href="/">
-      <div class="logo"></div>
-      <span>Hexo</span>
-    </a>
-    <ul class="right-list">
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
       
-        <li class="list-item">
-          
-            <a href="/" class="item-link active">Home</a>
-          
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
         </li>
       
-        <li class="list-item">
-          
-            <a href="/tags/" class="item-link">Tags</a>
-          
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
         </li>
       
-        <li class="list-item">
-          
-            <a href="/archives/" class="item-link">Archives</a>
-          
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
         </li>
       
-        <li class="list-item">
-          
-            <a href="/project/" class="item-link">Projects</a>
-          
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
         </li>
       
-        <li class="list-item">
-          
-            <a href="/about/" class="item-link">About</a>
-          
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
         </li>
+      
+
       
     </ul>
-    <div class="menu">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/subribe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/03/subribe/" itemprop="url">原生JavaScript实现订阅/发布模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T09:48:54+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/03/subribe/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/03/subribe/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>###1 订阅/发布模式说明<br> 什么是订阅/发布模式呢？<br>举个简单的例子。我们在开发网站常常有这样的一种情况。就是用户登录过的主界面和没登录过<br>的主界面显示是不一样的，而没有使用订阅/发布模式的话。我们很可能会写出下面的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//登录成功情况下</span><br><span class="line">login.succ(function( data )&#123;  </span><br><span class="line"> header.setAvatar( data.avatar);   </span><br><span class="line">nav.setAvatar( data.avatar );   </span><br><span class="line">message.refresh();   </span><br><span class="line">cart.refresh();   </span><br><span class="line">address.refresh();  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//登录失败情况下</span><br><span class="line">login.fail(function( data )&#123;  </span><br><span class="line"> header.setAvatar( data.avatar);   </span><br><span class="line">nav.setAvatar( data.avatar );   </span><br><span class="line">message.refresh();   </span><br><span class="line">cart.refresh();   </span><br><span class="line">address.refresh();  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/*这两种情况都有相应的处理逻辑，假如现在又出现了新的模块的话。我们又要在上述的两种情况下  </span><br><span class="line">加入逻辑代码，十分不利于维护。*/</span><br></pre></td></tr></table></figure></p>
+<p>###2 订阅/发布模式的实践<br>如果我们利用订阅/发布模式的话，整个流程就十分清晰了。<br>   模式解释：发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象<br>的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模<br>型来替代传统的发布—订阅模式。<br>流程如下：</p>
+<blockquote>
+<ul>
+<li>创建发布者对象，它具有订阅者的对象数组（我们网页中的各个模块）。以及相应的发布通知这些对象执行相应方法。 </li>
+<li>创建订阅者。它具有接收到发布信息的执行方法（模块初始化方法）。</li>
+<li>发布者接收到通知（登录成功）。</li>
+<li>对所有订阅者对象数组进行通知。</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//实践代码</span><br><span class="line"></span><br><span class="line">//创建发布者对象，它具有订阅者的对象数组  </span><br><span class="line">//（我们网页中的各个模块）。以及相应的发布通知这些对象执行相应方法。 </span><br><span class="line">var login = &#123;&#125;; // 定义发布者。</span><br><span class="line">login.modules = []; // 缓存列表，存放模块订阅者的回调函数</span><br><span class="line">login.listen = function( fn )&#123; // 增加订阅者</span><br><span class="line"> this.clientList.push( fn ); // 订阅的消息添加进缓存列表</span><br><span class="line">&#125;;</span><br><span class="line">login.trigger = function()&#123; // 发布消息</span><br><span class="line"> for( var i = 0, fn; fn = this.modules[ i++ ]; )&#123;</span><br><span class="line"> fn.apply( this, arguments ); // (2) // arguments 是发布消息时带上的参数</span><br><span class="line"> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$.ajax( &apos;http:// xxx.com?login&apos;, function(data)&#123; // 登录成功</span><br><span class="line"> login.trigger( &apos;loginSucc&apos;, data); // 发布登录成功的消息</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">各模块监听登录成功的消息：</span><br><span class="line">var header = (function()&#123; // header 模块</span><br><span class="line"> login.listen( &apos;loginSucc&apos;, function( data)&#123;</span><br><span class="line"> header.setAvatar( data.avatar );</span><br><span class="line"> &#125;);</span><br><span class="line"> return &#123;</span><br><span class="line"> setAvatar: function( data )&#123;</span><br><span class="line"> console.log( &apos;设置 header 模块的头像&apos; );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">var nav = (function()&#123; // nav 模块</span><br><span class="line"> login.listen( &apos;loginSucc&apos;, function( data )&#123;</span><br><span class="line"> nav.setAvatar( data.avatar );</span><br><span class="line"> &#125;);</span><br><span class="line"> return &#123;</span><br><span class="line"> setAvatar: function( avatar )&#123;</span><br><span class="line"> console.log( &apos;设置 nav 模块的头像&apos; );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>###2.1改进<br>以上就是一个简单的订阅/发布的实现。但上述代码还有问题，比如我们给每一个发布者都赋予了订阅者的参数列表是一种<br>资源浪费。我们的订阅者至少需要知道发布者的名字才能接受到信息。硬编码十分明显。接下来。我们可以使用一个全局的订阅、<br>发布对象，抽象出一个“中介者”的对象。他负责把订阅者以及发布者隔离开。<br>以一个售楼处以及客户的关系作为例子。同样在程序中，发布—订阅模式可以用一个全局的 Event 对象来实现，订阅者不需要<br>了解消息来自哪个发布者，发布者也不知道消息会推送给哪些订阅者，Event 作为一个类似“中介者”的角色，把订阅者和发布<br>者联系起来。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">var Event = (function () &#123;</span><br><span class="line">              //创建订阅者对象数组</span><br><span class="line">              var clientList = &#123;&#125;,</span><br><span class="line">                  listen,</span><br><span class="line">                  trigger,</span><br><span class="line">                  remove;</span><br><span class="line">                  //订阅者订阅实现</span><br><span class="line">              listen = function (key, fn) &#123;</span><br><span class="line">                  if (!clientList[key]) &#123;</span><br><span class="line">                      clientList[key] = [];</span><br><span class="line">                  &#125;</span><br><span class="line">                  clientList[key].push(fn);</span><br><span class="line">              &#125;;</span><br><span class="line">              //发布者发布消息实现</span><br><span class="line">              trigger = function () &#123;</span><br><span class="line">                  var key = Array.prototype.shift.call(arguments),</span><br><span class="line">                      fns = clientList[key];</span><br><span class="line">                  if (!fns || fns.length === 0) &#123;</span><br><span class="line">                      return false;</span><br><span class="line">                  &#125;</span><br><span class="line">                  for (var i = 0, fn; fn = fns[i++];) &#123;</span><br><span class="line">                      fn.apply(this, arguments);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;;</span><br><span class="line">              //订阅者取消订阅</span><br><span class="line">              remove = function (key, fn) &#123;</span><br><span class="line">                  var fns = clientList[key];</span><br><span class="line">                  if (!fns) &#123;</span><br><span class="line">                      return false;</span><br><span class="line">                  &#125;</span><br><span class="line"></span><br><span class="line">                  if (!fn) &#123;</span><br><span class="line">                      fns &amp;&amp; (fns.length = 0);</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                      for (var l = fns.length - 1; l &gt;= 0; l--) &#123;</span><br><span class="line">                          var _fn = fns[l];</span><br><span class="line">                          if (_fn === fn) &#123;</span><br><span class="line">                              fns.splice(l, 1);</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;;</span><br><span class="line">              //暴露的公共接口</span><br><span class="line">              return &#123;</span><br><span class="line">                  listen: listen,</span><br><span class="line">                  trigger: trigger,</span><br><span class="line">                  remove: remove</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;)();</span><br><span class="line">          //小红订阅消息</span><br><span class="line">          Event.listen(&apos;squareMeter88&apos;, function (price) &#123; </span><br><span class="line">              // 小红订阅消息，小红想要订阅88平方米的楼房价格。</span><br><span class="line">              //我们发现并不需要小红这个对象传入，只需要传入要监听的对象，以及回调函数即可</span><br><span class="line">              console.log(&apos;价格= &apos; + price); // 这里为小红接收到信息所做出的业务操作。输出：&apos;价格=2000000&apos;</span><br><span class="line">          &#125;);</span><br><span class="line">          //发布者发布消息</span><br><span class="line">          Event.trigger(&apos;squareMeter88&apos;, 2000000); // 售楼处发布88平方米的楼房价格消息。</span><br></pre></td></tr></table></figure></p>
+<p>到这里为止。一个比较完善的模式流程就差不多搞定了。  </p>
+<p>###2.2 界面实践<br>接下来我们用一个关于界面的示例来形象说明如何使用它。<br>需求：比如现在有两个模块，a 模块里面有一个按钮，每次点击按钮之后，b 模块里的 div 中会显示<br>按钮的总点击次数，我们用全局发布—订阅模式完成下面的代码，使得 a 模块和 b 模块可以在保<br>持封装性的前提下进行通信。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!--a模块触发点击点击事件--&gt;</span><br><span class="line">    &lt;button id=&quot;count&quot;&gt;点我&lt;/button&gt;</span><br><span class="line">    &lt;!--b模块，订阅点击事情，并作出反应--&gt;</span><br><span class="line">    &lt;div id=&quot;show&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var Event = (function () &#123;</span><br><span class="line">        //创建订阅者对象数组</span><br><span class="line">        var clientList = &#123;&#125;,</span><br><span class="line">            listen,</span><br><span class="line">            trigger,</span><br><span class="line">            remove;</span><br><span class="line">        //订阅者订阅实现</span><br><span class="line">        listen = function (key, fn) &#123;</span><br><span class="line">            if (!clientList[key]) &#123;</span><br><span class="line">                clientList[key] = [];</span><br><span class="line">            &#125;</span><br><span class="line">            clientList[key].push(fn);</span><br><span class="line">        &#125;;</span><br><span class="line">        //发布者发布消息实现</span><br><span class="line">        trigger = function () &#123;</span><br><span class="line">            var key = Array.prototype.shift.call(arguments),</span><br><span class="line">                fns = clientList[key];</span><br><span class="line">            if (!fns || fns.length === 0) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            for (var i = 0, fn; fn = fns[i++];) &#123;</span><br><span class="line">                fn.apply(this, arguments);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        //订阅者取消订阅</span><br><span class="line">        remove = function (key, fn) &#123;</span><br><span class="line">            var fns = clientList[key];</span><br><span class="line">            if (!fns) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (!fn) &#123;</span><br><span class="line">                fns &amp;&amp; (fns.length = 0);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                for (var l = fns.length - 1; l &gt;= 0; l--) &#123;</span><br><span class="line">                    var _fn = fns[l];</span><br><span class="line">                    if (_fn === fn) &#123;</span><br><span class="line">                        fns.splice(l, 1);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        //暴露的公共接口</span><br><span class="line">        return &#123;</span><br><span class="line">            listen: listen,</span><br><span class="line">            trigger: trigger,</span><br><span class="line">            remove: remove</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">    var a = (function () &#123;</span><br><span class="line">        var count = 0;</span><br><span class="line">        var button = document.getElementById(&quot;count&quot;);</span><br><span class="line">        button.onclick = function () &#123;</span><br><span class="line">            console.log(&quot;发布点击add消息,并随需要传入参数&quot;);</span><br><span class="line">            Event.trigger(&quot;add&quot;, count++)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">    var b = (function () &#123;</span><br><span class="line">        var div = document.getElementById(&quot;show&quot;);</span><br><span class="line">        console.log(&quot;订阅点击add消息，并获得a模块的参数&quot;);</span><br><span class="line">        Event.listen(&quot;add&quot;, function (count) &#123;</span><br><span class="line">            div.innerHTML = count;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>本文小结：<br>   本章我们学习了发布—订阅模式，也就是常说的观察者模式。发布—订阅模式在实际开发中非<br>常有用。</p>
+<blockquote>
+<ul>
+<li>它的优点：一为时间上的解耦，二为对象之间的解耦。它的应用非常广泛，既可以用在异步编程<br>中，也可以帮助我们完成更松耦合的代码编写。发布—订阅模式还可以用来帮助实现一些别的设计<br>模式，比如中介者模式。从架构上来看，无论是 MVC 还是 MVVM，都少不了发布—订阅模式的参与<br>，而且 JavaScript 本身也是一门基于事件驱动的语言。</li>
+<li>它的缺点：创建订阅者本身要消耗一定的时间和内存，而且当你订阅一个消息后，也许此消息<br>最后都未发生，但这个订阅者会始终存在于内存中。另外，发布—订阅模式虽然可以弱化对象之间的<br>联系，但如果过度使用的话，对象和对象之间的必要联系也将被深埋在背后，会导致程序难以跟踪<br>维护和理解。特别是有多个发布者和订阅者嵌套到一起的时候，要跟踪一个 bug 不是件轻松的事情。</li>
+</ul>
+</blockquote>
+<p>#3  小发现<br>在编码的时候发现了原生JavaScript的onclick和click的区别，现在放入这里供大家参考<br>区别：</p>
+<blockquote>
+<ul>
+<li>原生javascript的click在w3c里边的阐述是DOM button对象，也是html DOM click() 方法,<br>可模拟在按钮上的一次鼠标单击。button 对象代表 HTML 文档中的一个按钮。button元素没有默<br>认的行为，但是必须有一个 onclick 事件句柄以便使用。  </li>
+<li>onclick是一个事件，Event对象 。支持该事件的 JavaScript 对象：button, document,<br>checkbox, link, radio, reset, submitHTML DOM Event 对象，代表事件的状态，比如事<br>件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。事件通常与函数结合使用，函数<br>不会在事件发生前被执行！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">function clickButton()</span><br><span class="line">  &#123;</span><br><span class="line">  document.getElementById(&apos;button1&apos;).click()</span><br><span class="line">  &#125;</span><br><span class="line">function alertMsg()</span><br><span class="line">  &#123;</span><br><span class="line">  alert(&quot;Button 1 was clicked!&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body onload=&quot;clickButton()&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;form&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;button1&quot; onclick=&quot;alertMsg()&quot; value=&quot;Button 1&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+
+          
+        
+      
     </div>
-    <div class="menu-mask">
-      <ul class="menu-list">
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/moban2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <li class="menu-item">
-            
-              <a href="/" class="menu-link mobile-active">Home</a>
-            
-          </li>
         
-          <li class="menu-item">
-            
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/03/moban2/" itemprop="url">原生JavaScript实现模板引擎</a></h1>
         
-          <li class="menu-item">
+
+        <div class="post-meta">
+          <span class="post-time">
             
-              <a href="/archives/" class="menu-link">Archives</a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:51:06+08:00">
+                2018-06-03
+              </time>
             
-          </li>
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/03/moban2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/03/moban2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-          <li class="menu-item">
-            
-              <a href="/project/" class="menu-link">Projects</a>
-            
-          </li>
+          
+            <p>  本文实现来自《深入浅出node.js》第8章的模板小结<br>  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候<br>我们常常能在jsp中看到这样的语法结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &apos;Hello &lt;%=username%&gt;.&apos;;</span><br><span class="line">```  </span><br><span class="line">有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们</span><br><span class="line">真实数据的？  </span><br><span class="line">下面将用JavaScript实现对它的解析。  </span><br><span class="line">###1 准备工作  </span><br><span class="line">实现原理：</span><br><span class="line">&gt; * 语法分解</span><br><span class="line">&gt; * 处理表达式（上述的&lt;%=username%&gt;）</span><br><span class="line">&gt; * 生成可执行的语句</span><br><span class="line">&gt; * 和真实数据一起执行。生成最终字符串（类似于Hello Jackson Tian. ）</span><br><span class="line">###2 代码实践</span><br></pre></td></tr></table></figure></p>
+<p> //模板语法代码。<br>//引擎拼接字符串的原理还是通过正则表达式进行匹配替换。以此我们可以想到<br>//几乎所有的模板都可以用这种方法编译使用。vue中的模板也是。<br>    var render = function (str, data) {<br>        //先把我们的定义标签&lt;%=username%&gt;换成obj.name来解析  </p>
+<pre><code>    var tpl = str.replace(/&lt;%=([ % \s\S]+?)%&gt;/g, function (match, code) {
+        return &quot;&apos; + obj.&quot; + code + &quot;+ &apos;&quot;;
+    });
+    console.log(tpl);  //hello &apos; + obj.username+ &apos;.
+    tpl = &quot;var tpl = &apos;&quot; + tpl + &quot;&apos;\nreturn tpl;&quot;;  
+    console.log(tpl); //var tpl=&apos;Hello &apos; + obj.username+ &apos;.&apos;     return tpl;
+      //下面构造一个新的函数来实现解析obj中username 
+    var complied = new Function(&apos;obj&apos;, tpl);
+    return complied(data);
+};
+var tpl = &apos;Hello &lt;%=username%&gt;.&apos;;
+//调用模板函数，这里的参数为模板对象，以及模板中对应的字符串解析策略。
+//类似于策略模式中，给dom控件赋予相应的校验策略。
+console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
+</code></pre><p>  // =&gt; Hello Jackson Tian.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###3注意点  </span><br><span class="line"></span><br><span class="line">这里的new Function（）代表</span><br></pre></td></tr></table></figure></p>
+<p>/<em> newFunction 解析<br>1 var message = new Function(‘msg’,’alert(msg)’);<br>2 // 等价于：<br>3 function message(msg) {<br>4     alert(msg);<br>5 }
+</em>/<br><code>`</code></p>
+
+          
         
-          <li class="menu-item">
-            
-              <a href="/about/" class="menu-link">About</a>
-            
-          </li>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/moban1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
         
-      </ul>
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/03/moban1/" itemprop="url">原生JavaScript实现模板引擎</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:33:32+08:00">
+                2018-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/03/moban1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/03/moban1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="欢迎使用-Cmd-Markdown-编辑阅读器"><a href="#欢迎使用-Cmd-Markdown-编辑阅读器" class="headerlink" title="欢迎使用 Cmd Markdown 编辑阅读器"></a>欢迎使用 Cmd Markdown 编辑阅读器</h1><hr>
+<p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
+<blockquote>
+<ul>
+<li>整理知识，学习笔记</li>
+<li>发布日记，杂文，所见所想</li>
+<li>撰写发布技术文稿（代码支持）</li>
+<li>撰写发布学术论文（LaTeX 公式支持）</li>
+</ul>
+</blockquote>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
+<h3 id="Windows-Mac-Linux-全平台客户端"><a href="#Windows-Mac-Linux-全平台客户端" class="headerlink" title="Windows/Mac/Linux 全平台客户端"></a><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="noopener">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
+<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
+</blockquote>
+<hr>
+<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
+<h3 id="1-制作一份待办事宜-Todo-列表"><a href="#1-制作一份待办事宜-Todo-列表" class="headerlink" title="1. 制作一份待办事宜 Todo 列表"></a>1. 制作一份待办事宜 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表" target="_blank" rel="noopener">Todo 列表</a></h3><ul>
+<li style="list-style: none"><input type="checkbox"> 支持以 PDF 格式导出文稿</li>
+<li style="list-style: none"><input type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
+<li style="list-style: none"><input type="checkbox" checked> 新增 Todo 列表功能</li>
+<li style="list-style: none"><input type="checkbox" checked> 修复 LaTex 公式渲染问题</li>
+<li style="list-style: none"><input type="checkbox" checked> 新增 LaTex 公式编号功能</li>
+</ul>
+<h3 id="2-书写一个质能守恒公式-LaTeX"><a href="#2-书写一个质能守恒公式-LaTeX" class="headerlink" title="2. 书写一个质能守恒公式[^LaTeX]"></a>2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
+<h3 id="3-高亮一段代码-code"><a href="#3-高亮一段代码-code" class="headerlink" title="3. 高亮一段代码[^code]"></a>3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-高效绘制-流程图"><a href="#4-高效绘制-流程图" class="headerlink" title="4. 高效绘制 流程图"></a>4. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图" target="_blank" rel="noopener">流程图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<h3 id="5-高效绘制-序列图"><a href="#5-高效绘制-序列图" class="headerlink" title="5. 高效绘制 序列图"></a>5. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图" target="_blank" rel="noopener">序列图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<h3 id="6-高效绘制-甘特图"><a href="#6-高效绘制-甘特图" class="headerlink" title="6. 高效绘制 甘特图"></a>6. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图" target="_blank" rel="noopener">甘特图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
+<h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">价格</th>
+<th style="text-align:center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机</td>
+<td style="text-align:right">\$1600</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td style="text-align:right">\$12</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td style="text-align:right">\$1</td>
+<td style="text-align:center">234</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-更详细语法说明"><a href="#8-更详细语法说明" class="headerlink" title="8. 更详细语法说明"></a>8. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="noopener">Cmd Markdown 简明语法手册</a>，进阶用户可以参考 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册" target="_blank" rel="noopener">Cmd Markdown 高阶语法手册</a> 了解更多高级功能。</p>
+<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
+<hr>
+<h2 id="什么是-Cmd-Markdown"><a href="#什么是-Cmd-Markdown" class="headerlink" title="什么是 Cmd Markdown"></a>什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
+<h3 id="1-实时同步预览"><a href="#1-实时同步预览" class="headerlink" title="1. 实时同步预览"></a>1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
+<h3 id="2-编辑工具栏"><a href="#2-编辑工具栏" class="headerlink" title="2. 编辑工具栏"></a>2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
+<h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3. 编辑模式"></a>3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右侧的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
+<h3 id="4-实时的云端文稿"><a href="#4-实时的云端文稿" class="headerlink" title="4. 实时的云端文稿"></a>4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
+<h3 id="5-离线模式"><a href="#5-离线模式" class="headerlink" title="5. 离线模式"></a>5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
+<h3 id="6-管理工具栏"><a href="#6-管理工具栏" class="headerlink" title="6. 管理工具栏"></a>6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
+<p>通过管理工具栏可以：</p>
+<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
+<h3 id="7-阅读工具栏"><a href="#7-阅读工具栏" class="headerlink" title="7. 阅读工具栏"></a>7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
+<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
+<p>工具栏上的五个图标依次为：</p>
+<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
+<h3 id="8-阅读模式"><a href="#8-阅读模式" class="headerlink" title="8. 阅读模式"></a>8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
+<h3 id="9-标签、分类和搜索"><a href="#9-标签、分类和搜索" class="headerlink" title="9. 标签、分类和搜索"></a>9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
+<p>标签： 未分类</p>
+<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
+<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
+<h3 id="10-文稿发布和分享"><a href="#10-文稿发布和分享" class="headerlink" title="10. 文稿发布和分享"></a>10. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
+<hr>
+<p>再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！</p>
+<p>作者 <a href="http://weibo.com/ghosert" target="_blank" rel="noopener">@ghosert</a><br>2016 年 07月 07日    </p>
+<p>[^LaTeX]: 支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax</a> 参考更多使用方法。</p>
+<p>[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，<strong>四十一</strong>种主流编程语言。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/npm1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/01/npm1/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T02:30:30+08:00">
+                2018-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/01/npm1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/01/npm1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/mocha1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/01/mocha1/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T00:39:24+08:00">
+                2018-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/01/mocha1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/01/mocha1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="mocha测试JavaScript代码教程"><a href="#mocha测试JavaScript代码教程" class="headerlink" title="mocha测试JavaScript代码教程"></a>mocha测试JavaScript代码教程</h2><p>   Mocha诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。它是一个富特征的JavaScript测试框架。基于node.js和浏览器内置对象。</p>
+<p>  本文全面介绍如何使用Mocha，让你轻松上手。如果你以前对测试一无所知，本文也可以当作JavaScript单元测试入门。值得说明的是，除了Mocha以外，类似的测试框架还有Jasmine、Karma、Tape等，也很值得学习。</p>
+<p>###1 首先，我们先来快速体验一下最简单的JavaScript单元测试使用。<br> 1 你的电脑请先安装好node.js。<br>  2 打开cmd终端。进入node.js的根目录下，执行以下代码<br>首先我们要全局安装Mocha：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g mocha      </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"> 3 接下来，我们为我们的项目创建一个新的文件夹并在其中运行下面的代码：</span><br></pre></td></tr></table></figure>
+<p>npm install chai<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">  4上面的代码将会在我们的项目中安装一个Chai的本地副本。接着，我们需要在项目目录下创建一个叫做test的文件夹，它用作Mocha默认的测试路径。所有的测试代码请放在这个test下面。</span><br><span class="line">在同样新建一个lib文件夹，所有的被测代码都放在这个lib下。然后，我们需要明白一个概念就是TDD，简介在[这里](https://baike.baidu.com/item/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/3328831?fr=aladdin) ,利用TDD测试，我们必须要明白TDD的是我们只编写测试通过的功能代码，这样减少编码量。  </span><br><span class="line"></span><br><span class="line">接下来，我们按照TDD规则，先编写测试代码。当然，我们模拟的都是及其简单的方法。这里是测试lib文件下的tags.js文件（读者请自已建造）中暴露的parse方法。</span><br></pre></td></tr></table></figure></p>
+<p>var expect =require(‘chai’).expect; //引入我们需要chai断言库<br>var tags=require(“../lib/tags”);//这是引入的被测代码，在后面会给出<br>describe(‘Tags’, function () {<br>    describe(‘#parse()’, function () {<br>        it(‘should parse long formed tags’, function () {<br>            var results = tags.parse();<br>            expect(results).equal(4);</p>
+<pre><code>    });
+
+});
+</code></pre><p>}<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5通过以上代码我们知道，它构造一个Tags的describe(组件)，这个组件随开发人员定义，并在里面嵌套一个测试parse方法的describ（组件）。并在里面放入了真正要测试的测试用例。参数为测试说明和回调函数。  </span><br><span class="line">对于我们而言，Mocha只关心项目结构，对实现以及结果则不太关注，所以我们只需要明白这种结构定义，以及如何使用它，下面我们编写被测试代码。</span><br></pre></td></tr></table></figure></p>
+<p>在lib下新建tags.js文件。放入以下代码<br>exports = module.exports = {};</p>
+<p>exports.parse = function(){</p>
+<p>  var result=4;<br>  return result;</p>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6以上代码就是我们要测试的代码，我们向外暴露了parse接口，方便测试代码进行调用。我们在终端输入mocha，便可以发现测试通过，这样一个简单的js测试用例便搭建完毕。通常，测试脚本与所要测试的源码脚本同名，但是后缀名为.test.js（表示测试）或者.spec.js（表示规格）。比如，add.js的测试脚本名字就是add.test.js。我们这里并没有严格按照惯例，仅仅作为示例使用。</span><br><span class="line">这些代码将会基于它们所在的describe块运行，你甚至可以使用beforeEach或者afterEach函数来让它们在所有的it块之前或之后运行。这些函数本身仅仅是使用了标准的Node命令来创建或移除文件。让我们再来看看如何使用before以及after吧。</span><br></pre></td></tr></table></figure></p>
+<p>var expect =require(‘chai’).expect;<br>var tags=require(“../lib/tags”);</p>
+<p>describe(‘Tags’, function () {</p>
+<pre><code>describe(&apos;#parse()&apos;, function () {
+
+    before(function() {
+        console.log(&quot;本条测试开始！&quot;+1);
+    });
+    beforeEach(function(){
+        console.log(&quot;每个it测试我都会执行&quot;+2);
+    });
+    it(&apos;should parse long formed tags&apos;, function () {
+
+        var results = tags.parse();  
+        expect(results).equal(4);
+
+    });
+    after(function() {
+        console.log(&quot;本条测试完成了&quot;+3);
+   });
+   afterEach(function(){
+    console.log(&quot;每个it执行我都要执行&quot;+4);
+   });
+});
+</code></pre><p>}<br>);<br>//我们会看到控制台输出<br>// Tags<br>//    #parse()<br>//本条测试开始！   1<br>//每个it我都要执行  2<br>//      √ should parse long formed tags<br>//每个it执行我都要执行下   3<br>//本条测试完成了    4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###2 异步测试用例</span><br><span class="line">我们在测试前台js会经常遇到一些涉异步回调函数的测试。那么如何测试它们呢？Mocha已经给出了很好的方案。  </span><br><span class="line"></span><br><span class="line">我们只需要在用例函数里边加一个done回调函数（无需定义），异步代码执行完毕后调用一下done，就可以通知mocha，已经执行完毕，去执行下一个用例函数吧！</span><br><span class="line">就像下面这样：</span><br></pre></td></tr></table></figure>
+<p>describe(‘User’, function() {<br>  describe(‘#save()’, function() {<br>    it(‘should save without error’, function(done) {<br>      var user = new User(‘Luna’);<br>      user.save(function(err) {<br>        if (err) throw err;<br>        done();<br>      });<br>    });<br>  });<br>});<br><code>`</code><br>这里我们测试了user对象的save异步方法。等待它执行完毕后，我们调用Mocha的done函数就会通知Mocha本测试用例跑完了，直接跑下一个。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/nibuhao/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/22/nibuhao/" itemprop="url">这是我的第一篇示例博客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T08:52:07+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/22/nibuhao/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/22/nibuhao/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-问题："><a href="#1-问题：" class="headerlink" title="1   问题："></a>1   问题：</h2><p>为了想明白为什么java可以用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
+<p>这一句话来输出不同类型的数值，比如数字，字符串，要知道java是强类型语言。</p>
+<h2 id="2-实验："><a href="#2-实验：" class="headerlink" title="2  实验："></a>2  实验：</h2><p>代码</p>
+<h2 id="3-原理："><a href="#3-原理：" class="headerlink" title="3 原理："></a>3 原理：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/21/hello-world/" itemprop="url">js高级特性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T11:08:46+08:00">
+                2018-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript之美/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript之美</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/21/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/21/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>js极其灵活，我们可以用js来构造我们想要的很多东西，包括java中的类，私有变量，共有方法等。请看以下代码</p>
+<h3 id="js实现封装私有变量以及函数"><a href="#js实现封装私有变量以及函数" class="headerlink" title="js实现封装私有变量以及函数"></a>js实现封装私有变量以及函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myObject = (</span><br><span class="line">           function() &#123;</span><br><span class="line">               //私有变量</span><br><span class="line">               var _name = &quot;私有变量&quot;;</span><br><span class="line">               return &#123;</span><br><span class="line">                   //共有方法，暴露的公共接口</span><br><span class="line">                   getName: function () &#123;</span><br><span class="line">                       return _name;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)();</span><br><span class="line">   alert(myObject.getName());//输出：“私有变量”</span><br><span class="line">       console.log(myObject._name);//输出&quot;undefine&quot;</span><br></pre></td></tr></table></figure>
+<p>以上就可以实现共有方法和私有变量。ts中的类底层就是如此。</p>
+<h3 id="变量作用域的问题"><a href="#变量作用域的问题" class="headerlink" title="变量作用域的问题"></a>变量作用域的问题</h3><p>js中的函数内可以访问到函数外部变量，外部却不能访问到函数内部变量。而且在每次函数调用完毕后。在函数体内定义的变量都会被清空。每当函数体内使用一个变量时，函数会先从本函数体内寻找定义，后延伸到外部直到找到为止。下面这段包含了嵌套函数的代码，也许能帮助我们加深对变量搜索过程的理解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">var func1 = function()&#123;</span><br><span class="line"> var b = 2;</span><br><span class="line"> var func2 = function()&#123;</span><br><span class="line"> var c = 3;</span><br><span class="line"> alert ( b ); // 输出：2</span><br><span class="line"> alert ( a ); // 输出：1</span><br><span class="line"> &#125;</span><br><span class="line"> func2();</span><br><span class="line"> alert ( c ); // 输出：Uncaught ReferenceError: c is not defined</span><br><span class="line">&#125;;</span><br><span class="line">func1();</span><br></pre></td></tr></table></figure>
+<h3 id="异步函数调用"><a href="#异步函数调用" class="headerlink" title="异步函数调用"></a>异步函数调用</h3><p>每次我们使用闭包都要谨慎对待闭包中的变量使用。比如：如果在for循环中的函数体是异步操作话，就会存在很多问题。我们看以下代码</p>
+<figure class="highlight plain"><figcaption><span>i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nodes[ i ].onclick = function()&#123;</span><br><span class="line">alert ( i );//输出5</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里为什么每次都是输出5呢？因为for循环函数体内为异步操作，在异步操作进行时，for早已经循环完毕。i为5.<br>我们来看下改进后的代码<br><figure class="highlight plain"><figcaption><span>( var i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> (function( i )&#123;</span><br><span class="line"> nodes[ i ].onclick = function()&#123;</span><br><span class="line"> console.log(i);</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;)( i )</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这里，我们使用闭包将每次的i封在内部，保持每次对它的使用。</p>
+<h3 id="下面来看看这段跟闭包相关的代码："><a href="#下面来看看这段跟闭包相关的代码：" class="headerlink" title="下面来看看这段跟闭包相关的代码："></a>下面来看看这段跟闭包相关的代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var extent = function()&#123;</span><br><span class="line"> var value = 0;</span><br><span class="line"> return &#123;</span><br><span class="line"> call: function()&#123;</span><br><span class="line"> value++;</span><br><span class="line"> console.log( value );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var extent = extent();</span><br><span class="line">extent.call(); // 输出：1</span><br><span class="line">extent.call(); // 输出：2</span><br><span class="line">extent.call(); // 输出：3</span><br></pre></td></tr></table></figure>
+<p>这里的extent相当于一个对象，有外部接口call方法以及内部私有变量value。闭包很方便的帮助了我们来构建一个对象等等。</p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</header>
 
-    <main class="app-body">
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/03/subribe/">原生JavaScript实现订阅/发布模式</a>
-      </h2>
-      <p class="article-date">June 3, 2018</p>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
       
-      <div class="article-summary">
-        
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.jpg"
+                alt="鲍志强" />
+            
+              <p class="site-author-name" itemprop="name">鲍志强</p>
+              <p class="site-description motion-element" itemprop="description">求道者</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
-###1 订阅/发布模式说明 什么是订阅/发布模式呢？举个简单的例子。我们在开发网站常常有这样的一种情况。就是用户登录过的主界面和没登录过的主界面显示是不一样的，而没有使用订阅/发布模式的话。我们很可能会写出下面的代码。1234567891011121314151617181920//登录 ...
-        
-      </div>
-      <a class="more" href="/2018/06/03/subribe/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/03/moban2/">原生JavaScript实现模板引擎</a>
-      </h2>
-      <p class="article-date">June 3, 2018</p>
-      
-      <div class="article-summary">
-        
-            本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &apos;Hello &lt;%=username%&gt;.&apos;;```  有经验的同学 ...
-        
-      </div>
-      <a class="more" href="/2018/06/03/moban2/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/03/moban1/">原生JavaScript实现模板引擎</a>
-      </h2>
-      <p class="article-date">June 3, 2018</p>
-      
-      <div class="article-summary">
-        
-          欢迎使用 Cmd Markdown 编辑阅读器
-我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，Cmd Markdown 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：
 
-
-整理知识，学习笔记 ...
-        
-      </div>
-      <a class="more" href="/2018/06/03/moban1/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/01/npm1/"></a>
-      </h2>
-      <p class="article-date">June 1, 2018</p>
-      
-      <div class="article-summary">
-        
           
-        
-      </div>
-      <a class="more" href="/2018/06/01/npm1/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/01/mocha1/"></a>
-      </h2>
-      <p class="article-date">June 1, 2018</p>
-      
-      <div class="article-summary">
-        
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baobaobaobaobao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="530420396@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/bao-zhi-qiang-2/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
           
-mocha测试JavaScript代码教程   Mocha诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。它是一个富特征的JavaScript测试框架。基于node.js和浏览器内置对象。
-  本文全面介绍如何使用Mocha，让你轻松上手 ...
-        
-      </div>
-      <a class="more" href="/2018/06/01/mocha1/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/05/22/nibuhao/">这是我的第一篇示例博客</a>
-      </h2>
-      <p class="article-date">May 22, 2018</p>
-      
-      <div class="article-summary">
-        
-          1   问题：为了想明白为什么java可以用
-1System.out.println();
-java1code snippet
-这一句话来输出不同类型的数值，比如数字，字符串，要知道java是强类型语言。
-2  实验：代码
-3 原理：1$ hexo server
-More info: Ser ...
-        
-      </div>
-      <a class="more" href="/2018/05/22/nibuhao/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/05/21/hello-world/"></a>
-      </h2>
-      <p class="article-date">May 21, 2018</p>
-      
-      <div class="article-summary">
-        
+
           
-title:js高级特性js极其灵活，我们可以用js来构造我们想要的很多东西，包括java中的类，私有变量，共有方法等。请看以下代码
-js实现封装私有变量以及函数12345678910111213var myObject = (           function() &#123;    ...
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-      <a class="more" href="/2018/05/21/hello-world/">Read more</a>
-    </article>
-  
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">baobaobao</span>
 
   
-</main>
-
-
-    <div class="scroll-top">
-  <span class="arrow-icon"></span>
 </div>
-    <footer class="app-footer">
-  <p class="copyright">
-    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-    <br>
-    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
-  </p>
-</footer>
 
-<script>
-  function async(u, c) {
-    var d = document, t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
 </script>
-<script>
-  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-    FastClick.attach(document.body);
-  })
-</script>
 
-<script>
-  var hasLine = 'true';
-  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
-    $('figure pre').each(function(i, block) {
-      var figure = $(this).parents('figure');
-      if (hasLine === 'false') {
-        figure.find('.gutter').hide();
-      }
-      var lang = figure.attr('class').split(' ')[1] || 'code';
-      var codeHtml = $(this).html();
-      var codeTag = document.createElement('code');
-      codeTag.className = lang;
-      codeTag.innerHTML = codeHtml;
-      $(this).attr('class', '').empty().html(codeTag);
-      figure.attr('data-lang', lang.toUpperCase());
-      hljs.highlightBlock(block);
-    });
-  })
-</script>
-<!-- Baidu Tongji -->
 
-<script src="/js/script.js"></script>
-  </body>
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://baobaobao.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
