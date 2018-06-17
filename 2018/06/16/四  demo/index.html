@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="baobaobao" />
+  <meta name="keywords" content="-javaScript之美," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
+<meta name="description" content="(1) 访问变量有基本类型与引用类型  你不能给基本类型加属性和方法，但是引用类型可以。如果你给一个引用类型加了属性和方法，另一个也会有，其实他们之间都是地址传递。12345678910111213141516171819在JavaScript中，参数都是按值传递的。但是，向函数传递基本类型的值时  它会复制并传递。而传引用类型的参数，直接都是传送地址，会同时反映到该引用上。    /*基本类型传">
+<meta name="keywords" content="-javaScript之美">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生JavaScript实现模板引擎">
-<meta property="og:url" content="http://yoursite.com/2018/06/03/moban2/index.html">
+<meta property="og:title" content="第四章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/06/16/四  demo/index.html">
 <meta property="og:site_name" content="baobaobao">
-<meta property="og:description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
+<meta property="og:description" content="(1) 访问变量有基本类型与引用类型  你不能给基本类型加属性和方法，但是引用类型可以。如果你给一个引用类型加了属性和方法，另一个也会有，其实他们之间都是地址传递。12345678910111213141516171819在JavaScript中，参数都是按值传递的。但是，向函数传递基本类型的值时  它会复制并传递。而传引用类型的参数，直接都是传送地址，会同时反映到该引用上。    /*基本类型传">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T17:15:28.097Z">
+<meta property="og:updated_time" content="2018-06-16T08:36:22.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生JavaScript实现模板引擎">
-<meta name="twitter:description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
+<meta name="twitter:title" content="第四章笔记">
+<meta name="twitter:description" content="(1) 访问变量有基本类型与引用类型  你不能给基本类型加属性和方法，但是引用类型可以。如果你给一个引用类型加了属性和方法，另一个也会有，其实他们之间都是地址传递。12345678910111213141516171819在JavaScript中，参数都是按值传递的。但是，向函数传递基本类型的值时  它会复制并传递。而传引用类型的参数，直接都是传送地址，会同时反映到该引用上。    /*基本类型传">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/03/moban2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/16/四  demo/"/>
 
 
 
 
 
-  <title>原生JavaScript实现模板引擎 | baobaobao</title>
+  <title>第四章笔记 | baobaobao</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/moban2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/四  demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原生JavaScript实现模板引擎</h1>
+          <h1 class="post-title" itemprop="name headline">第四章笔记</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:51:06+08:00">
-                2018-06-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T15:56:19+08:00">
+                2018-06-16
               </time>
             
 
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -310,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/03/moban2/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/16/四  demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/03/moban2/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/16/四  demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,25 +363,30 @@
       
 
       
-        <p>  本文实现来自《深入浅出node.js》第8章的模板小结<br>  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候<br>我们常常能在jsp中看到这样的语法结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &apos;Hello &lt;%=username%&gt;.&apos;;</span><br><span class="line">```  </span><br><span class="line">有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们</span><br><span class="line">真实数据的？  </span><br><span class="line">下面将用JavaScript实现对它的解析。  </span><br><span class="line">###1 准备工作  </span><br><span class="line">实现原理：</span><br><span class="line">&gt; * 语法分解</span><br><span class="line">&gt; * 处理表达式（上述的&lt;%=username%&gt;）</span><br><span class="line">&gt; * 生成可执行的语句</span><br><span class="line">&gt; * 和真实数据一起执行。生成最终字符串（类似于Hello Jackson Tian. ）</span><br><span class="line">###2 代码实践</span><br></pre></td></tr></table></figure></p>
-<p> //模板语法代码。<br>//引擎拼接字符串的原理还是通过正则表达式进行匹配替换。以此我们可以想到<br>//几乎所有的模板都可以用这种方法编译使用。vue中的模板也是。<br>    var render = function (str, data) {<br>        //先把我们的定义标签&lt;%=username%&gt;换成obj.name来解析  </p>
-<pre><code>    var tpl = str.replace(/&lt;%=([ % \s\S]+?)%&gt;/g, function (match, code) {
-        return &quot;&apos; + obj.&quot; + code + &quot;+ &apos;&quot;;
-    });
-    console.log(tpl);  //hello &apos; + obj.username+ &apos;.
-    tpl = &quot;var tpl = &apos;&quot; + tpl + &quot;&apos;\nreturn tpl;&quot;;  
-    console.log(tpl); //var tpl=&apos;Hello &apos; + obj.username+ &apos;.&apos;     return tpl;
-      //下面构造一个新的函数来实现解析obj中username 
-    var complied = new Function(&apos;obj&apos;, tpl);
-    return complied(data);
-};
-var tpl = &apos;Hello &lt;%=username%&gt;.&apos;;
-//调用模板函数，这里的参数为模板对象，以及模板中对应的字符串解析策略。
-//类似于策略模式中，给dom控件赋予相应的校验策略。
-console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
-</code></pre><p>  // =&gt; Hello Jackson Tian.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###3注意点  </span><br><span class="line"></span><br><span class="line">这里的new Function（）代表</span><br></pre></td></tr></table></figure></p>
-<p>/<em> newFunction 解析<br>1 var message = new Function(‘msg’,’alert(msg)’);<br>2 // 等价于：<br>3 function message(msg) {<br>4     alert(msg);<br>5 }
-</em>/<br><code>`</code></p>
+        <h4 id="1-访问变量有基本类型与引用类型"><a href="#1-访问变量有基本类型与引用类型" class="headerlink" title="(1) 访问变量有基本类型与引用类型"></a>(1) 访问变量有基本类型与引用类型</h4><p>  你不能给基本类型加属性和方法，但是引用类型可以。如果你给一个引用类型<br>加了属性和方法，另一个也会有，其实他们之间都是地址传递。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript中，参数都是按值传递的。但是，向函数传递基本类型的值时  </span><br><span class="line">它会复制并传递。而传引用类型的参数，直接都是传送地址，会同时反映到该引用上。  </span><br><span class="line">  /*基本类型传递*/  </span><br><span class="line">    function   addTe(num)&#123;  </span><br><span class="line">        num+=10;  </span><br><span class="line">        return num;  </span><br><span class="line">    &#125;  </span><br><span class="line">    var numbe=10;  </span><br><span class="line">    alert(addTe(numbe));//30  </span><br><span class="line">    alert(numbe); //还是10  </span><br><span class="line"></span><br><span class="line">/*引用类型传递*/  </span><br><span class="line">function setName(boj)&#123;  </span><br><span class="line">    obj.name=&quot;nihao&quot;;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"> var person=new Object();  </span><br><span class="line"> setName(person);  </span><br><span class="line"> alert(person.name);  //“nihao”</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-检测类型"><a href="#2-检测类型" class="headerlink" title="(2)  检测类型"></a>(2)  检测类型</h4><p>多用instanceof，但是他不能检测object<br>如果变量是给定引用类型（根据它的原型链来识别；第 6 章将介绍原型链的实例那么<br>instanceof 操作符就会返回 true。<br>请看下面的例子：<br>alert(person instanceof Object); // 变量 person 是 Object 吗？<br>alert(colors instanceof Array); // 变量 colors 是 Array 吗？<br>alert(pattern instanceof RegExp); // 变量 pattern 是 RegExp 吗？<br>根据规定，<em>所有引用类型的值都是 Object 的实例</em>。因此，在检测一个引用类型值和 Object 构造<br>函数时，instanceof 操作符始终会返回 true。当然如果使用 instanceof 操作符检测基本类型的<br>值，则该操作符始终会返回 false，因为基本类型不是对象。  </p>
+<h4 id="3-垃圾收集机制"><a href="#3-垃圾收集机制" class="headerlink" title="(3) 垃圾收集机制"></a>(3) 垃圾收集机制</h4><p>1  标记清楚收集方式,用一个标志位来标记变量何时“进环境”，何时“出环境”<br>垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记（当然，可以使用任何标记方<br>式）。然后，它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记<br>的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后，垃圾收集器<br>完成内存清除工作，销毁那些带标记的值并回收它们所占用的内存空间。<br>2  引用计数方式<br>3  管理内存，当不再使用一个变量时，请手动设置其为null</p>
+<h4 id="4-小结"><a href="#4-小结" class="headerlink" title="(4) 小结"></a>(4) 小结</h4><p>JavaScript 变量可以用来保存两种类型的值：基本类型值和引用类型值。基本类型的值源自以下 5<br>种基本数据类型：Undefined、Null、Boolean、Number 和 String。基本类型值和引用类型值具<br>有以下特点：  </p>
+<blockquote>
+<ul>
+<li>基本类型值在内存中占据固定大小的空间，因此被保存在栈内存中；  </li>
+<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；  </li>
+<li>引用类型的值是对象，保存在<em>堆内存</em>中；  </li>
+<li>包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针；</li>
+<li>从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终都指向同<br>一个对象；</li>
+<li>确定一个值是哪种基本类型可以使用 typeof 操作符，而确定一个值是哪种引用类型可以使用<br>instanceof 操作符。<br>所有变量（包括基本类型和引用类型）都存在于一个执行环境（也称为作用域）当中，这个执<br>行环境决定了变量的生命周期，以及哪一部分代码可以访问其中的变量。以下是关于执行环境的几<br>点总结：  </li>
+<li>执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；  </li>
+<li>每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；  </li>
+<li>函数的局部环境不仅有权访问函数作用域中的变量，而且有权访问其包含（父）环境，乃至全<br>局环境；  </li>
+<li>全局环境只能访问在全局环境中定义的变量和函数，而不能直接访问局部环境中的任何数据；  </li>
+<li>变量的执行环境有助于确定应该何时释放内存。<br>JavaScript 是一门具有自动垃圾收集机制的编程语言，开发人员不必关心内存分配和回收问题。可<br>以对 JavaScript 的垃圾收集例程作如下总结。  </li>
+<li>离开作用域的值将被自动标记为可以回收，因此将在垃圾收集期间被删除。  </li>
+<li>“标记清除”是目前主流的垃圾收集算法，这种算法的思想是给当前不使用的值加上标记，然<br>后再回收其内存。  </li>
+<li>另一种垃圾收集算法是“引用计数”，这种算法的思想是跟踪记录所有值被引用的次数。JavaScript<br>引擎目前都不再使用这种算法；但在 IE 中访问非原生 JavaScript 对象（如 DOM 元素）时，这种<br>算法仍然可能会导致问题。  </li>
+<li>当代码中存在循环引用现象时，“引用计数”算法就会导致问题。</li>
+<li>解除变量的引用不仅有助于消除循环引用现象，而且对垃圾收集也有好处。为了确保有效地回<br>收内存，应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。</li>
+</ul>
+</blockquote>
 
       
     </div>
@@ -406,6 +434,12 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javaScript之美/" rel="tag"># -javaScript之美</a>
+          
+        </div>
+      
 
       
       
@@ -415,8 +449,8 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/03/moban1/" rel="next" title="原生JavaScript实现模板引擎">
-                <i class="fa fa-chevron-left"></i> 原生JavaScript实现模板引擎
+              <a href="/2018/06/16/三  demo/" rel="next" title="第三章笔记">
+                <i class="fa fa-chevron-left"></i> 第三章笔记
               </a>
             
           </div>
@@ -425,8 +459,8 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/03/subribe/" rel="prev" title="原生JavaScript实现订阅/发布模式">
-                原生JavaScript实现订阅/发布模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/16/五  demo/" rel="prev" title="第五章笔记">
+                第五章笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -489,8 +523,17 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -576,6 +619,22 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问变量有基本类型与引用类型"><span class="nav-number">1.</span> <span class="nav-text">(1) 访问变量有基本类型与引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检测类型"><span class="nav-number">2.</span> <span class="nav-text">(2)  检测类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-垃圾收集机制"><span class="nav-number">3.</span> <span class="nav-text">(3) 垃圾收集机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-小结"><span class="nav-number">4.</span> <span class="nav-text">(4) 小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -756,9 +815,9 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/06/03/moban2/';
-          this.page.identifier = '2018/06/03/moban2/';
-          this.page.title = '原生JavaScript实现模板引擎';
+          this.page.url = 'http://yoursite.com/2018/06/16/四  demo/';
+          this.page.identifier = '2018/06/16/四  demo/';
+          this.page.title = '第四章笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://baobaobao.disqus.com/embed.js';

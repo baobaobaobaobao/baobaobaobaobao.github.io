@@ -79,17 +79,16 @@
 
 
 
-<meta name="description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="原生JavaScript实现模板引擎">
-<meta property="og:url" content="http://yoursite.com/2018/06/03/moban2/index.html">
+<meta name="description" content="求道者">
+<meta property="og:type" content="website">
+<meta property="og:title" content="baobaobao">
+<meta property="og:url" content="http://yoursite.com/categories/JavaScript高级程序设计读书笔记/index.html">
 <meta property="og:site_name" content="baobaobao">
-<meta property="og:description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
+<meta property="og:description" content="求道者">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-02T17:15:28.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生JavaScript实现模板引擎">
-<meta name="twitter:description" content="本文实现来自《深入浅出node.js》第8章的模板小结  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候我们常常能在jsp中看到这样的语法结构。123456789101112  &amp;apos;Hello &amp;lt;%=username%&amp;gt;.&amp;apos;;```  有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们真实数据的？  下面将用JavaScript">
+<meta name="twitter:title" content="baobaobao">
+<meta name="twitter:description" content="求道者">
 
 
 
@@ -119,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/03/moban2/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/JavaScript高级程序设计读书笔记/"/>
 
 
 
 
 
-  <title>原生JavaScript实现模板引擎 | baobaobao</title>
+  <title>分类: JavaScript高级程序设计读书笔记 | baobaobao</title>
   
 
 
@@ -144,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,206 +247,279 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>JavaScript高级程序设计读书笔记<small>分类</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/moban2/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">原生JavaScript实现模板引擎</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2018/06/17/十 demo/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">第十章笔记</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:51:06+08:00">
-                2018-06-03
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/03/moban2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/03/moban2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>  本文实现来自《深入浅出node.js》第8章的模板小结<br>  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候<br>我们常常能在jsp中看到这样的语法结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &apos;Hello &lt;%=username%&gt;.&apos;;</span><br><span class="line">```  </span><br><span class="line">有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们</span><br><span class="line">真实数据的？  </span><br><span class="line">下面将用JavaScript实现对它的解析。  </span><br><span class="line">###1 准备工作  </span><br><span class="line">实现原理：</span><br><span class="line">&gt; * 语法分解</span><br><span class="line">&gt; * 处理表达式（上述的&lt;%=username%&gt;）</span><br><span class="line">&gt; * 生成可执行的语句</span><br><span class="line">&gt; * 和真实数据一起执行。生成最终字符串（类似于Hello Jackson Tian. ）</span><br><span class="line">###2 代码实践</span><br></pre></td></tr></table></figure></p>
-<p> //模板语法代码。<br>//引擎拼接字符串的原理还是通过正则表达式进行匹配替换。以此我们可以想到<br>//几乎所有的模板都可以用这种方法编译使用。vue中的模板也是。<br>    var render = function (str, data) {<br>        //先把我们的定义标签&lt;%=username%&gt;换成obj.name来解析  </p>
-<pre><code>    var tpl = str.replace(/&lt;%=([ % \s\S]+?)%&gt;/g, function (match, code) {
-        return &quot;&apos; + obj.&quot; + code + &quot;+ &apos;&quot;;
-    });
-    console.log(tpl);  //hello &apos; + obj.username+ &apos;.
-    tpl = &quot;var tpl = &apos;&quot; + tpl + &quot;&apos;\nreturn tpl;&quot;;  
-    console.log(tpl); //var tpl=&apos;Hello &apos; + obj.username+ &apos;.&apos;     return tpl;
-      //下面构造一个新的函数来实现解析obj中username 
-    var complied = new Function(&apos;obj&apos;, tpl);
-    return complied(data);
-};
-var tpl = &apos;Hello &lt;%=username%&gt;.&apos;;
-//调用模板函数，这里的参数为模板对象，以及模板中对应的字符串解析策略。
-//类似于策略模式中，给dom控件赋予相应的校验策略。
-console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
-</code></pre><p>  // =&gt; Hello Jackson Tian.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###3注意点  </span><br><span class="line"></span><br><span class="line">这里的new Function（）代表</span><br></pre></td></tr></table></figure></p>
-<p>/<em> newFunction 解析<br>1 var message = new Function(‘msg’,’alert(msg)’);<br>2 // 等价于：<br>3 function message(msg) {<br>4     alert(msg);<br>5 }
-</em>/<br><code>`</code></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-      <div>
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/images/gongzonghao.jpg" alt="鲍志强 wechat" style="width: 200px; max-width: 100%;"/>
-    <div>欢迎你扫一扫上面的微信公众号，订阅我的博客！</div>
-</div>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-17T13:54:51+08:00"
+              content="2018-06-17" >
+          06-17
+        </time>
       </div>
-    
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>你的点赞是为了你的未来</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/WechatPay.png" alt="鲍志强 微信支付"/>
-        <p>微信支付</p>
-      </div>
-    
-
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/06/03/moban1/" rel="next" title="原生JavaScript实现模板引擎">
-                <i class="fa fa-chevron-left"></i> 原生JavaScript实现模板引擎
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/03/subribe/" rel="prev" title="原生JavaScript实现订阅/发布模式">
-                原生JavaScript实现订阅/发布模式 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+        
 
-    <div class="post-spread">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/17/九 demo/" itemprop="url">
+              
+                <span itemprop="name">第九章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-17T13:47:11+08:00"
+              content="2018-06-17" >
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/17/八 demo/" itemprop="url">
+              
+                <span itemprop="name">第八章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-17T11:49:20+08:00"
+              content="2018-06-17" >
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/17/七 demo/" itemprop="url">
+              
+                <span itemprop="name">第七章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-17T11:24:14+08:00"
+              content="2018-06-17" >
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/17/六 demo/" itemprop="url">
+              
+                <span itemprop="name">第六章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-17T09:30:47+08:00"
+              content="2018-06-17" >
+          06-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/16/五  demo/" itemprop="url">
+              
+                <span itemprop="name">第五章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-16T16:37:06+08:00"
+              content="2018-06-16" >
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/16/四  demo/" itemprop="url">
+              
+                <span itemprop="name">第四章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-16T15:56:19+08:00"
+              content="2018-06-16" >
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/16/三  demo/" itemprop="url">
+              
+                <span itemprop="name">第三章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-16T15:27:33+08:00"
+              content="2018-06-16" >
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/06/16/二 demo/" itemprop="url">
+              
+                <span itemprop="name">第二章笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-06-16T15:08:58+08:00"
+              content="2018-06-16" >
+          06-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -455,20 +527,6 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -732,10 +790,6 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -753,18 +807,6 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
       <script id="dsq-count-scr" src="https://baobaobao.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/06/03/moban2/';
-          this.page.identifier = '2018/06/03/moban2/';
-          this.page.title = '原生JavaScript实现模板引擎';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://baobaobao.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
