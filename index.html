@@ -381,8 +381,238 @@
 后一个参数是 false）。*/
     &lt;/script&gt;
 </code></pre><p> 上面的代码为一个按钮添加了 onclick 事件处理程序，而且该事件会在冒泡阶段被触发（因为最<br>后一个参数是 false）。</p>
-<h4 id="2-在不同浏览器中通过能力检测来加减方法处理程序，万金油"><a href="#2-在不同浏览器中通过能力检测来加减方法处理程序，万金油" class="headerlink" title="(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油"></a>(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油</h4><p>##未完待续</p>
+<h4 id="2-在不同浏览器中通过能力检测来加减方法处理程序，万金油"><a href="#2-在不同浏览器中通过能力检测来加减方法处理程序，万金油" class="headerlink" title="(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油"></a>(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油</h4><pre><code>&lt;html&gt;
 
+
+
+&lt;body&gt;
+
+&lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+&lt;script&gt;
+    /*万金油式处理事件方法*/
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = handler;
+            }
+        },
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = null;
+            }
+
+        }
+    }
+
+    /*如何使用呢？*/
+    var clickme = document.getElementById(&quot;clickMe&quot;);
+    var handler = function () {
+        alert(&quot;Clicked&quot;);
+    }
+
+    EventUtil.addHandler(clickme, &quot;click&quot;, handler);/*添加事件*/
+    EventUtil.removeHandler(clickme, &quot;click&quot;, handler);/*移除事件*/
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>  这两个方法首先都会检测传入的元素中是否存在 DOM2 级方法。如果存在 DOM2 级方法，则使用<br>该方法：传入事件类型、事件处理程序函数和第三个参数 false（表示冒泡阶段）。如果存在的是 IE 的<br>方法，则采取第二种方案。注意，为了在 IE8 及更早版本中运行，此时的事件类型必须加上”on”前缀。<br>最后一种可能就是使用 DOM0 级方法（在现代浏览器中，应该不会执行这里的代码）。此时，我们使用<br>的是方括号语法来将属性名指定为事件处理程序，或者将属性设置为 null。</p>
+</blockquote>
+<h4 id="3-在一个函数里面处理多个事件时，可以用type属性"><a href="#3-在一个函数里面处理多个事件时，可以用type属性" class="headerlink" title="(3)在一个函数里面处理多个事件时，可以用type属性"></a>(3)在一个函数里面处理多个事件时，可以用type属性</h4><pre><code>&lt;html&gt;
+&lt;body&gt;
+    &lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+    &lt;script&gt;
+        var btn = document.getElementById(&quot;clickMe&quot;);
+        var handler = function (event) {
+
+            switch (event.type) {
+                case &quot;click&quot;:
+                    alert(&quot;clickMe,ye&quot;);
+                    break;
+                case &quot;mouseover&quot;:
+                    event.target.style.backgroundColor = &quot;red&quot;;
+                    break;
+            }
+        }
+
+        btn.onclick = handler;
+        btn.onmouseover = handler;
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><p>我们以此给了btn加了三个事件。只用了一个函数。</p>
+<h4 id="4-跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油"><a href="#4-跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油" class="headerlink" title="(4)跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油"></a>(4)跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+    &lt;script&gt;
+        var EventUtil = {
+            addHandler: function (element, type, handler) {
+                //省略的代码，上面有
+            },
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            getTarget: function (event) {
+                return event.target || event.srcElement;
+            },
+
+            preventDefault: function (event) {
+                if (event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+
+            removeHandler: function (element, type, handler) {
+                //省略的代码，上面例子有
+            },
+            stopPropagation: function (event) {
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="4-事件类型"><a href="#4-事件类型" class="headerlink" title="(4)事件类型"></a>(4)事件类型</h4><p> 1  确定浏览器是否支持DOM2级事件可以用以下代码   </p>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;HTMLEvents&quot;, &quot;2.0&quot;);  
+</code></pre><p>注意，只有根据“DOM2 级事件”实现这些事件的浏览器才会返回 true。而以非标准方式支持这<br>些事件的浏览器则会返回 false。要确定浏览器是否支持“DOM3 级事件”定义的事件，可以使用如下<br>代码：  </p>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;UIEvent&quot;, &quot;3.0&quot;); 
+</code></pre><h4 id="5-load事件引起加载script文件"><a href="#5-load事件引起加载script文件" class="headerlink" title="(5)load事件引起加载script文件"></a>(5)load事件引起加载script文件</h4><pre><code>EventUtil.addHandler(window, &quot;load&quot;, function () {
+    var script = document.createElement(&quot;script&quot;);
+    EventUtil.addHandler(script, &quot;load&quot;, function (event) {
+        alert(&quot;LoadedScript&quot;);
+    });
+    script.src = &quot;demo.js&quot;;
+    document.body.appendChild(script);
+})
+</code></pre><p>以上可以给文档加载时加一个加载js文件的方法.666</p>
+<h4 id="6-以下列举一些事件-没事看看"><a href="#6-以下列举一些事件-没事看看" class="headerlink" title="(6)以下列举一些事件,没事看看."></a>(6)以下列举一些事件,没事看看.</h4><blockquote>
+<ul>
+<li>当浏览器窗口被调整到一个新的高度或宽度时，就会触发 resize 事件。</li>
+</ul>
+</blockquote>
+<pre><code> EventUtil.addHandler(window, &quot;resize&quot;, function(event){  
+ alert(&quot;Resized&quot;);  
+}); 
+</code></pre><blockquote>
+<ul>
+<li>当焦点从页面中的一个元素移动到另一个元素，会依次触发下列事件：<br>(1) focusout 在失去焦点的元素上触发；<br>(2) focusin 在获得焦点的元素上触发；<br>(3) blur 在失去焦点的元素上触发；<br>(4) DOMFocusOut 在失去焦点的元素上触发；<br>(5) focus 在获得焦点的元素上触发；<br>(6) DOMFocusIn 在获得焦点的元素上触发。<br>其中，blur、DOMFocusOut 和 focusout 的事件目标是失去焦点的元素；而 focus、DOMFocusIn<br>和 focusin 的事件目标是获得焦点的元素。<br>要确定浏览器是否支持这些事件，可以使用如下代码：  </li>
+</ul>
+</blockquote>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;FocusEvent&quot;, &quot;3.0&quot;); 
+</code></pre><h4 id="7-可以通过获取鼠标点击的位置来显示鼠标点击的位置"><a href="#7-可以通过获取鼠标点击的位置来显示鼠标点击的位置" class="headerlink" title="(7)可以通过获取鼠标点击的位置来显示鼠标点击的位置."></a>(7)可以通过获取鼠标点击的位置来显示鼠标点击的位置.</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+  &lt;div  id=&quot;myDiv&quot;  style=&quot;width: 100%;height: 300px;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = handler;
+            }
+
+        },
+        getEvent: function (event) {
+            return event ? event : window.event;
+        },
+        getTarget: function (event) {
+            return event.target || event.srcElement;
+        },
+
+        preventDefault: function (event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = null;
+            }
+
+        },
+        stopPropagation: function (event) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        }
+    };
+
+
+
+   var div=document.getElementById(&quot;myDiv&quot;);
+   EventUtil.addHandler(div,&quot;click&quot;,function(event){
+       event=EventUtil.getEvent(event);
+       alert(&quot;Page coordinates:&quot;+event.pageX+&quot;,&quot;+event.pageY);
+   })
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="8-检测用户是否同时按下了键盘键"><a href="#8-检测用户是否同时按下了键盘键" class="headerlink" title="(8)检测用户是否同时按下了键盘键"></a>(8)检测用户是否同时按下了键盘键</h4><pre><code>var div=document.getElementById(&quot;myDiv&quot;);
+EventUtil.addHandler(div,&quot;click&quot;,function(event){
+    event=EventUtil.getEvent(event);
+   var keys=new Array();
+   if(event.shiftKey){
+             keys.push(&quot;shift&quot;);
+
+   }
+   if(event.ctrlKey){
+             keys.push(&quot;ctrl&quot;);
+
+   }
+   if(event.altKey){
+             keys.push(&quot;alt&quot;);
+
+   }
+
+alert(keys.join(&quot;,&quot;));
+
+})
+</code></pre><p>这里检测用户是否同时按下了shift，ctrl，alt</p>
+<h4 id="9-键盘和文本事件"><a href="#9-键盘和文本事件" class="headerlink" title="(9)键盘和文本事件"></a>(9)键盘和文本事件</h4><pre><code>var textBox=document.getElementById(&quot;MyText&quot;);
+EventUtil.addHandler(textBox,&quot;keyup&quot;,function(event){
+    event=EventUtil.getEvent(event);
+    alert(event.keyCode);
+})
+</code></pre><p>以上代码能帮助我们捕获到用户点击文本框的的键盘的键码进而显示。</p>
+<h4 id="10-未完待续"><a href="#10-未完待续" class="headerlink" title="(10)未完待续"></a>(10)未完待续</h4>
           
         
       
