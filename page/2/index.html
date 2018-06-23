@@ -262,6 +262,566 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/七 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/七 demo/" itemprop="url">第七章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:24:14+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/七 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/七 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-访问器属性"><a href="#1-访问器属性" class="headerlink" title="(1) 访问器属性"></a>(1) 访问器属性</h4><pre><code>    var book={};
+Object.defineProperties(book,{
+   _year:{
+       writable:true,
+       value:2014
+   }
+})
+
+/*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/
+//当然，也可以读取属性的特性。
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+alert(descriptor.value);  //2014
+alert(descriptor.configurable);  //false
+</code></pre><h4 id="2-在对象和原型中查找属性或者方法的顺序。"><a href="#2-在对象和原型中查找属性或者方法的顺序。" class="headerlink" title="(2) 在对象和原型中查找属性或者方法的顺序。"></a>(2) 在对象和原型中查找属性或者方法的顺序。</h4><blockquote>
+<p>如果按照字面意思来理解，那<br>么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以<br>让所有对象实例共享它所包含的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p>.hasOwnProperty方法可以用来检查某个属性在实例中还是原型中。</p>
+</blockquote>
+<p>同时使用 hasOwnProperty()方法和 in 操作符，就可以确定该属性到底是存在于对象中，还是存在于<br>原型中，如下所示。  </p>
+<pre><code> //这个函数实现认识某个属性在不在原型中，在的话，返回ture，否则返回false；
+function hasPrototypeProperty(object, name) {
+    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+}
+function Person() {
+}
+Person.prototype.name = &quot;nihao&quot;;
+var person = new Person();
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //ture,表明name在原型中。
+person.name = &quot;goobye&quot;;
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型中
+</code></pre><h4 id="3-组合使用构造函数和原型模式"><a href="#3-组合使用构造函数和原型模式" class="headerlink" title="(3)组合使用构造函数和原型模式"></a>(3)组合使用构造函数和原型模式</h4><blockquote>
+<p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实<br>例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，<br>但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参<br>数；可谓是集两种模式之长。下面的代码重写了前面的例子。  </p>
+</blockquote>
+<pre><code>/*构造函数用于实例化属性*/
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&apos;nihao&apos;, &quot;goobye&quot;];
+    }
+
+
+    /*原型模式用于定义方法和共享的属性*/
+    Person.prototype = {
+        constructor: Person,
+        sayName: function () {
+
+            alert(this.name);
+        }
+    }
+
+    var person1 = new Person(&quot;nihao&quot;, 29, &quot;software Engineer&quot;)
+
+    alert(person1.name);//nihao
+</code></pre><h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="(4) 原型链"></a>(4) 原型链</h4><blockquote>
+<ul>
+<li>子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎<br>样，给原型添加方法的代码一定要放在替换原型的语句之后。</li>
+</ul>
+</blockquote>
+<pre><code>function SuperType() {
+
+      this.property = true;
+  }
+  SuperType.prototype.getSuperValue = function () {
+      return this.property;
+  }
+
+  function SubType() {
+
+      this.subproperty = false;
+  }
+
+
+  //继承实现
+  SubType.prototype = new SuperType();
+  //添加新方法
+  SubType.prototype.getSubValue = function () {
+      return his.subproperty;
+  }
+  //重写超类型方法
+  SubType.prototype.getSuperValue = function () {
+
+      return false;
+  }
+  var instanc = new SubType();
+  alert(instanc.getSuperValue());  //false
+</code></pre><h4 id="5-原型继承的问题以及解决"><a href="#5-原型继承的问题以及解决" class="headerlink" title="(5) 原型继承的问题以及解决"></a>(5) 原型继承的问题以及解决</h4><blockquote>
+<p>它的问题就是当一个子类继承父类的时候，当定义子类对象时。子类某一个对象对父类中属性或者方法的改动都会反映到子类的其他对象中，<br>因为父类成了子类定义对象的原型。其他对象使用后也会有相应改变。那么可以使用借用构造函数来解决。  </p>
+</blockquote>
+<p>借用构造函数    </p>
+<pre><code>function SuperType() {
+     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+ }
+ function SubType() {
+     //继承了Suptype
+     SuperType.call(this);
+ }
+
+ var instance1 = new SubType();
+ instance1.colors.push(&quot;black&quot;);//&quot;red,blue,green,black&quot; 
+ alert(instance1.colors);
+ var instance2 = new SubType();
+ alert(instance2.colors);  //&quot;red,blue,green&quot; ,现在每个子类对象就保持了自己对父类的最初属性了。
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6) 小结"></a>(6) 小结</h4><blockquote>
+<pre><code> ECMAScript 支持面向对象（OO）编程，但不使用类或者接口。对象可以在代码执行过程中创建和
+ 增强，因此具有动态性而非严格定义的实体。在没有类的情况下，可以采用下列模式创建对象。
+ 1   工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来
+ 被构造函数模式所取代。
+ 2   构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不
+ 过，构造函数模式也有缺点，即它的每个成员都无法得到复用，包括函数。由于函数可以不局
+限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。
+ 3   原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造
+ 函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。
+  JavaScript 主要通过原型链实现继承。原型链的构建是通过将一个类型的实例赋值给另一个构造函
+ 数的原型实现的。这样，子类型就能够访问超类型的所有属性和方法，这一点与基于类的继承很相似。
+ 原型链的问题是对象实例共享所有继承的属性和方法，因此不适宜单独使用。解决这个问题的技术是借
+ 用构造函数，即在子类型构造函数的内部调用超类型构造函数。这样就可以做到每个实例都具有自己的
+ 属性，同时还能保证只使用构造函数模式来定义类型。使用最多的继承模式是组合继承，这种模式使用
+ 原型链继承共享的属性和方法，而通过借用构造函数继承实例属性。
+ 此外，还存在下列可供选择的继承模式。
+ 4   原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅
+ 复制。而复制得到的副本还可以得到进一步改造。
+ 5 寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强
+ 对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问
+ 题，可以将这个模式与组合继承一起使用。
+ 6  寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。
+</code></pre></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/六 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/六 demo/" itemprop="url">第六章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T09:30:47+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/六 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/六 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-访问器属性"><a href="#1-访问器属性" class="headerlink" title="(1) 访问器属性"></a>(1) 访问器属性</h4><pre><code>    var book={};
+Object.defineProperties(book,{
+   _year:{
+       writable:true,
+       value:2014
+   }
+})
+
+/*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/
+//当然，也可以读取属性的特性。
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+alert(descriptor.value);  //2014
+alert(descriptor.configurable);  //false
+</code></pre><h4 id="2-在对象和原型中查找属性或者方法的顺序。"><a href="#2-在对象和原型中查找属性或者方法的顺序。" class="headerlink" title="(2) 在对象和原型中查找属性或者方法的顺序。"></a>(2) 在对象和原型中查找属性或者方法的顺序。</h4><blockquote>
+<p>如果按照字面意思来理解，那<br>么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以<br>让所有对象实例共享它所包含的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p>.hasOwnProperty方法可以用来检查某个属性在实例中还是原型中。</p>
+</blockquote>
+<p>同时使用 hasOwnProperty()方法和 in 操作符，就可以确定该属性到底是存在于对象中，还是存在于<br>原型中，如下所示。  </p>
+<pre><code> //这个函数实现认识某个属性在不在原型中，在的话，返回ture，否则返回false；
+function hasPrototypeProperty(object, name) {
+    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+}
+function Person() {
+}
+Person.prototype.name = &quot;nihao&quot;;
+var person = new Person();
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //ture,表明name在原型中。
+person.name = &quot;goobye&quot;;
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型中
+</code></pre><h4 id="3-组合使用构造函数和原型模式"><a href="#3-组合使用构造函数和原型模式" class="headerlink" title="(3)组合使用构造函数和原型模式"></a>(3)组合使用构造函数和原型模式</h4><blockquote>
+<p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实<br>例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，<br>但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参<br>数；可谓是集两种模式之长。下面的代码重写了前面的例子。  </p>
+</blockquote>
+<pre><code>/*构造函数用于实例化属性*/
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&apos;nihao&apos;, &quot;goobye&quot;];
+    }
+
+
+    /*原型模式用于定义方法和共享的属性*/
+    Person.prototype = {
+        constructor: Person,
+        sayName: function () {
+
+            alert(this.name);
+        }
+    }
+
+    var person1 = new Person(&quot;nihao&quot;, 29, &quot;software Engineer&quot;)
+
+    alert(person1.name);//nihao
+</code></pre><h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="(4) 原型链"></a>(4) 原型链</h4><blockquote>
+<ul>
+<li>子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎<br>样，给原型添加方法的代码一定要放在替换原型的语句之后。</li>
+</ul>
+</blockquote>
+<pre><code>function SuperType() {
+
+      this.property = true;
+  }
+  SuperType.prototype.getSuperValue = function () {
+      return this.property;
+  }
+
+  function SubType() {
+
+      this.subproperty = false;
+  }
+
+
+  //继承实现
+  SubType.prototype = new SuperType();
+  //添加新方法
+  SubType.prototype.getSubValue = function () {
+      return his.subproperty;
+  }
+  //重写超类型方法
+  SubType.prototype.getSuperValue = function () {
+
+      return false;
+  }
+  var instanc = new SubType();
+  alert(instanc.getSuperValue());  //false
+</code></pre><h4 id="5-原型继承的问题以及解决"><a href="#5-原型继承的问题以及解决" class="headerlink" title="(5) 原型继承的问题以及解决"></a>(5) 原型继承的问题以及解决</h4><blockquote>
+<p>它的问题就是当一个子类继承父类的时候，当定义子类对象时。子类某一个对象对父类中属性或者方法的改动都会反映到子类的其他对象中，<br>因为父类成了子类定义对象的原型。其他对象使用后也会有相应改变。那么可以使用借用构造函数来解决。  </p>
+</blockquote>
+<p>借用构造函数    </p>
+<pre><code>function SuperType() {
+     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+ }
+ function SubType() {
+     //继承了Suptype
+     SuperType.call(this);
+ }
+
+ var instance1 = new SubType();
+ instance1.colors.push(&quot;black&quot;);//&quot;red,blue,green,black&quot; 
+ alert(instance1.colors);
+ var instance2 = new SubType();
+ alert(instance2.colors);  //&quot;red,blue,green&quot; ,现在每个子类对象就保持了自己对父类的最初属性了。
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6) 小结"></a>(6) 小结</h4><blockquote>
+<pre><code> ECMAScript 支持面向对象（OO）编程，但不使用类或者接口。对象可以在代码执行过程中创建和
+ 增强，因此具有动态性而非严格定义的实体。在没有类的情况下，可以采用下列模式创建对象。
+ 1   工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来
+ 被构造函数模式所取代。
+ 2   构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不
+ 过，构造函数模式也有缺点，即它的每个成员都无法得到复用，包括函数。由于函数可以不局
+限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。
+ 3   原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造
+ 函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。
+  JavaScript 主要通过原型链实现继承。原型链的构建是通过将一个类型的实例赋值给另一个构造函
+ 数的原型实现的。这样，子类型就能够访问超类型的所有属性和方法，这一点与基于类的继承很相似。
+ 原型链的问题是对象实例共享所有继承的属性和方法，因此不适宜单独使用。解决这个问题的技术是借
+ 用构造函数，即在子类型构造函数的内部调用超类型构造函数。这样就可以做到每个实例都具有自己的
+ 属性，同时还能保证只使用构造函数模式来定义类型。使用最多的继承模式是组合继承，这种模式使用
+ 原型链继承共享的属性和方法，而通过借用构造函数继承实例属性。
+ 此外，还存在下列可供选择的继承模式。
+ 4   原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅
+ 复制。而复制得到的副本还可以得到进一步改造。
+ 5 寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强
+ 对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问
+ 题，可以将这个模式与组合继承一起使用。
+ 6  寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。
+</code></pre></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/五  demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1668,318 +2228,6 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/mocha1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/01/mocha1/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T00:39:24+08:00">
-                2018-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/01/mocha1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/01/mocha1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="mocha测试JavaScript代码教程"><a href="#mocha测试JavaScript代码教程" class="headerlink" title="mocha测试JavaScript代码教程"></a>mocha测试JavaScript代码教程</h2><p>   Mocha诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。它是一个富特征的JavaScript测试框架。基于node.js和浏览器内置对象。</p>
-<p>  本文全面介绍如何使用Mocha，让你轻松上手。如果你以前对测试一无所知，本文也可以当作JavaScript单元测试入门。值得说明的是，除了Mocha以外，类似的测试框架还有Jasmine、Karma、Tape等，也很值得学习。</p>
-<p>###1 首先，我们先来快速体验一下最简单的JavaScript单元测试使用。<br> 1 你的电脑请先安装好node.js。<br>  2 打开cmd终端。进入node.js的根目录下，执行以下代码<br>首先我们要全局安装Mocha：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g mocha      </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"> 3 接下来，我们为我们的项目创建一个新的文件夹并在其中运行下面的代码：</span><br></pre></td></tr></table></figure>
-<p>npm install chai<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">  4上面的代码将会在我们的项目中安装一个Chai的本地副本。接着，我们需要在项目目录下创建一个叫做test的文件夹，它用作Mocha默认的测试路径。所有的测试代码请放在这个test下面。</span><br><span class="line">在同样新建一个lib文件夹，所有的被测代码都放在这个lib下。然后，我们需要明白一个概念就是TDD，简介在[这里](https://baike.baidu.com/item/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/3328831?fr=aladdin) ,利用TDD测试，我们必须要明白TDD的是我们只编写测试通过的功能代码，这样减少编码量。  </span><br><span class="line"></span><br><span class="line">接下来，我们按照TDD规则，先编写测试代码。当然，我们模拟的都是及其简单的方法。这里是测试lib文件下的tags.js文件（读者请自已建造）中暴露的parse方法。</span><br></pre></td></tr></table></figure></p>
-<p>var expect =require(‘chai’).expect; //引入我们需要chai断言库<br>var tags=require(“../lib/tags”);//这是引入的被测代码，在后面会给出<br>describe(‘Tags’, function () {<br>    describe(‘#parse()’, function () {<br>        it(‘should parse long formed tags’, function () {<br>            var results = tags.parse();<br>            expect(results).equal(4);</p>
-<pre><code>    });
-
-});
-</code></pre><p>}<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5通过以上代码我们知道，它构造一个Tags的describe(组件)，这个组件随开发人员定义，并在里面嵌套一个测试parse方法的describ（组件）。并在里面放入了真正要测试的测试用例。参数为测试说明和回调函数。  </span><br><span class="line">对于我们而言，Mocha只关心项目结构，对实现以及结果则不太关注，所以我们只需要明白这种结构定义，以及如何使用它，下面我们编写被测试代码。</span><br></pre></td></tr></table></figure></p>
-<p>在lib下新建tags.js文件。放入以下代码<br>exports = module.exports = {};</p>
-<p>exports.parse = function(){</p>
-<p>  var result=4;<br>  return result;</p>
-<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6以上代码就是我们要测试的代码，我们向外暴露了parse接口，方便测试代码进行调用。我们在终端输入mocha，便可以发现测试通过，这样一个简单的js测试用例便搭建完毕。通常，测试脚本与所要测试的源码脚本同名，但是后缀名为.test.js（表示测试）或者.spec.js（表示规格）。比如，add.js的测试脚本名字就是add.test.js。我们这里并没有严格按照惯例，仅仅作为示例使用。</span><br><span class="line">这些代码将会基于它们所在的describe块运行，你甚至可以使用beforeEach或者afterEach函数来让它们在所有的it块之前或之后运行。这些函数本身仅仅是使用了标准的Node命令来创建或移除文件。让我们再来看看如何使用before以及after吧。</span><br></pre></td></tr></table></figure></p>
-<p>var expect =require(‘chai’).expect;<br>var tags=require(“../lib/tags”);</p>
-<p>describe(‘Tags’, function () {</p>
-<pre><code>describe(&apos;#parse()&apos;, function () {
-
-    before(function() {
-        console.log(&quot;本条测试开始！&quot;+1);
-    });
-    beforeEach(function(){
-        console.log(&quot;每个it测试我都会执行&quot;+2);
-    });
-    it(&apos;should parse long formed tags&apos;, function () {
-
-        var results = tags.parse();  
-        expect(results).equal(4);
-
-    });
-    after(function() {
-        console.log(&quot;本条测试完成了&quot;+3);
-   });
-   afterEach(function(){
-    console.log(&quot;每个it执行我都要执行&quot;+4);
-   });
-});
-</code></pre><p>}<br>);<br>//我们会看到控制台输出<br>// Tags<br>//    #parse()<br>//本条测试开始！   1<br>//每个it我都要执行  2<br>//      √ should parse long formed tags<br>//每个it执行我都要执行下   3<br>//本条测试完成了    4</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###2 异步测试用例</span><br><span class="line">我们在测试前台js会经常遇到一些涉异步回调函数的测试。那么如何测试它们呢？Mocha已经给出了很好的方案。  </span><br><span class="line"></span><br><span class="line">我们只需要在用例函数里边加一个done回调函数（无需定义），异步代码执行完毕后调用一下done，就可以通知mocha，已经执行完毕，去执行下一个用例函数吧！</span><br><span class="line">就像下面这样：</span><br></pre></td></tr></table></figure>
-<p>describe(‘User’, function() {<br>  describe(‘#save()’, function() {<br>    it(‘should save without error’, function(done) {<br>      var user = new User(‘Luna’);<br>      user.save(function(err) {<br>        if (err) throw err;<br>        done();<br>      });<br>    });<br>  });<br>});<br><code>`</code><br>这里我们测试了user对象的save异步方法。等待它执行完毕后，我们调用Mocha的done函数就会通知Mocha本测试用例跑完了，直接跑下一个。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/nibuhao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/22/nibuhao/" itemprop="url">这是我的第一篇示例博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T08:52:07+08:00">
-                2018-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/22/nibuhao/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/22/nibuhao/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-问题："><a href="#1-问题：" class="headerlink" title="1   问题："></a>1   问题：</h2><p>为了想明白为什么java可以用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
-<p>这一句话来输出不同类型的数值，比如数字，字符串，要知道java是强类型语言。</p>
-<h2 id="2-实验："><a href="#2-实验：" class="headerlink" title="2  实验："></a>2  实验：</h2><p>代码</p>
-<h2 id="3-原理："><a href="#3-原理：" class="headerlink" title="3 原理："></a>3 原理：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2034,7 +2282,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
