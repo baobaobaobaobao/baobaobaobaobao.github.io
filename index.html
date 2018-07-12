@@ -366,16 +366,24 @@
       
         
           
-            <p>####避免全局变量</p>
-<pre><code>//一个全局量——推荐
+            <h3 id="1-避免全局变量"><a href="#1-避免全局变量" class="headerlink" title="1  避免全局变量"></a>1  避免全局变量</h3><pre><code>//一个全局变量——我们推荐这样使用
 var MyApplication = {
  name: &quot;Nicholas&quot;,
  sayName: function(){
  alert(this.name);
  }
 }; 
-</code></pre><p>####定义常量<br>        var Constants = {<br>         INVALID_VALUE_MSG: “Invalid value!”,<br>         INVALID_VALUE_URL: “/errors/invalid.php”<br>        };<br>        function validate(value){<br>         if (!value){<br>         alert(Constants.INVALID_VALUE_MSG);<br>         location.href = Constants.INVALID_VALUE_URL;<br>         }<br>        } </p>
-<p>####注意作用域<br>这里将document用于局部变量，总是有用的</p>
+</code></pre><h3 id="2-定义常量，我们推荐这样"><a href="#2-定义常量，我们推荐这样" class="headerlink" title="2  定义常量，我们推荐这样"></a>2  定义常量，我们推荐这样</h3><pre><code>var Constants = {
+ INVALID_VALUE_MSG: &quot;Invalid value!&quot;,
+ INVALID_VALUE_URL: &quot;/errors/invalid.php&quot;
+};
+function validate(value){
+ if (!value){
+ alert(Constants.INVALID_VALUE_MSG);
+ location.href = Constants.INVALID_VALUE_URL;
+ }
+} 
+</code></pre><h3 id="3-注意作用域"><a href="#3-注意作用域" class="headerlink" title="3  注意作用域"></a>3  注意作用域</h3><p>这里将document用于局部变量，总是有用的，因为我们不需要每次都去作用域链中寻找我们的<br>全局变量</p>
 <pre><code>   function updateUI(){
     var doc = document;
     var imgs = doc.getElementsByTagName(&quot;img&quot;);
@@ -386,19 +394,18 @@ var MyApplication = {
     msg.innerHTML = &quot;Update complete.&quot;;
    } 
 将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。 
-</code></pre><p>####避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用<br>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续的访问<br>都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
+</code></pre><h4 id="4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"><a href="#4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用" class="headerlink" title="4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"></a>4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用</h4><p>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续<br>的访问都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
 <pre><code>var url = window.location.href;
 var query = url.substring(url.indexOf(&quot;?&quot;));
-</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种优化，<br>倾向于获得更多改进。</p>
-<p>####避免双重解释</p>
-<p> JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数或者是<br>Function 构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。下面有一些例子：  </p>
+</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种<br>优化，倾向于获得更多改进。</p>
+<h4 id="5-避免双重解释"><a href="#5-避免双重解释" class="headerlink" title="5   避免双重解释"></a>5   避免双重解释</h4><p>JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数<br>或者是Function构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。<br>下面有一些例子：  </p>
 <pre><code>//某些代码求值——避免!!
     eval(&quot;alert(&apos;Hello world!&apos;)&quot;);
 //创建新函数——避免!!
 var sayHi = new Function(&quot;alert(&apos;Hello world!&apos;)&quot;);
 //设置超时——避免!!
 setTimeout(&quot;alert(&apos;Hello world!&apos;)&quot;, 500);
-</code></pre><p>在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的解析过程<br>中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同时必须新启动一个解<br>析器来解析新的代码。实例化一个新的解析器有不容忽视的开销，所以这种代码要比直接解析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下 eval()是绝对必须的，所以尽可能避免使用。<br>在这个例子中，代码其实可以直接内嵌在原代码中。对于 Function 构造函数，完全可以直接写成一般<br>的函数，调用 setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
+</code></pre><p>&emsp; 在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的<br>解析过程中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同<br>时必须新启动一个解析器来解析新的代码。<br>&emsp; 实例化一个新的解析器有不容忽视的开销，  所以这种代码要比直接解  析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下  eval()是绝对必须的，所以尽可能避免<br>使用。在这个例子中，代码其实可以直接内嵌在  原代码中。对于 Function 构造函数，<br> 完全可以直接写成一般的函数，调用<br> setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
 <pre><code>//已修正
 alert(&apos;Hello world!&apos;);
 //创建新函数——已修正
@@ -410,9 +417,7 @@ setTimeout(function(){
  alert(&apos;Hello world!&apos;);
 }, 500);
 </code></pre><p>如果要提高代码性能，尽可能避免出现需要按照 JavaScript 解释的字符串。 </p>
-<p>##优化DOM交互 </p>
-<p>####（1）优化DOM交互 </p>
-<ol>
+<h3 id="6-优化DOM交互"><a href="#6-优化DOM交互" class="headerlink" title="6  优化DOM交互"></a>6  优化DOM交互</h3><h5 id="（1）优化DOM交互"><a href="#（1）优化DOM交互" class="headerlink" title="（1）优化DOM交互"></a>（1）优化DOM交互</h5><ol>
 <li><p>最小化现场更新<br>一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新。之所<br>以叫现场更新，是因为需要立即（现场）对页面对用户的显示进行更新。每一个更改，不管是插入单个<br>字符，还是移除整个片段，都有一个性能惩罚，因为浏览器要重新计算无数尺寸以进行更新。现场更新<br>进行得越多，代码完成执行所花的时间就越长；完成一个操作所需的现场更新越少，代码就越快。请看<br>以下例子：</p>
 <pre><code>var list = document.getElementById(&quot;myList&quot;),
 item,
@@ -588,20 +593,23 @@ list.appendChild(fragment);
       
         
           
-            <h3 id="检测网络存在"><a href="#检测网络存在" class="headerlink" title="检测网络存在"></a>检测网络存在</h3><pre><code>/*测试是否有网络*/
- if (navigator.onLine) {
-     alert(&quot;有网络&quot;);
- } else {
-     alert(&quot;无网络&quot;);
- }
-</code></pre><p>  /<em>测试是否有网络触发事件</em>/  </p>
-<pre><code>EventUtil.addHandler(window, &quot;online&quot;, function () {
-    alert(&quot;Online&quot;);
-});
-EventUtil.addHandler(window, &quot;offline&quot;, function () {
-    alert(&quot;Offline&quot;);
-});
-</code></pre><h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><p>####（1）获取cookie的封装方法关于cookie的设定，他是同域的。而且它是以键值对形式出现<br>    var CookieUtil = {<br>        get: function (name) {<br>            var cookieName = encodeURIComponent(name) + “=”,<br>                cookieStart = document.cookie.indexOf(cookieName),<br>                cookieValue = null;<br>            if (cookieStart &gt; -1) {<br>                var cookieEnd = document.cookie.indexOf(“;”, cookieStart);<br>                if (cookieEnd == -1) {<br>                    cookieEnd = document.cookie.length;<br>                }<br>                cookieValue = decodeURIComponent(document.cookie.substring(cookieStart</p>
+            <h3 id="1-检测网络存在"><a href="#1-检测网络存在" class="headerlink" title="1 检测网络存在"></a>1 检测网络存在</h3><pre><code> /*测试是否有网络*/
+  if (navigator.onLine) {
+      alert(&quot;有网络&quot;);
+  } else {
+      alert(&quot;无网络&quot;);
+  }
+
+
+/*测试是否有网络触发事件*/  
+
+  EventUtil.addHandler(window, &quot;online&quot;, function () {
+      alert(&quot;Online&quot;);
+  });
+  EventUtil.addHandler(window, &quot;offline&quot;, function () {
+      alert(&quot;Offline&quot;);
+  });
+</code></pre><h3 id="2-数据存储"><a href="#2-数据存储" class="headerlink" title="2  数据存储"></a>2  数据存储</h3><p>####（1）获取cookie的封装方法关于cookie的设定，他是同域的。而且它是以键值对形式出现<br>    var CookieUtil = {<br>        get: function (name) {<br>            var cookieName = encodeURIComponent(name) + “=”,<br>                cookieStart = document.cookie.indexOf(cookieName),<br>                cookieValue = null;<br>            if (cookieStart &gt; -1) {<br>                var cookieEnd = document.cookie.indexOf(“;”, cookieStart);<br>                if (cookieEnd == -1) {<br>                    cookieEnd = document.cookie.length;<br>                }<br>                cookieValue = decodeURIComponent(document.cookie.substring(cookieStart</p>
 <pre><code>                  + cookieName.length, cookieEnd));
         }
         return cookieValue;
@@ -628,7 +636,9 @@ EventUtil.addHandler(window, &quot;offline&quot;, function () {
         this.set(name, &quot;&quot;, new Date(0), path, domain, secure);
     }
 }; 
-</code></pre><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p> 离线 Web 应用和客户端存储数据的能力对未来的 Web 应用越来越重要。浏览器已经能够检测到用<br>户是否离线，并触发 JavaScript 事件以便应用做出处理。可以指定在应用缓存中保存哪些文件以便离线<br>时使用。对于应用缓存的状态及变化，也有相应的 JavaScript API 可以调用检测。<br>本书还讨论了客户端存储的以下几方面内容。<br> 以前，这种存储只能使用 cookie 完成，cookie 是一小块可以客户端设置也可以在服务器端设置<br>的信息，每次发起请求时都会传送它。<br> 在 JavaScript 中通过 document.cookie 可以访问 cookie。<br> cookie 的限制使其可以存储少量数据，然而对于大量数据效率很低。<br>IE 发明了一种叫做用户数据的行为，可以应用到页面的某个元素上，它有以下特点。<br> 一旦应用后，该元素便可以从一个命名数据空间中载入数据，然后可以通过 getAttribute()、<br>setAttribute()和 removeAttribute()方法访问。<br> 数据必须明确使用 save()方法保存到命名数据空间中，以便能在会话之间持久化数据。<br>Web Storage 定义了两种用于存储数据的对象：sessionStorage 和 localStorage。前者严格用<br>于在一个浏览器会话中存储数据，因为数据在浏览器关闭后会立即删除；后者用于跨会话持久化数据并<br>遵循跨域安全策略。<br>IndexedDB 是一种类似 SQL 数据库的结构化数据存储机制。但它的数据不是保存在表中，而是保存<br>在对象存储空间中。创建对象存储空间时，需要定义一个键，然后就可以添加数据。可以使用游标在对<br>象存储空间中查询特定的对象。而索引则是为了提高查询速度而基于特定的属性创建的。<br>有了以上这些选择，就可以在客户端机器上使用 JavaScript 存储大量数据了。但你必须小心，不要<br>在客户端存储敏感数据，因为数据缓存不会加密。</p>
+</code></pre><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p> 离线 Web 应用和客户端存储数据的能力对未来的 Web 应用越来越重要。浏览器已经能够检测到用   </p>
+<p>户是否离线，并触发 JavaScript 事件以便应用做出处理。可以指定在应用缓存中保存哪些文件以  </p>
+<p> 便离线时使用。对于应用缓存的状态及变化，也有相应的 JavaScript API 可以调用检测。<br>本书还讨论了客户端存储的以下几方面内容。<br>&emsp;以前，这种存储只能使用 cookie 完成，cookie 是一小块可以客户端设置也可以在服务  器端设置<br>的信息，每次发起请求时都会传送它 。<br>&emsp;在 JavaScript 中通过 document.cookie 可以访问 cookie。<br>&emsp;cookie 的限制使其可以存储少量数据，然而对于大量数据效率很低  。<br>IE 发明了一种叫做用户数据的行为，可以应用到页面的某个元素上，它有以下特点。<br>&emsp;一旦应用后，该元素便可以从一个命名数据空间中载入数据，然后可以通过 getAttribute()、<br>setAttribute()和 removeAttribute()方法访问。<br>&emsp;数据必须明确使用 save()方法保存到命名数据空间中，以便能在会话之间持久化数据。<br>Web Storage 定义了两种用于存储数据的对象：sessionStorage 和 localStorage。前者严格用<br>于在一个浏览器会话中存储数据，因为数据在浏览器关闭后会立即删除；后者用于跨会话持久化数据并<br>遵循跨域安全策略。<br>IndexedDB 是一种类似 SQL 数据库的结构化数据存储机制。但它的数据不是保存在表中，而是保存<br>在对象存储空间中。创建对象存储空间时，需要定义一个键，然后就可以添加数据。可以使用游标在对<br>象存储空间中查询特定的对象。而索引则是为了提高查询速度而基于特定的属性创建的。<br>有了以上这些选择，就可以在客户端机器上使用 JavaScript 存储大量数据了。但你必须小心，不要<br>在客户端存储敏感数据，因为数据缓存不会加密。</p>
 
           
         
@@ -781,7 +791,7 @@ EventUtil.addHandler(window, &quot;offline&quot;, function () {
       
         
           
-            <h3 id="作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><a href="#作用域安全函数，以及如何防止this跑掉。使用寄生模式。" class="headerlink" title="作用域安全函数，以及如何防止this跑掉。使用寄生模式。"></a>作用域安全函数，以及如何防止this跑掉。使用寄生模式。</h3><pre><code> /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个
+            <h3 id="1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><a href="#1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。" class="headerlink" title="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。"></a>1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。</h3><pre><code> /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个
    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。
    */
 function Person(name, age, job) {
@@ -800,7 +810,7 @@ var person2 = new Person(&quot;Shelby&quot;, 34, &quot;Ergonomist&quot;);
 alert(person2.name); //&quot;Shelby&quot; 
 
 
-/*你会锁定这个作用域环境，但是一旦你在另一个对象中初始话Person就会问题比如*/
+/*你会锁定这个作用域环境，但是一旦你在另一个对象中初始话Person就会出现问题比如*/
 function Polygon(sides) {
     if (this instanceof Polygon) {
         this.sides = sides;
@@ -822,7 +832,7 @@ function Rectangle(width, height) {
 }
 var rect = new Rectangle(5, 10);
 alert(rect.sides); //undefined 
-</code></pre><p>  /<em>在这段代码中，Polygon 构造函数是作用域安全的，然而 Rectangle 构造函数则不是。新创建一<br>个 Rectangle 实例之后，这个实例应该通过 Polygon.call()来继承 Polygon 的 sides 属性。但是，<br>由于 Polygon 构造函数是作用域安全的，this 对象并非 Polygon 的实例，所以会创建并返回一个新<br>的 Polygon 对象。Rectangle 构造函数中的 this 对象并没有得到增长，同时 Polygon.call()返回<br>的值也没有用到，所以 Rectangle 实例中就不会有 sides 属性。</em>/</p>
+</code></pre><p>  <em>在这段代码中，Polygon 构造函数是作用域安全的，然而 Rectangle 构造函数则不是。新创建一<br>个 Rectangle 实例之后，这个实例应该通过 Polygon.call()来继承 Polygon 的 sides 属性。但是，<br>由于 Polygon 构造函数是作用域安全的，this 对象并非 Polygon 的实例，所以会创建并返回一个新<br>的 Polygon 对象。Rectangle 构造函数中的 this 对象并没有得到增长，同时 Polygon.call()返回<br>的值也没有用到，所以 Rectangle 实例中就不会有 sides 属性。</em></p>
 <p>/<em>改进之后我们可以</em>/</p>
 <pre><code>function Polygon(sides) {
     if (this instanceof Polygon) {

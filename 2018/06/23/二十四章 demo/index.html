@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
+<meta name="description" content="1  避免全局变量//一个全局变量——我们推荐这样使用 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  2  定义常量，我们推荐这样var Constants = {  INVALID_VALUE_MSG: &amp;quot;Invalid value!&amp;">
 <meta name="keywords" content="-javaScript之美">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二十四章笔记">
 <meta property="og:url" content="http://yoursite.com/2018/06/23/二十四章 demo/index.html">
 <meta property="og:site_name" content="baobaobao">
-<meta property="og:description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
+<meta property="og:description" content="1  避免全局变量//一个全局变量——我们推荐这样使用 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  2  定义常量，我们推荐这样var Constants = {  INVALID_VALUE_MSG: &amp;quot;Invalid value!&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-23T06:56:50.022Z">
+<meta property="og:updated_time" content="2018-07-12T14:58:34.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二十四章笔记">
-<meta name="twitter:description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
+<meta name="twitter:description" content="1  避免全局变量//一个全局变量——我们推荐这样使用 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  2  定义常量，我们推荐这样var Constants = {  INVALID_VALUE_MSG: &amp;quot;Invalid value!&amp;">
 
 
 
@@ -363,16 +363,24 @@
       
 
       
-        <p>####避免全局变量</p>
-<pre><code>//一个全局量——推荐
+        <h3 id="1-避免全局变量"><a href="#1-避免全局变量" class="headerlink" title="1  避免全局变量"></a>1  避免全局变量</h3><pre><code>//一个全局变量——我们推荐这样使用
 var MyApplication = {
  name: &quot;Nicholas&quot;,
  sayName: function(){
  alert(this.name);
  }
 }; 
-</code></pre><p>####定义常量<br>        var Constants = {<br>         INVALID_VALUE_MSG: “Invalid value!”,<br>         INVALID_VALUE_URL: “/errors/invalid.php”<br>        };<br>        function validate(value){<br>         if (!value){<br>         alert(Constants.INVALID_VALUE_MSG);<br>         location.href = Constants.INVALID_VALUE_URL;<br>         }<br>        } </p>
-<p>####注意作用域<br>这里将document用于局部变量，总是有用的</p>
+</code></pre><h3 id="2-定义常量，我们推荐这样"><a href="#2-定义常量，我们推荐这样" class="headerlink" title="2  定义常量，我们推荐这样"></a>2  定义常量，我们推荐这样</h3><pre><code>var Constants = {
+ INVALID_VALUE_MSG: &quot;Invalid value!&quot;,
+ INVALID_VALUE_URL: &quot;/errors/invalid.php&quot;
+};
+function validate(value){
+ if (!value){
+ alert(Constants.INVALID_VALUE_MSG);
+ location.href = Constants.INVALID_VALUE_URL;
+ }
+} 
+</code></pre><h3 id="3-注意作用域"><a href="#3-注意作用域" class="headerlink" title="3  注意作用域"></a>3  注意作用域</h3><p>这里将document用于局部变量，总是有用的，因为我们不需要每次都去作用域链中寻找我们的<br>全局变量</p>
 <pre><code>   function updateUI(){
     var doc = document;
     var imgs = doc.getElementsByTagName(&quot;img&quot;);
@@ -383,19 +391,18 @@ var MyApplication = {
     msg.innerHTML = &quot;Update complete.&quot;;
    } 
 将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。 
-</code></pre><p>####避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用<br>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续的访问<br>都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
+</code></pre><h4 id="4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"><a href="#4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用" class="headerlink" title="4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"></a>4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用</h4><p>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续<br>的访问都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
 <pre><code>var url = window.location.href;
 var query = url.substring(url.indexOf(&quot;?&quot;));
-</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种优化，<br>倾向于获得更多改进。</p>
-<p>####避免双重解释</p>
-<p> JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数或者是<br>Function 构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。下面有一些例子：  </p>
+</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种<br>优化，倾向于获得更多改进。</p>
+<h4 id="5-避免双重解释"><a href="#5-避免双重解释" class="headerlink" title="5   避免双重解释"></a>5   避免双重解释</h4><p>JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数<br>或者是Function构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。<br>下面有一些例子：  </p>
 <pre><code>//某些代码求值——避免!!
     eval(&quot;alert(&apos;Hello world!&apos;)&quot;);
 //创建新函数——避免!!
 var sayHi = new Function(&quot;alert(&apos;Hello world!&apos;)&quot;);
 //设置超时——避免!!
 setTimeout(&quot;alert(&apos;Hello world!&apos;)&quot;, 500);
-</code></pre><p>在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的解析过程<br>中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同时必须新启动一个解<br>析器来解析新的代码。实例化一个新的解析器有不容忽视的开销，所以这种代码要比直接解析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下 eval()是绝对必须的，所以尽可能避免使用。<br>在这个例子中，代码其实可以直接内嵌在原代码中。对于 Function 构造函数，完全可以直接写成一般<br>的函数，调用 setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
+</code></pre><p>&emsp; 在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的<br>解析过程中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同<br>时必须新启动一个解析器来解析新的代码。<br>&emsp; 实例化一个新的解析器有不容忽视的开销，  所以这种代码要比直接解  析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下  eval()是绝对必须的，所以尽可能避免<br>使用。在这个例子中，代码其实可以直接内嵌在  原代码中。对于 Function 构造函数，<br> 完全可以直接写成一般的函数，调用<br> setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
 <pre><code>//已修正
 alert(&apos;Hello world!&apos;);
 //创建新函数——已修正
@@ -407,9 +414,7 @@ setTimeout(function(){
  alert(&apos;Hello world!&apos;);
 }, 500);
 </code></pre><p>如果要提高代码性能，尽可能避免出现需要按照 JavaScript 解释的字符串。 </p>
-<p>##优化DOM交互 </p>
-<p>####（1）优化DOM交互 </p>
-<ol>
+<h3 id="6-优化DOM交互"><a href="#6-优化DOM交互" class="headerlink" title="6  优化DOM交互"></a>6  优化DOM交互</h3><h5 id="（1）优化DOM交互"><a href="#（1）优化DOM交互" class="headerlink" title="（1）优化DOM交互"></a>（1）优化DOM交互</h5><ol>
 <li><p>最小化现场更新<br>一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新。之所<br>以叫现场更新，是因为需要立即（现场）对页面对用户的显示进行更新。每一个更改，不管是插入单个<br>字符，还是移除整个片段，都有一个性能惩罚，因为浏览器要重新计算无数尺寸以进行更新。现场更新<br>进行得越多，代码完成执行所花的时间就越长；完成一个操作所需的现场更新越少，代码就越快。请看<br>以下例子：</p>
 <pre><code>var list = document.getElementById(&quot;myList&quot;),
 item,
@@ -565,8 +570,17 @@ list.appendChild(fragment);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -652,6 +666,22 @@ list.appendChild(fragment);
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-避免全局变量"><span class="nav-number">1.</span> <span class="nav-text">1  避免全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定义常量，我们推荐这样"><span class="nav-number">2.</span> <span class="nav-text">2  定义常量，我们推荐这样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-注意作用域"><span class="nav-number">3.</span> <span class="nav-text">3  注意作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"><span class="nav-number">3.1.</span> <span class="nav-text">4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-避免双重解释"><span class="nav-number">3.2.</span> <span class="nav-text">5   避免双重解释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-优化DOM交互"><span class="nav-number">4.</span> <span class="nav-text">6  优化DOM交互</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）优化DOM交互"><span class="nav-number">4.0.1.</span> <span class="nav-text">（1）优化DOM交互</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

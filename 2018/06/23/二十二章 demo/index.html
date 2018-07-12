@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {         t">
+<meta name="description" content="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {">
 <meta name="keywords" content="-javaScript之美">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二十二章笔记">
 <meta property="og:url" content="http://yoursite.com/2018/06/23/二十二章 demo/index.html">
 <meta property="og:site_name" content="baobaobao">
-<meta property="og:description" content="作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {         t">
+<meta property="og:description" content="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-12T00:02:55.120Z">
+<meta property="og:updated_time" content="2018-07-12T15:04:29.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二十二章笔记">
-<meta name="twitter:description" content="作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {         t">
+<meta name="twitter:description" content="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。 /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。    */ function Person(name, age, job) {     if (this instanceof Person) {">
 
 
 
@@ -363,7 +363,7 @@
       
 
       
-        <h3 id="作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><a href="#作用域安全函数，以及如何防止this跑掉。使用寄生模式。" class="headerlink" title="作用域安全函数，以及如何防止this跑掉。使用寄生模式。"></a>作用域安全函数，以及如何防止this跑掉。使用寄生模式。</h3><pre><code> /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个
+        <h3 id="1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><a href="#1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。" class="headerlink" title="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。"></a>1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。</h3><pre><code> /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个
    作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。
    */
 function Person(name, age, job) {
@@ -382,7 +382,7 @@ var person2 = new Person(&quot;Shelby&quot;, 34, &quot;Ergonomist&quot;);
 alert(person2.name); //&quot;Shelby&quot; 
 
 
-/*你会锁定这个作用域环境，但是一旦你在另一个对象中初始话Person就会问题比如*/
+/*你会锁定这个作用域环境，但是一旦你在另一个对象中初始话Person就会出现问题比如*/
 function Polygon(sides) {
     if (this instanceof Polygon) {
         this.sides = sides;
@@ -404,7 +404,7 @@ function Rectangle(width, height) {
 }
 var rect = new Rectangle(5, 10);
 alert(rect.sides); //undefined 
-</code></pre><p>  /<em>在这段代码中，Polygon 构造函数是作用域安全的，然而 Rectangle 构造函数则不是。新创建一<br>个 Rectangle 实例之后，这个实例应该通过 Polygon.call()来继承 Polygon 的 sides 属性。但是，<br>由于 Polygon 构造函数是作用域安全的，this 对象并非 Polygon 的实例，所以会创建并返回一个新<br>的 Polygon 对象。Rectangle 构造函数中的 this 对象并没有得到增长，同时 Polygon.call()返回<br>的值也没有用到，所以 Rectangle 实例中就不会有 sides 属性。</em>/</p>
+</code></pre><p>  <em>在这段代码中，Polygon 构造函数是作用域安全的，然而 Rectangle 构造函数则不是。新创建一<br>个 Rectangle 实例之后，这个实例应该通过 Polygon.call()来继承 Polygon 的 sides 属性。但是，<br>由于 Polygon 构造函数是作用域安全的，this 对象并非 Polygon 的实例，所以会创建并返回一个新<br>的 Polygon 对象。Rectangle 构造函数中的 this 对象并没有得到增长，同时 Polygon.call()返回<br>的值也没有用到，所以 Rectangle 实例中就不会有 sides 属性。</em></p>
 <p>/<em>改进之后我们可以</em>/</p>
 <pre><code>function Polygon(sides) {
     if (this instanceof Polygon) {
@@ -938,7 +938,7 @@ EventTarget.prototype = {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><span class="nav-number">1.</span> <span class="nav-text">作用域安全函数，以及如何防止this跑掉。使用寄生模式。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数绑定"><span class="nav-number">2.</span> <span class="nav-text">函数绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级定时器"><span class="nav-number">3.</span> <span class="nav-text">高级定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数节流"><span class="nav-number">4.</span> <span class="nav-text">函数节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义事件，好好学习下"><span class="nav-number">5.</span> <span class="nav-text">自定义事件，好好学习下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽实现"><span class="nav-number">6.</span> <span class="nav-text">拖拽实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><span class="nav-number">1.</span> <span class="nav-text">1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数绑定"><span class="nav-number">2.</span> <span class="nav-text">函数绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级定时器"><span class="nav-number">3.</span> <span class="nav-text">高级定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数节流"><span class="nav-number">4.</span> <span class="nav-text">函数节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义事件，好好学习下"><span class="nav-number">5.</span> <span class="nav-text">自定义事件，好好学习下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽实现"><span class="nav-number">6.</span> <span class="nav-text">拖拽实现</span></a></li></ol></div>
             
 
           </div>
