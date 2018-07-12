@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1 重点介绍了script作为脚步的一些属性以及相关(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。(2)  判断浏览器是否能够使用JavaScript语言1234567891011121314151617&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;    &amp;lt;noscript&amp;gt;        &amp;lt;p&amp;gt;本页面需要浏览器支持JavaScr">
+<meta name="description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
 <meta name="keywords" content="-javaScript之美">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第二章笔记">
-<meta property="og:url" content="http://yoursite.com/2018/06/16/二 demo/index.html">
+<meta property="og:title" content="第二十四章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/06/23/二十四章 demo/index.html">
 <meta property="og:site_name" content="baobaobao">
-<meta property="og:description" content="1 重点介绍了script作为脚步的一些属性以及相关(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。(2)  判断浏览器是否能够使用JavaScript语言1234567891011121314151617&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;    &amp;lt;noscript&amp;gt;        &amp;lt;p&amp;gt;本页面需要浏览器支持JavaScr">
+<meta property="og:description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-16T07:27:03.701Z">
+<meta property="og:updated_time" content="2018-06-23T06:56:50.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第二章笔记">
-<meta name="twitter:description" content="1 重点介绍了script作为脚步的一些属性以及相关(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。(2)  判断浏览器是否能够使用JavaScript语言1234567891011121314151617&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;    &amp;lt;noscript&amp;gt;        &amp;lt;p&amp;gt;本页面需要浏览器支持JavaScr">
+<meta name="twitter:title" content="第二十四章笔记">
+<meta name="twitter:description" content="####避免全局变量 //一个全局量——推荐 var MyApplication = {  name: &amp;quot;Nicholas&amp;quot;,  sayName: function(){  alert(this.name);  } };  ####定义常量        var Constants = {         INVALID_VALUE_MSG: “Invalid value!”,">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/16/二 demo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/23/二十四章 demo/"/>
 
 
 
 
 
-  <title>第二章笔记 | baobaobao</title>
+  <title>第二十四章笔记 | baobaobao</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/二 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十四章 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第二章笔记</h1>
+          <h1 class="post-title" itemprop="name headline">第二十四章笔记</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T15:08:58+08:00">
-                2018-06-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T11:39:49+08:00">
+                2018-06-23
               </time>
             
 
@@ -333,9 +333,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/16/二 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/23/二十四章 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/16/二 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/23/二十四章 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,9 +363,77 @@
       
 
       
-        <h2 id="1-重点介绍了script作为脚步的一些属性以及相关"><a href="#1-重点介绍了script作为脚步的一些属性以及相关" class="headerlink" title="1 重点介绍了script作为脚步的一些属性以及相关"></a>1 重点介绍了script作为脚步的一些属性以及相关</h2><h4 id="1-javascript居然是JavaScript语言和DOM以及BOM的结合体。"><a href="#1-javascript居然是JavaScript语言和DOM以及BOM的结合体。" class="headerlink" title="(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。"></a>(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。</h4><h4 id="2-判断浏览器是否能够使用JavaScript语言"><a href="#2-判断浏览器是否能够使用JavaScript语言" class="headerlink" title="(2)  判断浏览器是否能够使用JavaScript语言"></a>(2)  判断浏览器是否能够使用JavaScript语言</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;noscript&gt;</span><br><span class="line">        &lt;p&gt;本页面需要浏览器支持JavaScript&lt;/p&gt;</span><br><span class="line">    &lt;/noscript&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot;&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="3-小结"><a href="#3-小结" class="headerlink" title="(3) 小结"></a>(3) 小结</h4><figure class="highlight plain"><figcaption><span>JavaScript 插入到 HTML 页面中要使用<script>元素。使用这个元素可以把 JavaScript 嵌入到</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTML 页面中，让脚本与标记混合在一起；也可以包含外部的 JavaScript 文件。而我们需要注意的地方有：</span><br><span class="line">1 在包含外部 JavaScript 文件时，必须将 src 属性设置为指向相应文件的 URL。而这个文件既可</span><br><span class="line">以是与包含它的页面位于同一个服务器上的文件，也可以是其他任何域中的文件。</span><br><span class="line">2 所有&lt;script&gt;元素都会按照它们在页面中出现的先后顺序依次被解析。在不使用 defer 和</span><br><span class="line">async 属性的情况下，只有在解析完前面&lt;script&gt;元素中的代码之后，才会开始解析后面</span><br><span class="line">&lt;script&gt;元素中的代码。</span><br><span class="line">3 由于浏览器会先解析完不使用 defer 属性的&lt;script&gt;元素中的代码，然后再解析后面的内容，</span><br><span class="line">所以一般应该把&lt;script&gt;元素放在页面最后，即主要内容后面，&lt;/body&gt;标签前面。</span><br><span class="line">4 使用 defer 属性可以让脚本在文档完全呈现之后再执行。延迟脚本总是按照指定它们的顺序执行。</span><br><span class="line">5 使用 async 属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚</span><br><span class="line">本按照它们在页面中出现的顺序执行。</span><br><span class="line">另外，使用&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。但在启用了脚本</span><br><span class="line">的情况下，浏览器不会显示&lt;noscript&gt;元素中的任何内容。</span><br></pre></td></tr></table></figure>
-</script></span></figcaption></figure>
+        <p>####避免全局变量</p>
+<pre><code>//一个全局量——推荐
+var MyApplication = {
+ name: &quot;Nicholas&quot;,
+ sayName: function(){
+ alert(this.name);
+ }
+}; 
+</code></pre><p>####定义常量<br>        var Constants = {<br>         INVALID_VALUE_MSG: “Invalid value!”,<br>         INVALID_VALUE_URL: “/errors/invalid.php”<br>        };<br>        function validate(value){<br>         if (!value){<br>         alert(Constants.INVALID_VALUE_MSG);<br>         location.href = Constants.INVALID_VALUE_URL;<br>         }<br>        } </p>
+<p>####注意作用域<br>这里将document用于局部变量，总是有用的</p>
+<pre><code>   function updateUI(){
+    var doc = document;
+    var imgs = doc.getElementsByTagName(&quot;img&quot;);
+    for (var i=0, len=imgs.length; i &lt; len; i++){
+    imgs[i].title = doc.title + &quot; image &quot; + i;
+    }
+    var msg = doc.getElementById(&quot;msg&quot;);
+    msg.innerHTML = &quot;Update complete.&quot;;
+   } 
+将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。 
+</code></pre><p>####避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用<br>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续的访问<br>都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
+<pre><code>var url = window.location.href;
+var query = url.substring(url.indexOf(&quot;?&quot;));
+</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种优化，<br>倾向于获得更多改进。</p>
+<p>####避免双重解释</p>
+<p> JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数或者是<br>Function 构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。下面有一些例子：  </p>
+<pre><code>//某些代码求值——避免!!
+    eval(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//创建新函数——避免!!
+var sayHi = new Function(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//设置超时——避免!!
+setTimeout(&quot;alert(&apos;Hello world!&apos;)&quot;, 500);
+</code></pre><p>在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的解析过程<br>中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同时必须新启动一个解<br>析器来解析新的代码。实例化一个新的解析器有不容忽视的开销，所以这种代码要比直接解析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下 eval()是绝对必须的，所以尽可能避免使用。<br>在这个例子中，代码其实可以直接内嵌在原代码中。对于 Function 构造函数，完全可以直接写成一般<br>的函数，调用 setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
+<pre><code>//已修正
+alert(&apos;Hello world!&apos;);
+//创建新函数——已修正
+var sayHi = function(){
+ alert(&apos;Hello world!&apos;);
+};
+//设置一个超时——已修正
+setTimeout(function(){
+ alert(&apos;Hello world!&apos;);
+}, 500);
+</code></pre><p>如果要提高代码性能，尽可能避免出现需要按照 JavaScript 解释的字符串。 </p>
+<p>##优化DOM交互 </p>
+<p>####（1）优化DOM交互 </p>
+<ol>
+<li><p>最小化现场更新<br>一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新。之所<br>以叫现场更新，是因为需要立即（现场）对页面对用户的显示进行更新。每一个更改，不管是插入单个<br>字符，还是移除整个片段，都有一个性能惩罚，因为浏览器要重新计算无数尺寸以进行更新。现场更新<br>进行得越多，代码完成执行所花的时间就越长；完成一个操作所需的现场更新越少，代码就越快。请看<br>以下例子：</p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+item,
+i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ list.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+</code></pre><p>这段代码为列表添加了 10 个项目。添加每个项目时，都有 2 个现场更新：一个添加<li>元素，另<br>一个给它添加文本节点。这样添加 10 个项目，这个操作总共要完成 20 个现场更新。<br>要修正这个性能瓶颈，需要减少现场更新的数量。一般有 2 种方法。第一种是将列表从页面上移除，<br>最后进行更新，最后再将列表插回到同样的位置。这个方法不是非常理想，因为在每次页面更新的时候<br>它会不必要的闪烁。第二个方法是使用文档片段来构建 DOM 结构，接着将其添加到 List 元素中。这<br>个方式避免了现场更新和页面闪烁问题。请看下面内容：<br><strong>就是先一次性建好所有的li再放进去。而不是，建一个，放一个。</strong></li></p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+ fragment = document.createDocumentFragment(),
+ item,
+ i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ fragment.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+list.appendChild(fragment);
+</code></pre><p>在这个例子中只有一次现场更新，它发生在所有项目都创建好之后。文档片段用作一个临时的占位<br>符，放置新创建的项目。然后使用 appendChild()将所有项目添加到列表中。记住，当给 appendChild()<br>传入文档片段时，只有片段中的子节点被添加到目标，片段本身不会被添加的。<br>一旦需要更新 DOM，请考虑使用文档片段来构建 DOM 结构，然后再将其添加到现存的文档中。 </p>
+</li>
+</ol>
+
       
     </div>
     
@@ -427,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/03/subribe/" rel="next" title="原生JavaScript实现订阅/发布模式">
-                <i class="fa fa-chevron-left"></i> 原生JavaScript实现订阅/发布模式
+              <a href="/2018/06/23/二十三章 demo/" rel="next" title="第二十三章笔记">
+                <i class="fa fa-chevron-left"></i> 第二十三章笔记
               </a>
             
           </div>
@@ -436,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/16/三  demo/" rel="prev" title="第三章笔记">
-                第三章笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,17 +565,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -597,22 +652,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-重点介绍了script作为脚步的一些属性以及相关"><span class="nav-number">1.</span> <span class="nav-text">1 重点介绍了script作为脚步的一些属性以及相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-javascript居然是JavaScript语言和DOM以及BOM的结合体。"><span class="nav-number">1.0.1.</span> <span class="nav-text">(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-判断浏览器是否能够使用JavaScript语言"><span class="nav-number">1.0.2.</span> <span class="nav-text">(2)  判断浏览器是否能够使用JavaScript语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-小结"><span class="nav-number">1.0.3.</span> <span class="nav-text">(3) 小结</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -793,9 +832,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/06/16/二 demo/';
-          this.page.identifier = '2018/06/16/二 demo/';
-          this.page.title = '第二章笔记';
+          this.page.url = 'http://yoursite.com/2018/06/23/二十四章 demo/';
+          this.page.identifier = '2018/06/23/二十四章 demo/';
+          this.page.title = '第二十四章笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://baobaobao.disqus.com/embed.js';

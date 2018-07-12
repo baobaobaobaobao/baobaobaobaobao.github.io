@@ -262,6 +262,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十四章 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/23/二十四章 demo/" itemprop="url">第二十四章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T11:39:49+08:00">
+                2018-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/23/二十四章 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/23/二十四章 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>####避免全局变量</p>
+<pre><code>//一个全局量——推荐
+var MyApplication = {
+ name: &quot;Nicholas&quot;,
+ sayName: function(){
+ alert(this.name);
+ }
+}; 
+</code></pre><p>####定义常量<br>        var Constants = {<br>         INVALID_VALUE_MSG: “Invalid value!”,<br>         INVALID_VALUE_URL: “/errors/invalid.php”<br>        };<br>        function validate(value){<br>         if (!value){<br>         alert(Constants.INVALID_VALUE_MSG);<br>         location.href = Constants.INVALID_VALUE_URL;<br>         }<br>        } </p>
+<p>####注意作用域<br>这里将document用于局部变量，总是有用的</p>
+<pre><code>   function updateUI(){
+    var doc = document;
+    var imgs = doc.getElementsByTagName(&quot;img&quot;);
+    for (var i=0, len=imgs.length; i &lt; len; i++){
+    imgs[i].title = doc.title + &quot; image &quot; + i;
+    }
+    var msg = doc.getElementById(&quot;msg&quot;);
+    msg.innerHTML = &quot;Update complete.&quot;;
+   } 
+将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。 
+</code></pre><p>####避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用<br>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续的访问<br>都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
+<pre><code>var url = window.location.href;
+var query = url.substring(url.indexOf(&quot;?&quot;));
+</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种优化，<br>倾向于获得更多改进。</p>
+<p>####避免双重解释</p>
+<p> JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数或者是<br>Function 构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。下面有一些例子：  </p>
+<pre><code>//某些代码求值——避免!!
+    eval(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//创建新函数——避免!!
+var sayHi = new Function(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//设置超时——避免!!
+setTimeout(&quot;alert(&apos;Hello world!&apos;)&quot;, 500);
+</code></pre><p>在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的解析过程<br>中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同时必须新启动一个解<br>析器来解析新的代码。实例化一个新的解析器有不容忽视的开销，所以这种代码要比直接解析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下 eval()是绝对必须的，所以尽可能避免使用。<br>在这个例子中，代码其实可以直接内嵌在原代码中。对于 Function 构造函数，完全可以直接写成一般<br>的函数，调用 setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
+<pre><code>//已修正
+alert(&apos;Hello world!&apos;);
+//创建新函数——已修正
+var sayHi = function(){
+ alert(&apos;Hello world!&apos;);
+};
+//设置一个超时——已修正
+setTimeout(function(){
+ alert(&apos;Hello world!&apos;);
+}, 500);
+</code></pre><p>如果要提高代码性能，尽可能避免出现需要按照 JavaScript 解释的字符串。 </p>
+<p>##优化DOM交互 </p>
+<p>####（1）优化DOM交互 </p>
+<ol>
+<li><p>最小化现场更新<br>一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新。之所<br>以叫现场更新，是因为需要立即（现场）对页面对用户的显示进行更新。每一个更改，不管是插入单个<br>字符，还是移除整个片段，都有一个性能惩罚，因为浏览器要重新计算无数尺寸以进行更新。现场更新<br>进行得越多，代码完成执行所花的时间就越长；完成一个操作所需的现场更新越少，代码就越快。请看<br>以下例子：</p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+item,
+i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ list.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+</code></pre><p>这段代码为列表添加了 10 个项目。添加每个项目时，都有 2 个现场更新：一个添加<li>元素，另<br>一个给它添加文本节点。这样添加 10 个项目，这个操作总共要完成 20 个现场更新。<br>要修正这个性能瓶颈，需要减少现场更新的数量。一般有 2 种方法。第一种是将列表从页面上移除，<br>最后进行更新，最后再将列表插回到同样的位置。这个方法不是非常理想，因为在每次页面更新的时候<br>它会不必要的闪烁。第二个方法是使用文档片段来构建 DOM 结构，接着将其添加到 List 元素中。这<br>个方式避免了现场更新和页面闪烁问题。请看下面内容：<br><strong>就是先一次性建好所有的li再放进去。而不是，建一个，放一个。</strong></li></p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+ fragment = document.createDocumentFragment(),
+ item,
+ i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ fragment.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+list.appendChild(fragment);
+</code></pre><p>在这个例子中只有一次现场更新，它发生在所有项目都创建好之后。文档片段用作一个临时的占位<br>符，放置新创建的项目。然后使用 appendChild()将所有项目添加到列表中。记住，当给 appendChild()<br>传入文档片段时，只有片段中的子节点被添加到目标，片段本身不会被添加的。<br>一旦需要更新 DOM，请考虑使用文档片段来构建 DOM 结构，然后再将其添加到现存的文档中。 </p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十三章 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -281,7 +503,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/23/二十三章 demo/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/06/23/二十三章 demo/" itemprop="url">第二十三章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -303,6 +525,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -452,7 +696,7 @@ EventUtil.addHandler(window, &quot;offline&quot;, function () {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/23/二十二章 demo/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/06/23/二十二章 demo/" itemprop="url">第二十二章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -474,6 +718,28 @@ EventUtil.addHandler(window, &quot;offline&quot;, function () {
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -2855,222 +3121,6 @@ NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/八 demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/17/八 demo/" itemprop="url">第八章笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:49:20+08:00">
-                2018-06-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/17/八 demo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/八 demo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-window对象以及窗口框架"><a href="#1-window对象以及窗口框架" class="headerlink" title="(1) window对象以及窗口框架"></a>(1) window对象以及窗口框架</h4><blockquote>
-<p>由于 window 对象同时扮演着 ECMAScript 中 Global 对象的角色，因此所有在全局作用域中声明<br>的变量、函数都会变成 window 对象的属性和方法。</p>
-</blockquote>
-<h4 id="2-窗口位置相对于top的位置"><a href="#2-窗口位置相对于top的位置" class="headerlink" title="(2) 窗口位置相对于top的位置"></a>(2) 窗口位置相对于top的位置</h4><pre><code>var leftPos=(typeof window.screenLeft==&apos;number&apos;)?
-     window.screenLeft:window.screenX;
-     alert(leftPos);
-</code></pre><h4 id="3-检查弹出窗口是否被屏蔽了"><a href="#3-检查弹出窗口是否被屏蔽了" class="headerlink" title="(3)检查弹出窗口是否被屏蔽了"></a>(3)检查弹出窗口是否被屏蔽了</h4><p>如果浏览器扩展或者其他程序阻止弹出窗口的话。我们用try catch来判断</p>
-<pre><code>var blocked = false;
-try {
-    var wrpxWin = window.open(&quot;http://www.wrox.com&quot;, &quot;_blank&quot;); if (wrpxWin == null) {
-        blocked = true;//窗口被屏蔽了
-    }
-} catch (ex) {
-    blocked = true;
-}
-
-if (blocked) {
-    alert(&quot;the popupp was bolcked!&quot;);
-}
-</code></pre><h4 id="4-对话框"><a href="#4-对话框" class="headerlink" title="(4) 对话框"></a>(4) 对话框</h4><blockquote>
-<ul>
-<li>alert</li>
-<li>confirm</li>
-<li>prompt  </li>
-</ul>
-</blockquote>
-<p>重点是第三种，让你输入一个对话框，并要求你输入数据。</p>
-<pre><code> var result = prompt(&quot;what is you name?&quot;, &quot;&quot;);
- if (result != null) {
-    alert(&quot;Welcome,&quot; + result);
-}
-</code></pre><h4 id="5-location对象"><a href="#5-location对象" class="headerlink" title="(5) location对象"></a>(5) location对象</h4><blockquote>
-<p>location 是最有用的 BOM 对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一<br>些导航功能。事实上，location 对象是很特别的一个对象，因为它既是 window 对象的属性，也是<br>document 对象的属性；换句话说，window.location 和 document.location 引用的是同一个对象。<br>location 对象的用处不只表现在它保存着当前文档的信息，还表现在它将 URL 解析为独立的片段，让<br>开发人员可以通过不同的属性访问这些片段。</p>
-</blockquote>
-<h4 id="6-navigator对象-检测插件"><a href="#6-navigator对象-检测插件" class="headerlink" title="(6) navigator对象 检测插件"></a>(6) navigator对象 检测插件</h4><pre><code>function hasPlugin(name) {
-    name = name.toLowerCase();
-    for (var i = 0; i &lt; navigator.plugins.length; i++) {
-        if (navigator.plugins[i].name.toLowerCase().indexOf(name) &gt; -1) {
-            return true;
-        }
-        return false;
-    }
-}
-alert(hasPlugin(&quot;Flash&quot;));//检查是否有Flash插件
-</code></pre><h4 id="6-history对象"><a href="#6-history对象" class="headerlink" title="(6) history对象"></a>(6) history对象</h4><blockquote>
-<p>浏览器内置对象，可以用它模仿前一个界面，后一个界面操作。</p>
-</blockquote>
-<h4 id="7-小结"><a href="#7-小结" class="headerlink" title="(7) 小结"></a>(7) 小结</h4><pre><code>   浏览器对象模型（BOM）以 window 对象为依托，表示浏览器窗口以及页面可见区域。同时，window
-对象还是 ECMAScript 中的 Global 对象，因而所有全局变量和函数都是它的属性，且所有原生的构造
-函数及其他函数也都存在于它的命名空间下。本章讨论了下列 BOM 的组成部分。
-1 在使用框架时，每个框架都有自己的 window 对象以及所有原生构造函数及其他函数的副本。
-每个框架都保存在 frames 集合中，可以通过位置或通过名称来访问。
-2 有一些窗口指针，可以用来引用其他框架，包括父框架。
-3 top 对象始终指向最外围的框架，也就是整个浏览器窗口。
-4 parent 对象表示包含当前框架的框架，而 self 对象则回指 window。
-5 使用 location 对象可以通过编程方式来访问浏览器的导航系统。设置相应的属性，可以逐段
-或整体性地修改浏览器的 URL。
-6 调用 replace()方法可以导航到一个新 URL，同时该 URL 会替换浏览器历史记录中当前显示
-的页面。
-7 *navigator 对象提供了与浏览器有关的信息。到底提供哪些信息，很大程度上取决于用户的浏
-览器；不过，也有一些公共的属性（如 userAgent）存在于所有浏览器中。
-BOM 中还有两个对象：screen 和 history，但它们的功能有限。screen 对象中保存着与客户端
-显示器有关的信息，这些信息一般只用于站点分析。history 对象为访问浏览器的历史记录开了一个
-小缝隙，开发人员可以据此判断历史记录的数量，也可以在历史记录中向后或向前导航到任意页面。*
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3125,7 +3175,7 @@ BOM 中还有两个对象：screen 和 history，但它们的功能有限。scre
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
