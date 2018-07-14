@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-javaScript之美," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="(1)DOM2级事件处理程序   “DOM2级事件”定义了两个方法，用于处理指定和删除事件处理程序的操作：addEventListener()和 removeEventListener()。所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获阶段调用事件处理程序；如果是 false，表示">
+<meta name="keywords" content="-javaScript之美">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第十三章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/javascript高级程序设计/十三 demo/index.html">
+<meta property="og:site_name" content="baobaobao">
+<meta property="og:description" content="(1)DOM2级事件处理程序   “DOM2级事件”定义了两个方法，用于处理指定和删除事件处理程序的操作：addEventListener()和 removeEventListener()。所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获阶段调用事件处理程序；如果是 false，表示">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-20T00:15:27.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第十三章笔记">
+<meta name="twitter:description" content="(1)DOM2级事件处理程序   “DOM2级事件”定义了两个方法，用于处理指定和删除事件处理程序的操作：addEventListener()和 removeEventListener()。所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数：要处理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获阶段调用事件处理程序；如果是 false，表示">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'baobaobao'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十三 demo/"/>
+
+
+
+
+
+  <title>第十三章笔记 | baobaobao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">baobaobao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十三 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第十三章笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T21:51:41+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/十三 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/十三 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="1-DOM2级事件处理程序"><a href="#1-DOM2级事件处理程序" class="headerlink" title="(1)DOM2级事件处理程序"></a>(1)DOM2级事件处理程序</h4><p>   “DOM2级事件”定义了两个方法，用于处理指定和删除事件处理程序的操作：addEventListener()<br>和 removeEventListener()。所有 DOM 节点中都包含这两个方法，并且它们都接受 3 个参数：要处<br>理的事件名、作为事件处理程序的函数和一个布尔值。最后这个布尔值参数如果是 true，表示在捕获<br>阶段调用事件处理程序；如果是 false，表示在冒泡阶段调用事件处理程序。<br>要在按钮上为 click 事件添加事件处理程序，可以使用下列代码：</p>
+<pre><code>&lt;body&gt;
+
+    &lt;button&gt;&lt;/button&gt;
+
+    &lt;script&gt;
+        var ben = document.getElementById(&quot;myBtn&quot;);
+        ben.addEventListener(&quot;click&quot;, function () {
+
+            alert(this.id);
+        }, false);
+      /*上面的代码为一个按钮添加了 onclick 事件处理程序，而且该事件会在冒泡阶段被触发（因为最
+后一个参数是 false）。*/
+    &lt;/script&gt;
+</code></pre><p> 上面的代码为一个按钮添加了 onclick 事件处理程序，而且该事件会在冒泡阶段被触发（因为最<br>后一个参数是 false）。</p>
+<h4 id="2-在不同浏览器中通过能力检测来加减方法处理程序，万金油"><a href="#2-在不同浏览器中通过能力检测来加减方法处理程序，万金油" class="headerlink" title="(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油"></a>(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油</h4><pre><code>&lt;html&gt;
+
+
+
+&lt;body&gt;
+
+&lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+&lt;script&gt;
+    /*万金油式处理事件方法*/
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = handler;
+            }
+        },
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = null;
+            }
+
+        }
+    }
+
+    /*如何使用呢？*/
+    var clickme = document.getElementById(&quot;clickMe&quot;);
+    var handler = function () {
+        alert(&quot;Clicked&quot;);
+    }
+
+    EventUtil.addHandler(clickme, &quot;click&quot;, handler);/*添加事件*/
+    EventUtil.removeHandler(clickme, &quot;click&quot;, handler);/*移除事件*/
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><blockquote>
+<p>  这两个方法首先都会检测传入的元素中是否存在 DOM2 级方法。如果存在 DOM2 级方法，则使用<br>该方法：传入事件类型、事件处理程序函数和第三个参数 false（表示冒泡阶段）。如果存在的是 IE 的<br>方法，则采取第二种方案。注意，为了在 IE8 及更早版本中运行，此时的事件类型必须加上”on”前缀。<br>最后一种可能就是使用 DOM0 级方法（在现代浏览器中，应该不会执行这里的代码）。此时，我们使用<br>的是方括号语法来将属性名指定为事件处理程序，或者将属性设置为 null。</p>
+</blockquote>
+<h4 id="3-在一个函数里面处理多个事件时，可以用type属性"><a href="#3-在一个函数里面处理多个事件时，可以用type属性" class="headerlink" title="(3)在一个函数里面处理多个事件时，可以用type属性"></a>(3)在一个函数里面处理多个事件时，可以用type属性</h4><pre><code>&lt;html&gt;
+&lt;body&gt;
+    &lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+    &lt;script&gt;
+        var btn = document.getElementById(&quot;clickMe&quot;);
+        var handler = function (event) {
+
+            switch (event.type) {
+                case &quot;click&quot;:
+                    alert(&quot;clickMe,ye&quot;);
+                    break;
+                case &quot;mouseover&quot;:
+                    event.target.style.backgroundColor = &quot;red&quot;;
+                    break;
+            }
+        }
+
+        btn.onclick = handler;
+        btn.onmouseover = handler;
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><p>我们以此给了btn加了三个事件。只用了一个函数。</p>
+<h4 id="4-跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油"><a href="#4-跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油" class="headerlink" title="(4)跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油"></a>(4)跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+    &lt;button id=&quot;clickMe&quot;&gt;点我，点我，别害羞&lt;/button&gt;
+    &lt;script&gt;
+        var EventUtil = {
+            addHandler: function (element, type, handler) {
+                //省略的代码，上面有
+            },
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            getTarget: function (event) {
+                return event.target || event.srcElement;
+            },
+
+            preventDefault: function (event) {
+                if (event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+
+            removeHandler: function (element, type, handler) {
+                //省略的代码，上面例子有
+            },
+            stopPropagation: function (event) {
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+        };
+
+
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="4-事件类型"><a href="#4-事件类型" class="headerlink" title="(4)事件类型"></a>(4)事件类型</h4><p> 1  确定浏览器是否支持DOM2级事件可以用以下代码   </p>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;HTMLEvents&quot;, &quot;2.0&quot;);  
+</code></pre><p>注意，只有根据“DOM2 级事件”实现这些事件的浏览器才会返回 true。而以非标准方式支持这<br>些事件的浏览器则会返回 false。要确定浏览器是否支持“DOM3 级事件”定义的事件，可以使用如下<br>代码：  </p>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;UIEvent&quot;, &quot;3.0&quot;); 
+</code></pre><h4 id="5-load事件引起加载script文件"><a href="#5-load事件引起加载script文件" class="headerlink" title="(5)load事件引起加载script文件"></a>(5)load事件引起加载script文件</h4><pre><code>EventUtil.addHandler(window, &quot;load&quot;, function () {
+    var script = document.createElement(&quot;script&quot;);
+    EventUtil.addHandler(script, &quot;load&quot;, function (event) {
+        alert(&quot;LoadedScript&quot;);
+    });
+    script.src = &quot;demo.js&quot;;
+    document.body.appendChild(script);
+})
+</code></pre><p>以上可以给文档加载时加一个加载js文件的方法.666</p>
+<h4 id="6-以下列举一些事件-没事看看"><a href="#6-以下列举一些事件-没事看看" class="headerlink" title="(6)以下列举一些事件,没事看看."></a>(6)以下列举一些事件,没事看看.</h4><blockquote>
+<ul>
+<li>当浏览器窗口被调整到一个新的高度或宽度时，就会触发 resize 事件。</li>
+</ul>
+</blockquote>
+<pre><code> EventUtil.addHandler(window, &quot;resize&quot;, function(event){  
+ alert(&quot;Resized&quot;);  
+}); 
+</code></pre><blockquote>
+<ul>
+<li>当焦点从页面中的一个元素移动到另一个元素，会依次触发下列事件：<br>(1) focusout 在失去焦点的元素上触发；<br>(2) focusin 在获得焦点的元素上触发；<br>(3) blur 在失去焦点的元素上触发；<br>(4) DOMFocusOut 在失去焦点的元素上触发；<br>(5) focus 在获得焦点的元素上触发；<br>(6) DOMFocusIn 在获得焦点的元素上触发。<br>其中，blur、DOMFocusOut 和 focusout 的事件目标是失去焦点的元素；而 focus、DOMFocusIn<br>和 focusin 的事件目标是获得焦点的元素。<br>要确定浏览器是否支持这些事件，可以使用如下代码：  </li>
+</ul>
+</blockquote>
+<pre><code>var isSupported = document.implementation.hasFeature(&quot;FocusEvent&quot;, &quot;3.0&quot;); 
+</code></pre><h4 id="7-可以通过获取鼠标点击的位置来显示鼠标点击的位置"><a href="#7-可以通过获取鼠标点击的位置来显示鼠标点击的位置" class="headerlink" title="(7)可以通过获取鼠标点击的位置来显示鼠标点击的位置."></a>(7)可以通过获取鼠标点击的位置来显示鼠标点击的位置.</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+  &lt;div  id=&quot;myDiv&quot;  style=&quot;width: 100%;height: 300px;&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = handler;
+            }
+
+        },
+        getEvent: function (event) {
+            return event ? event : window.event;
+        },
+        getTarget: function (event) {
+            return event.target || event.srcElement;
+        },
+
+        preventDefault: function (event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent(&quot;on&quot; + type, handler);
+            } else {
+                element[&quot;on&quot; + type] = null;
+            }
+
+        },
+        stopPropagation: function (event) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        }
+    };
+
+
+
+   var div=document.getElementById(&quot;myDiv&quot;);
+   EventUtil.addHandler(div,&quot;click&quot;,function(event){
+       event=EventUtil.getEvent(event);
+       alert(&quot;Page coordinates:&quot;+event.pageX+&quot;,&quot;+event.pageY);
+   })
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="8-检测用户是否同时按下了键盘键"><a href="#8-检测用户是否同时按下了键盘键" class="headerlink" title="(8)检测用户是否同时按下了键盘键"></a>(8)检测用户是否同时按下了键盘键</h4><pre><code>var div=document.getElementById(&quot;myDiv&quot;);
+EventUtil.addHandler(div,&quot;click&quot;,function(event){
+    event=EventUtil.getEvent(event);
+   var keys=new Array();
+   if(event.shiftKey){
+             keys.push(&quot;shift&quot;);
+
+   }
+   if(event.ctrlKey){
+             keys.push(&quot;ctrl&quot;);
+
+   }
+   if(event.altKey){
+             keys.push(&quot;alt&quot;);
+
+   }
+
+alert(keys.join(&quot;,&quot;));
+
+})
+</code></pre><p>这里检测用户是否同时按下了shift，ctrl，alt</p>
+<h4 id="9-键盘和文本事件"><a href="#9-键盘和文本事件" class="headerlink" title="(9)键盘和文本事件"></a>(9)键盘和文本事件</h4><pre><code>var textBox=document.getElementById(&quot;MyText&quot;);
+EventUtil.addHandler(textBox,&quot;keyup&quot;,function(event){
+    event=EventUtil.getEvent(event);
+    alert(event.keyCode);
+})
+</code></pre><p>以上代码能帮助我们捕获到用户点击文本框的的键盘的键码进而显示。</p>
+<h4 id="10-事件委托"><a href="#10-事件委托" class="headerlink" title="(10)事件委托"></a>(10)事件委托</h4><p>  对“事件处理程序过多”问题的解决方案就是事件委托。事件委托利用了事件冒泡，只指定一个事<br>件处理程序，就可以管理某一类型的所有事件。例如，click 事件会一直冒泡到 document 层次。<br>也就是说，我们可以为整个页面指定一个 onclick 事件处理程序，而不必给每个可单击的元素分别添加事<br>件处理程序。以下面的 HTML 代码为例。  </p>
+<pre><code>HTML
+ &lt;ul id=&quot;myLinks&quot;&gt;
+        &lt;li id=&quot;goSomewhere&quot;&gt;Go somewhere&lt;/li&gt;
+        &lt;li id=&quot;doSomething&quot;&gt;Do something&lt;/li&gt;
+        &lt;li id=&quot;sayHi&quot;&gt;Say hi&lt;/li&gt;
+       &lt;/ul&gt; 
+
+    /*如果在一个复杂的 Web 应用程序中，对所有可单击的元素都采用这种方式，那么结果就会有数不
+清的代码用于添加事件处理程序。此时，可以利用事件委托技术解决这个问题。使用事件委托，只需在
+DOM 树中尽量最高的层次上添加一个事件处理程序，如下面的例子所示。*/
+JAVASCRIPT  
+   var list=document.getElementById(&quot;myLinks&quot;);
+   EventUtil.addHandler(list,&quot;click&quot;,function(event){
+    event=EventUtil.getEvent(event);
+   var target=EventUtil.getTarget(event);
+   switch(target.id){
+      case &quot;doSomething&quot;:
+          document.title=&quot;I changed the document&apos;s title&quot;;
+          break;
+      case &quot;goSomewhere&quot;:
+      location.href= &quot;http://www.wrox.com&quot;; 
+      break;
+      case &quot;sayHi&quot;:
+        alert(&quot;hi&quot;);
+        break;
+  }
+   });
+</code></pre><p><strong> 所有的按钮事件都可以用这种，取最高层次上的事件处理程序来处理。</strong></p>
+<h4 id="11-模拟鼠标事件"><a href="#11-模拟鼠标事件" class="headerlink" title="(11)模拟鼠标事件"></a>(11)模拟鼠标事件</h4><p>html  </p>
+<pre><code>&lt;button  id=&quot;myBtn&quot;&gt;nihoa&lt;/button&gt;
+</code></pre><p>javascript  </p>
+<pre><code> var btn = document.getElementById(&quot;myBtn&quot;);
+//创建事件对象
+var event = document.createEvent(&quot;MouseEvents&quot;);
+
+btn.onclick=function(){
+    alert(&quot;nihao&quot;);
+}
+//初始化事件对象
+event.initMouseEvent(&quot;click&quot;, true, true, document.defaultView, 0, 0, 0, 0, 0,
+ false, false, false, false, 0, null);
+
+//触发事件
+btn.dispatchEvent(event); 
+</code></pre><h4 id="12-小结"><a href="#12-小结" class="headerlink" title="(12)小结"></a>(12)小结</h4><p>事件是将 JavaScript 与网页联系在一起的主要方式。“DOM3 级事件”规范和 HTML5 定义了常见的<br>大多数事件。即使有规范定义了基本事件，但很多浏览器仍然在规范之外实现了自己的专有事件，从而<br>为开发人员提供更多掌握用户交互的手段。有些专有事件与特定设备关联，例如移动 Safari 中的<br>orientationchange 事件就是特定关联 iOS 设备的。<br>在使用事件时，需要考虑如下一些内存与性能方面的问题。</p>
+<blockquote>
+<p><em>1 有必要限制一个页面中事件处理程序的数量，数量太多会导致占用大量内存，而且也会让用户<br>感觉页面反应不够灵敏。  
+</em>2建立在事件冒泡机制之上的事件委托技术，可以有效地减少事件处理程序的数量。<br>*3建议在浏览器卸载页面之前移除页面中的所有事件处理程序。<br>可以使用 JavaScript 在浏览器中模拟事件。“DOM2 级事件”和“DOM3 级事件”规范规定了模拟事<br>件的方法，为模拟各种有定义的事件提供了方便。此外，通过组合使用一些技术，还可以在某种程度上<br>模拟键盘事件。IE8 及之前版本同样支持事件模拟，只不过模拟的过程有些差异。<br>事件是 JavaScript 中最重要的主题之一，深入理解事件的工作机制以及它们对性能的影响至关重要。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/gongzonghao.jpg" alt="鲍志强 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎你扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的点赞是为了你的未来</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WechatPay.png" alt="鲍志强 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaScript之美/" rel="tag"># -javaScript之美</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/17/javascript高级程序设计/十二 demo/" rel="next" title="第十二章笔记">
+                <i class="fa fa-chevron-left"></i> 第十二章笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/20/javascript高级程序设计/十四 demo/" rel="prev" title="第十四章笔记">
+                第十四章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.jpg"
+                alt="鲍志强" />
+            
+              <p class="site-author-name" itemprop="name">鲍志强</p>
+              <p class="site-description motion-element" itemprop="description">求道者</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baobaobaobaobao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="530420396@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/bao-zhi-qiang-2/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-DOM2级事件处理程序"><span class="nav-number">1.</span> <span class="nav-text">(1)DOM2级事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在不同浏览器中通过能力检测来加减方法处理程序，万金油"><span class="nav-number">2.</span> <span class="nav-text">(2)在不同浏览器中通过能力检测来加减方法处理程序，万金油</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在一个函数里面处理多个事件时，可以用type属性"><span class="nav-number">3.</span> <span class="nav-text">(3)在一个函数里面处理多个事件时，可以用type属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油"><span class="nav-number">4.</span> <span class="nav-text">(4)跨浏览器的事件对象，以下代码可以再IE和其他浏览器运行，做好了能力检测。万金油</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-事件类型"><span class="nav-number">5.</span> <span class="nav-text">(4)事件类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-load事件引起加载script文件"><span class="nav-number">6.</span> <span class="nav-text">(5)load事件引起加载script文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-以下列举一些事件-没事看看"><span class="nav-number">7.</span> <span class="nav-text">(6)以下列举一些事件,没事看看.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-可以通过获取鼠标点击的位置来显示鼠标点击的位置"><span class="nav-number">8.</span> <span class="nav-text">(7)可以通过获取鼠标点击的位置来显示鼠标点击的位置.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-检测用户是否同时按下了键盘键"><span class="nav-number">9.</span> <span class="nav-text">(8)检测用户是否同时按下了键盘键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-键盘和文本事件"><span class="nav-number">10.</span> <span class="nav-text">(9)键盘和文本事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-事件委托"><span class="nav-number">11.</span> <span class="nav-text">(10)事件委托</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-模拟鼠标事件"><span class="nav-number">12.</span> <span class="nav-text">(11)模拟鼠标事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-小结"><span class="nav-number">13.</span> <span class="nav-text">(12)小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">baobaobao</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://baobaobao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/06/17/javascript高级程序设计/十三 demo/';
+          this.page.identifier = '2018/06/17/javascript高级程序设计/十三 demo/';
+          this.page.title = '第十三章笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://baobaobao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

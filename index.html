@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/编码/第一章 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/jquery学习/第一课/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/12/编码/第一章 demo/" itemprop="url">第二十二章笔记</a></h1>
+                <a class="post-title-link" href="/2018/07/14/jquery学习/第一课/" itemprop="url">jquery第一课</a></h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T23:09:00+08:00">
-                2018-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T19:43:40+08:00">
+                2018-07-14
               </time>
             
 
@@ -316,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编码-隐匿在计算机语言后面的实现笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">编码-隐匿在计算机语言后面的实现笔记</span>
+                  <a href="/categories/jquery学习/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery学习</span>
                   </a>
                 </span>
 
@@ -334,9 +334,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/12/编码/第一章 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/14/jquery学习/第一课/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/12/编码/第一章 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/14/jquery学习/第一课/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -366,338 +366,11 @@
       
         
           
-            <h3 id="1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。"><a href="#1-作用域安全函数，以及如何防止this跑掉。使用寄生模式。" class="headerlink" title="1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。"></a>1 作用域安全函数，以及如何防止this跑掉。使用寄生模式。</h3><pre><code> /* 作用域安全的构造函数,我们可能会忘记在类名之前加new，所以我们可以构造一个
-   作用域安全的函数，比如下面的person，每次都要确定this指没指向Person。
-   */
-function Person(name, age, job) {
-    if (this instanceof Person) {
-        this.name = name;
-        this.age = age;
-        this.job = job;
-    } else {
-        return new Person(name, age, job);
-    }
-}
-var person1 = Person(&quot;Nicholas&quot;, 29, &quot;Software Engineer&quot;);
-alert(window.name); //&quot;&quot;
-alert(person1.name); //&quot;Nicholas&quot;
-var person2 = new Person(&quot;Shelby&quot;, 34, &quot;Ergonomist&quot;);
-alert(person2.name); //&quot;Shelby&quot; 
-
-
-/*你会锁定这个作用域环境，但是一旦你在另一个对象中初始话Person就会出现问题比如*/
-function Polygon(sides) {
-    if (this instanceof Polygon) {
-        this.sides = sides;
-        this.getArea = function () {
-
-            return 0;
-        };
-    } else {
-        return new Polygon(sides);
-    }
-}
-function Rectangle(width, height) {
-    Polygon.call(this, 2);
-    this.width = width;
-    this.height = height;
-    this.getArea = function () {
-        return this.width * this.height;
-    };
-}
-var rect = new Rectangle(5, 10);
-alert(rect.sides); //undefined 
-</code></pre><p>  <em>在这段代码中，Polygon 构造函数是作用域安全的，然而 Rectangle 构造函数则不是。新创建一<br>个 Rectangle 实例之后，这个实例应该通过 Polygon.call()来继承 Polygon 的 sides 属性。但是，<br>由于 Polygon 构造函数是作用域安全的，this 对象并非 Polygon 的实例，所以会创建并返回一个新<br>的 Polygon 对象。Rectangle 构造函数中的 this 对象并没有得到增长，同时 Polygon.call()返回<br>的值也没有用到，所以 Rectangle 实例中就不会有 sides 属性。</em></p>
-<p>/<em>改进之后我们可以</em>/</p>
-<pre><code>function Polygon(sides) {
-    if (this instanceof Polygon) {
-        this.sides = sides;
-        this.getArea = function () {
-            return 0;
-        };
-    } else {
-        return new Polygon(sides);
-    }
-}
-function Rectangle(width, height) {
-    Polygon.call(this, 2);
-    this.width = width;
-    this.height = height;
-    this.getArea = function () {
-        return this.width * this.height;
-    };
-}
-Rectangle.prototype = new Polygon();
-var rect = new Rectangle(5, 10);
-alert(rect.sides); //2 组，那么以上代码就会返回 false。
-</code></pre><h3 id="2函数绑定"><a href="#2函数绑定" class="headerlink" title="2函数绑定"></a>2函数绑定</h3><p>另一个日益流行的高级技巧叫做函数绑定。函数绑定要创建一个函数，可以在特定的 this 环境中<br>以指定参数调用另一个函数。该技巧常常和回调函数与事件处理程序一起使用，以便在将函数作为变量<br>传递的同时保留代码执行环境。</p>
-<p>  /<em>我们实现了函数绑定好吧。将函数绑定到特定的环境中，这样，函数就可以访问到对应的变量了</em>/  </p>
-<p>   Html  </p>
-<pre><code>&lt;button id=&quot;mybtn&quot;&gt;my&lt;/button&gt;
-</code></pre><p>Javascript  </p>
-<pre><code>function bind(fn, context) {
-        return function () {
-            return fn.apply(context, arguments);
-        };
-    } 
-
-        var handler = {
-            message: &quot;Event handled&quot;,
-            handleClick: function (event) {
-                alert(this.message);
-            }
-        };
-        var btn = document.getElementById(&quot;mybtn&quot;);
-
-        //这里的handler.handleClick函数可以访问到handler对象环境中的message
-        EventUtil.addHandler(btn, &quot;click&quot;, bind(handler.handleClick, handler));
-</code></pre><h3 id="3高级定时器"><a href="#3高级定时器" class="headerlink" title="3高级定时器"></a>3高级定时器</h3><p>  我们需要明白原本的工作线程机制以及加入定时器的工作机制。</p>
-<blockquote>
-<ul>
-<li>定时器对队列的工作方式是，当特定时间过去后将代码插入。注意，给队列添加代码并不意味着对<br>它立刻执行，而只能表示它会尽快执行。设定一个 150ms 后执行的定时器不代表到了 150ms 代码就立刻<br>执行，它表示代码会在 150ms 后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这<br>段代码就会被执行，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明<br>显地等待更长时间才执行。   </li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>一旦某个函数需要花 50ms 以上的时间完成，那么最好看看能否将任务分割为一<br>系列可以使用定时器的小任务。  </li>
-</ul>
-</blockquote>
-<pre><code>setTimeout(function(){
- //取出下一个条目并处理
- var item = array.shift();
- process(item);
- //若还有条目，再设置另一个定时器
- if(array.length &gt; 0){
- setTimeout(arguments.callee, 100);
- }
-}, 100); 
-</code></pre><h3 id="4函数节流"><a href="#4函数节流" class="headerlink" title="4函数节流"></a>4函数节流</h3><blockquote>
-<p>只要代码是周期性执行的，都应该使用节流，但是你不能控制请求执行的速率。这里展示的<br>throttle()函数用了 100ms 作为间隔，你当然可以根据你的需要来修改它。</p>
-</blockquote>
-<pre><code>     function throttle(method, context) {
-    clearTimeout(method.tId);
-    method.tId = setTimeout(function () {
-        method.call(context);
-    }, 100);
-}
-
-function resizeDiv() {
-    var div = document.getElementById(&quot;myDiv&quot;);
-    div.style.height = div.offsetWidth + &quot;px&quot;;
-}
-
-/*下面的界面装换就会频繁的更换大小，特别当屏幕变化时，它需要节流。你调用它20次，但其实它只调用了两次*/
-window.onresize = function () {
-    throttle(resizeDiv);
-}; 
-</code></pre><h3 id="5自定义事件，好好学习下"><a href="#5自定义事件，好好学习下" class="headerlink" title="5自定义事件，好好学习下"></a>5自定义事件，好好学习下</h3><p>   /<em>自定义事件背后的概念是创建一个管理事件的对象，让其他对象监听那些事件。</em>/</p>
-<pre><code> function EventTarget(){
-
-     this.handlers={};//事件的处理程序序列
- }
-
-EventTarget.prototype = {
-    constructor: EventTarget,
-    addHandler: function (type, handler) {
-        if (typeof this.handlers[type] == &quot;undefined&quot;) {
-
-            this.handlers[type] = [];
-        }
-        this.handlers[type].push(handler);
-    },
-         //激发事件
-    fire: function (event) {
-        if (!event.target) {
-            event.target = this;
-        }
-        if (this.handlers[event.type] instanceof Array) {
-            var handlers = this.handlers[event.type];
-            for (var i = 0, len = handlers.length; i &lt; len; i++) {
-                handlers[i](event);
-            }
-        }
-    },
-    /*移除事件*/
-    removeHandler: function (type, handler) {
-        if (this.handlers[type] instanceof Array) {
-            var handlers = this.handlers[type];
-            for (var i = 0, len = handlers.length; i &lt; len; i++) {
-                if (handlers[i] === handler) {
-                    break;
-                }
-            }
-            handlers.splice(i, 1);
-
-        }
-    }
-}; 
-</code></pre><p>/<em>如何使用自定义事件呢？</em>/  </p>
-<pre><code>function handleMessage(event){
-
-    alert(&quot;Message received:&quot;+event.message);
-}
-//创建一个新对象
-var target=new EventTarget();
-
-//添加一个事件处理程序
-target.addHandler(&quot;message&quot;,handleMessage);
-//触发事件
-
-target.fire({type:&quot;message&quot;,message:&quot;hello world&quot;});
-//删除事件处理程序
-
-target.removeHandler(&quot;message&quot;,handleMessage);
-//再次，应没有处理程序
-target.fire({type:&quot;message&quot;,message:&quot;hello world&quot;});
-</code></pre><p>/<em>那么这种事件可以通过继承的方式给别人，让别的控件或者div也能拥有这个事件类型的处理程序等等</em>/</p>
-<h3 id="5拖拽实现"><a href="#5拖拽实现" class="headerlink" title="5拖拽实现"></a>5拖拽实现</h3><pre><code>&lt;html&gt;
-
-&lt;title&gt;login&lt;/title&gt;
-
-&lt;body&gt;
-
-
-&lt;div   id=&quot;myDiv&quot; style=&quot;width: 200px;height: 200px; border:1px solid #F00&quot;&gt;
-
-
-&lt;/div&gt;
-
-&lt;div class=&quot;draggable&quot; style=&quot;position:absolute; background:red;width: 300px;height: 300px;&quot;  &gt; &lt;/div&gt; 
-
-&lt;script&gt;
-
-
-
-var EventUtil = {
-
-    addHandler: function (element, type, handler) {
-        if (element.addEventListener) {
-            element.addEventListener(type, handler, false);
-        } else if (element.attachEvent) {
-            element.attachEvent(&quot;on&quot; + type, handler);
-        } else {
-            element[&quot;on&quot; + type] = handler;
-        }
-    },
-    removeHandler: function (element, type, handler) {
-        if (element.removeEventListener) {
-            element.removeEventListener(type, handler, false);
-        } else if (element.detachEvent) {
-            element.detachEvent(&quot;on&quot; + type, handler);
-        } else {
-            element[&quot;on&quot; + type] = null;
-        }
-    },
-    getEvent: function (event) {
-        return event ? event : window.event;
-    },
-    getTarget: function (event) {
-        return event.target || event.srcElement;
-    },
-
-    preventDefault: function (event) {
-        if (event.preventDefault) {
-            event.preventDefault();
-        } else {
-            event.returnValue = false;
-        }
-    }
-}; 
-</code></pre><p>   /<em>自定义事件背后的概念是创建一个管理事件的对象，让其他对象监听那些事件。</em>/</p>
-<pre><code> function EventTarget(){
-
-     this.handlers={};//事件的处理程序序列
- }
-
-EventTarget.prototype = {
-    constructor: EventTarget,
-    addHandler: function (type, handler) {
-        if (typeof this.handlers[type] == &quot;undefined&quot;) {
-
-            this.handlers[type] = [];
-        }
-        this.handlers[type].push(handler);
-    },
-         //激发事件
-    fire: function (event) {
-        if (!event.target) {
-            event.target = this;
-        }
-        if (this.handlers[event.type] instanceof Array) {
-            var handlers = this.handlers[event.type];
-            for (var i = 0, len = handlers.length; i &lt; len; i++) {
-                handlers[i](event);
-            }
-        }
-    },
-    /*移除事件*/
-    removeHandler: function (type, handler) {
-        if (this.handlers[type] instanceof Array) {
-            var handlers = this.handlers[type];
-            for (var i = 0, len = handlers.length; i &lt; len; i++) {
-                if (handlers[i] === handler) {
-                    break;
-                }
-            }
-            handlers.splice(i, 1);
-
-        }
-    },
-
-}; 
-</code></pre><p>/<em>拖拽实现</em>/<br>//第一步：拖尾的基本代码需要为文档设置一个 onmousemove 事件处理程序，它总是将指定元素移动到鼠标指针的位置，<br>            EventUtil.addHandler(document, “mousemove”, function (event) {<br>                    var myDiv = document.getElementById(“myDiv”);<br>                    myDiv.style.left = event.clientX + “px”;<br>                    myDiv.style.top = event.clientY + “px”;<br>                });</p>
-<pre><code>        /*DragDrop 对象封装了拖放的所有基本功能。这是一个单例对象，并使用了模块模式来隐藏某些实
-        现细节。*/
-            var DragDrop = function () {
-                var dragging = null;
-                function handleEvent(event) {
-                    //获取事件和目标
-                    event = EventUtil.getEvent(event);
-                    var target = EventUtil.getTarget(event);
-                    //确定事件类型
-                    switch (event.type) {
-                        case &quot;mousedown&quot;:
-                            if (target.className.indexOf(&quot;draggable&quot;) &gt; -1) {
-                                dragging = target;
-                            }
-                            break;
-                        case &quot;mousemove&quot;:
-                            if (dragging !== null) {
-                                //指定位置
-                                dragging.style.left = event.clientX + &quot;px&quot;;
-                                dragging.style.top = event.clientY + &quot;px&quot;;
-                            }
-                            break;
-                        case &quot;mouseup&quot;:
-                            dragging = null;
-                            break;
-                    }
-                };
-                //公共接口
-                return {
-                    enable: function () {
-                        EventUtil.addHandler(document, &quot;mousedown&quot;, handleEvent);
-                        EventUtil.addHandler(document, &quot;mousemove&quot;, handleEvent);
-                        EventUtil.addHandler(document, &quot;mouseup&quot;, handleEvent);
-                    },
-
-                    disable: function () {
-                        EventUtil.removeHandler(document, &quot;mousedown&quot;, handleEvent);
-                        EventUtil.removeHandler(document, &quot;mousemove&quot;, handleEvent);
-                        EventUtil.removeHandler(document, &quot;mouseup&quot;, handleEvent);
-                    }
-                }
-            }(); 
-
-
-            DragDrop.enable();
-
-   &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-</code></pre><h3 id="6小结"><a href="#6小结" class="headerlink" title="6小结"></a>6小结</h3><p>JavaScript 中的函数非常强大，因为它们是第一类对象。使用闭包和函数环境切换，还可以有很多<br>使用函数的强大方法。可以创建作用域安全的构造函数，确保在缺少 new 操作符时调用构造函数不会改<br>变错误的环境对象。<br> 可以使用惰性载入函数，将任何代码分支推迟到第一次调用函数的时候。<br> 函数绑定可以让你创建始终在指定环境中运行的函数，同时函数柯里化可以让你创建已经填了<br>某些参数的函数。<br> 将绑定和柯里化组合起来，就能够给你一种在任意环境中以任意参数执行任意函数的方法。<br>ECMAScript 5 允许通过以下几种方式来创建防篡改对象。<br> 不可扩展的对象，不允许给对象添加新的属性或方法。<br> 密封的对象，也是不可扩展的对象，不允许删除已有的属性和方法。<br> 冻结的对象，也是密封的对象，不允许重写对象的成员。<br>JavaScript 中可以使用 setTimeout()和 setInterval()如下创建定时器。<br> 定时器代码是放在一个等待区域，直到时间间隔到了之后，此时将代码添加到 JavaScript 的处理<br>队列中，等待下一次 JavaScript 进程空闲时被执行。<br> 每次一段代码执行结束之后，都会有一小段空闲时间进行其他浏览器处理。<br> 这种行为意味着，可以使用定时器将长时间运行的脚本切分为一小块一小块可以在以后运行的<br>代码段。这种做法有助于 Web 应用对用户交互有更积极的响应。<br>JavaScript 中经常以事件的形式应用观察者模式。虽然事件常常和 DOM 一起使用，但是你也可以通<br>图灵社区会员 StinkBC(<a href="mailto:StinkBC@gmail.com" target="_blank" rel="noopener">StinkBC@gmail.com</a>) 专享 尊重版权</p>
-<p>过实现自定义事件在自己的代码中应用。使用自定义事件有助于将不同部分的代码相互之间解耦，让维<br>护更加容易，并减少引入错误的机会。<br>拖放对于桌面和 Web 应用都是一个非常流行的用户界面范例，它能够让用户非常方便地以一种直<br>观的方式重新排列或者配置东西。在 JavaScrip 中可以使用鼠标事件和一些简单的计算来实现这种功能<br>类型。将拖放行为和自定义事件结合起来可以创建一个可重复使用的框架，它能应用于各种不同的情<br>况下。</p>
+            <h2 id="1-学习路径"><a href="#1-学习路径" class="headerlink" title="1  学习路径"></a>1  学习路径</h2><p>   本学习路径由两部分组成。  </p>
+<h4 id="一为源码。基于jquery1-4-2"><a href="#一为源码。基于jquery1-4-2" class="headerlink" title="一为源码。基于jquery1.4.2"></a>一为源码。基于jquery1.4.2</h4><p>github地址为：<a href="https://github.com/baobaobaobaobao/companyLearn" target="_blank" rel="noopener">https://github.com/baobaobaobaobao/companyLearn</a><br>在companyLearn  项目下的jqueryLearn中。 源码已经提供   </p>
+<h4 id="二为资源网站对源码优化。"><a href="#二为资源网站对源码优化。" class="headerlink" title="二为资源网站对源码优化。"></a>二为资源网站对源码优化。</h4><p>网址为：<a href="http://davestewart.io/resources/javascript/deconstructed/jquery/?utm_source=qq&amp;utm_medium=social&amp;utm_oi=609449814048641024" target="_blank" rel="noopener">http://davestewart.io/resources/javascript/deconstructed/jquery/?utm_source=qq&amp;utm_medium=social&amp;utm_oi=609449814048641024</a>  </p>
+<h4 id="三为本人对源码的解析。"><a href="#三为本人对源码的解析。" class="headerlink" title="三为本人对源码的解析。"></a>三为本人对源码的解析。</h4><p>在github项目下的companglearn文件中jqueryLearn的test中。</p>
+<p>望求star。</p>
 
           
         
@@ -746,7 +419,7 @@ EventTarget.prototype = {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十四章 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/呐喊/二十四章 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -765,7 +438,7 @@ EventTarget.prototype = {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/23/二十四章 demo/" itemprop="url">第二十四章笔记</a></h1>
+                <a class="post-title-link" href="/2018/07/14/呐喊/二十四章 demo/" itemprop="url">第二十四章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -777,8 +450,8 @@ EventTarget.prototype = {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T11:39:49+08:00">
-                2018-06-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T19:10:49+08:00">
+                2018-07-14
               </time>
             
 
@@ -818,9 +491,9 @@ EventTarget.prototype = {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/23/二十四章 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/14/呐喊/二十四章 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/23/二十四章 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/14/呐喊/二十四章 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -973,7 +646,7 @@ list.appendChild(fragment);
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十三章 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/12/编码/第一章 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -992,7 +665,386 @@ list.appendChild(fragment);
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/23/二十三章 demo/" itemprop="url">第二十三章笔记</a></h1>
+                <a class="post-title-link" href="/2018/07/12/编码/第一章 demo/" itemprop="url">第一章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-12T23:09:00+08:00">
+                2018-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编码-隐匿在计算机语言后面的实现笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">编码-隐匿在计算机语言后面的实现笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/12/编码/第一章 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/12/编码/第一章 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-如何实现加法？"><a href="#1-如何实现加法？" class="headerlink" title="1 如何实现加法？"></a>1 如何实现加法？</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/javascript高级程序设计/二十四章 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/23/javascript高级程序设计/二十四章 demo/" itemprop="url">第二十四章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T11:39:49+08:00">
+                2018-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/23/javascript高级程序设计/二十四章 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/23/javascript高级程序设计/二十四章 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-避免全局变量"><a href="#1-避免全局变量" class="headerlink" title="1  避免全局变量"></a>1  避免全局变量</h3><pre><code>//一个全局变量——我们推荐这样使用
+var MyApplication = {
+ name: &quot;Nicholas&quot;,
+ sayName: function(){
+ alert(this.name);
+ }
+}; 
+</code></pre><h3 id="2-定义常量，我们推荐这样"><a href="#2-定义常量，我们推荐这样" class="headerlink" title="2  定义常量，我们推荐这样"></a>2  定义常量，我们推荐这样</h3><pre><code>var Constants = {
+ INVALID_VALUE_MSG: &quot;Invalid value!&quot;,
+ INVALID_VALUE_URL: &quot;/errors/invalid.php&quot;
+};
+function validate(value){
+ if (!value){
+ alert(Constants.INVALID_VALUE_MSG);
+ location.href = Constants.INVALID_VALUE_URL;
+ }
+} 
+</code></pre><h3 id="3-注意作用域"><a href="#3-注意作用域" class="headerlink" title="3  注意作用域"></a>3  注意作用域</h3><p>这里将document用于局部变量，总是有用的，因为我们不需要每次都去作用域链中寻找我们的<br>全局变量</p>
+<pre><code>   function updateUI(){
+    var doc = document;
+    var imgs = doc.getElementsByTagName(&quot;img&quot;);
+    for (var i=0, len=imgs.length; i &lt; len; i++){
+    imgs[i].title = doc.title + &quot; image &quot; + i;
+    }
+    var msg = doc.getElementById(&quot;msg&quot;);
+    msg.innerHTML = &quot;Update complete.&quot;;
+   } 
+将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。 
+</code></pre><h4 id="4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"><a href="#4-避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用" class="headerlink" title="4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用"></a>4  避免属性查找，多次用到一个属性时，应该把它当做一个局部变量使用</h4><p>一旦多次用到对象属性，应该将其存储在局部变量中。第一次访问该值会是 O(n)，然而后续<br>的访问都会是 O(1)，就会节省很多。例如，之前的代码可以如下重写：  </p>
+<pre><code>var url = window.location.href;
+var query = url.substring(url.indexOf(&quot;?&quot;));
+</code></pre><p>这个版本的代码只有 4 次属性查找，相对于原始版本节省了 33%。在更大的脚本中进行这种<br>优化，倾向于获得更多改进。</p>
+<h4 id="5-避免双重解释"><a href="#5-避免双重解释" class="headerlink" title="5   避免双重解释"></a>5   避免双重解释</h4><p>JavaScript 代码想解析 JavaScript 的时候就会存在双重解释惩罚。当使用 eval()函数<br>或者是Function构造函数以及使用 setTimeout()传一个字符串参数时都会发生这种情况。<br>下面有一些例子：  </p>
+<pre><code>//某些代码求值——避免!!
+    eval(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//创建新函数——避免!!
+var sayHi = new Function(&quot;alert(&apos;Hello world!&apos;)&quot;);
+//设置超时——避免!!
+setTimeout(&quot;alert(&apos;Hello world!&apos;)&quot;, 500);
+</code></pre><p>&emsp; 在以上这些例子中，都要解析包含了 JavaScript 代码的字符串。这个操作是不能在初始的<br>解析过程中完成的，因为代码是包含在字符串中的，也就是说在 JavaScript 代码运行的同<br>时必须新启动一个解析器来解析新的代码。<br>&emsp; 实例化一个新的解析器有不容忽视的开销，  所以这种代码要比直接解  析慢得多。<br>对于这几个例子都有另外的办法。只有极少的情况下  eval()是绝对必须的，所以尽可能避免<br>使用。在这个例子中，代码其实可以直接内嵌在  原代码中。对于 Function 构造函数，<br> 完全可以直接写成一般的函数，调用<br> setTimeout()可以传入函数作为第一个参数。以下是一些例子：  </p>
+<pre><code>//已修正
+alert(&apos;Hello world!&apos;);
+//创建新函数——已修正
+var sayHi = function(){
+ alert(&apos;Hello world!&apos;);
+};
+//设置一个超时——已修正
+setTimeout(function(){
+ alert(&apos;Hello world!&apos;);
+}, 500);
+</code></pre><p>如果要提高代码性能，尽可能避免出现需要按照 JavaScript 解释的字符串。 </p>
+<h3 id="6-优化DOM交互"><a href="#6-优化DOM交互" class="headerlink" title="6  优化DOM交互"></a>6  优化DOM交互</h3><h5 id="（1）优化DOM交互"><a href="#（1）优化DOM交互" class="headerlink" title="（1）优化DOM交互"></a>（1）优化DOM交互</h5><ol>
+<li><p>最小化现场更新<br>一旦你需要访问的 DOM 部分是已经显示的页面的一部分，那么你就是在进行一个现场更新。之所<br>以叫现场更新，是因为需要立即（现场）对页面对用户的显示进行更新。每一个更改，不管是插入单个<br>字符，还是移除整个片段，都有一个性能惩罚，因为浏览器要重新计算无数尺寸以进行更新。现场更新<br>进行得越多，代码完成执行所花的时间就越长；完成一个操作所需的现场更新越少，代码就越快。请看<br>以下例子：</p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+item,
+i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ list.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+</code></pre><p>这段代码为列表添加了 10 个项目。添加每个项目时，都有 2 个现场更新：一个添加<li>元素，另<br>一个给它添加文本节点。这样添加 10 个项目，这个操作总共要完成 20 个现场更新。<br>要修正这个性能瓶颈，需要减少现场更新的数量。一般有 2 种方法。第一种是将列表从页面上移除，<br>最后进行更新，最后再将列表插回到同样的位置。这个方法不是非常理想，因为在每次页面更新的时候<br>它会不必要的闪烁。第二个方法是使用文档片段来构建 DOM 结构，接着将其添加到 List 元素中。这<br>个方式避免了现场更新和页面闪烁问题。请看下面内容：<br><strong>就是先一次性建好所有的li再放进去。而不是，建一个，放一个。</strong></li></p>
+<pre><code>var list = document.getElementById(&quot;myList&quot;),
+ fragment = document.createDocumentFragment(),
+ item,
+ i;
+for (i=0; i &lt; 10; i++) {
+ item = document.createElement(&quot;li&quot;);
+ fragment.appendChild(item);
+ item.appendChild(document.createTextNode(&quot;Item &quot; + i));
+}
+list.appendChild(fragment);
+</code></pre><p>在这个例子中只有一次现场更新，它发生在所有项目都创建好之后。文档片段用作一个临时的占位<br>符，放置新创建的项目。然后使用 appendChild()将所有项目添加到列表中。记住，当给 appendChild()<br>传入文档片段时，只有片段中的子节点被添加到目标，片段本身不会被添加的。<br>一旦需要更新 DOM，请考虑使用文档片段来构建 DOM 结构，然后再将其添加到现存的文档中。 </p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/javascript高级程序设计/二十三章 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/23/javascript高级程序设计/二十三章 demo/" itemprop="url">第二十三章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1045,9 +1097,9 @@ list.appendChild(fragment);
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/23/二十三章 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/23/javascript高级程序设计/二十三章 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/23/二十三章 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/23/javascript高级程序设计/二十三章 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1171,7 +1223,7 @@ list.appendChild(fragment);
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/二十二章 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/javascript高级程序设计/二十二章 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1190,7 +1242,7 @@ list.appendChild(fragment);
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/23/二十二章 demo/" itemprop="url">第二十二章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/23/javascript高级程序设计/二十二章 demo/" itemprop="url">第二十二章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1243,9 +1295,9 @@ list.appendChild(fragment);
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/23/二十二章 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/23/javascript高级程序设计/二十二章 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/23/二十二章 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/23/javascript高级程序设计/二十二章 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1655,7 +1707,7 @@ EventTarget.prototype = {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/二十 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/javascript高级程序设计/二十 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1674,7 +1726,7 @@ EventTarget.prototype = {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/22/二十 demo/" itemprop="url">第二十章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/22/javascript高级程序设计/二十 demo/" itemprop="url">第二十章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1727,9 +1779,9 @@ EventTarget.prototype = {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/22/二十 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/22/javascript高级程序设计/二十 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/22/二十 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/22/javascript高级程序设计/二十 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2001,7 +2053,7 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/十四 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/javascript高级程序设计/十四 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -2020,7 +2072,7 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/20/十四 demo/" itemprop="url">第十四章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/20/javascript高级程序设计/十四 demo/" itemprop="url">第十四章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -2073,9 +2125,9 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/20/十四 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/20/javascript高级程序设计/十四 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/20/十四 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/20/javascript高级程序设计/十四 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2347,7 +2399,7 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/十三 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十三 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -2366,7 +2418,7 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/十三 demo/" itemprop="url">第十三章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/十三 demo/" itemprop="url">第十三章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -2419,9 +2471,9 @@ queryCommandEnabled()、queryCommandState()和 queryCommandValue()方法则可�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/十三 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/十三 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/十三 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/十三 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2795,7 +2847,7 @@ btn.dispatchEvent(event);
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/十二 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十二 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -2814,7 +2866,7 @@ btn.dispatchEvent(event);
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/十二 demo/" itemprop="url">第十二章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/十二 demo/" itemprop="url">第十二章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -2867,9 +2919,9 @@ btn.dispatchEvent(event);
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/十二 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/十二 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/十二 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/十二 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2900,512 +2952,6 @@ btn.dispatchEvent(event);
         
           
             <h4 id="1-本章因为个人原因先跳过了。有时间再看。"><a href="#1-本章因为个人原因先跳过了。有时间再看。" class="headerlink" title="(1)本章因为个人原因先跳过了。有时间再看。"></a>(1)本章因为个人原因先跳过了。有时间再看。</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/十一 demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/17/十一 demo/" itemprop="url">第十一章笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T19:09:27+08:00">
-                2018-06-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/17/十一 demo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/十一 demo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-DOM扩展"><a href="#1-DOM扩展" class="headerlink" title="(1)DOM扩展"></a>(1)DOM扩展</h4><blockquote>
-<p>这难道不就是jquery干的事情吗？？</p>
-</blockquote>
-<pre><code>querySelector()方法
-querySelector()方法接收一个 CSS 选择符，返回与该模式匹配的第一个元素，如果没有找到匹
-配的元素，返回 null。请看下面的例子。
-&lt;html&gt;
-
-&lt;body&gt;
-
-    &lt;body&gt;
-
-        &lt;div id=&quot;myDiv&quot;&gt;
-               dlskajflk
-        &lt;/div&gt;
-    &lt;/body&gt;
-    &lt;script&gt;
-      var body=document.querySelector(&quot;body&quot;);
-      var myDiv=document.querySelector(&quot;#myDiv&quot;);
-      alert(myDiv.outerHTML);//输出 &lt;div id=&quot;myDiv&quot;&gt; dlskajflk&lt;/div&gt;
-    &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-</code></pre><h4 id="2-Html5定义了大量的JavaScript的API"><a href="#2-Html5定义了大量的JavaScript的API" class="headerlink" title="(2)Html5定义了大量的JavaScript的API"></a>(2)Html5定义了大量的JavaScript的API</h4><p>  1  比较有特点的是插入标记。可以直接设置一个便签的innerHTML直接插入一些便签。</p>
-<pre><code>在读模式下，innerHTML 属性返回与调用元素的所有子节点（包括元素、注释和文本节点）对应
-的 HTML 标记。在写模式下，innerHTML 会根据指定的值创建新的 DOM 树，然后用这个 DOM 树完全
-替换调用元素原先的所有子节点。下面是一个例子。
-&lt;div id=&quot;content&quot;&gt;
- &lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
- &lt;ul&gt;
- &lt;li&gt;Item 1&lt;/li&gt;
- &lt;li&gt;Item 2&lt;/li&gt;
- &lt;li&gt;Item 3&lt;/li&gt;
- &lt;/ul&gt;
-&lt;/div&gt;
-对于上面的&lt;div&gt;元素来说，它的 innerHTML 属性会返回如下字符串。
-&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
-&lt;ul&gt;
- &lt;li&gt;Item 1&lt;/li&gt;
- &lt;li&gt;Item 2&lt;/li&gt;
- &lt;li&gt;Item 3&lt;/li&gt;
-&lt;/ul&gt; 
-</code></pre><p>而设置也超级简单。</p>
-<blockquote>
-<p>  div.innerHTML = “Hello &amp; welcome, <b>\”reader\”!</b>“; </p>
-</blockquote>
-<h4 id="3-不要频繁使用innerHTML"><a href="#3-不要频繁使用innerHTML" class="headerlink" title="(3)不要频繁使用innerHTML"></a>(3)不要频繁使用innerHTML</h4><pre><code>&lt;html&gt;
-
-&lt;body&gt;
-
-    &lt;body&gt;
-
-        &lt;div id=&quot;myDiv&quot;&gt;
-               dlskajflk
-        &lt;/div&gt;
-    &lt;/body&gt;
-    &lt;script&gt;
-      for(var i=0,len=values.length;i&lt;len;i++){
-
-        ul.innerHTML+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
-      }
-   /*这个算法不好，这样会频繁的访问ul.innerHTML，性能很差*/
-      var itemsHtml=&quot;&quot;;
-      for(var i=0,len=values.length;i&lt;len;i++){
-          itemsHtml+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
-      }
-      ul.innerHTML=itemsHtml;
-      /*我们应该不断累加，再一次性加给innerHTML。*/
-    &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-</code></pre><h4 id="4-contains-方法"><a href="#4-contains-方法" class="headerlink" title="(4)contains()方法"></a>(4)contains()方法</h4><p>   在实际开发中，经常需要知道某个节点是不是另一个节点的后代。IE 为此率先引入了 contains()<br>方法，以便不通过在 DOM 文档树中查找即可获得这个信息。调用 contains()方法的应该是祖先节点，<br>也就是搜索开始的节点，这个方法接收一个参数，即要检测的后代节点。如果被检测的节点是后代节点，<br>该方法返回 true；否则，返回 false。以下是一个例子：<br>alert(document.documentElement.contains(document.body)); //true<br>当然，考虑到不同浏览器之间的支持程度。我们可以使用一种通用的函数。比如。  </p>
-<pre><code>function contains(refNode, otherNode) {
-       if (typeof refNode.contains == &quot;function&quot; &amp;&amp;
-           (!client.engine.webkit || client.engine.webkit &gt;= 522)) {
-           return refNode.contains(otherNode);
-       } else if (typeof refNode.compareDocumentPosition == &quot;function&quot;) {
-           return !!(refNode.compareDocumentPosition(otherNode) &amp; 16);
-       } else {
-           var node = otherNode.parentNode;
-           do {
-               if (node === refNode) {
-                   return true;
-               } else {
-                   node = node.parentNode;
-               }
-           } while (node !== null);
-
-           return false;
-       }
-   } 
-
-   alert(contains(document.getElementById(&quot;myDiv&quot;)),document.getElementById(&quot;myLi&quot;))
-</code></pre><h4 id="5-innerText属性"><a href="#5-innerText属性" class="headerlink" title="(5)innerText属性"></a>(5)innerText属性</h4><p>通过 innertText 属性可以操作元素中包含的所有文本内容，包括子文档树中的文本。在通过<br>innerText 读取值时，它会按照由浅入深的顺序，将子文档树中的所有文本拼接起来。在通过<br>innerText 写入值时，<strong>结果会删除元素的所有子节点，插入包含相应文本值的文本节点。</strong>来看下面这<br>个 HTML 代码示例。  </p>
-<pre><code>&lt;div id=&quot;content&quot;&gt;
- &lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
- &lt;ul&gt;
- &lt;li&gt;Item 1&lt;/li&gt;
- &lt;li&gt;Item 2&lt;/li&gt;
- &lt;li&gt;Item 3&lt;/li&gt;
- &lt;/ul&gt;
-&lt;/div&gt;
-InnerTextExample01.htm
-对于这个例子中的&lt;div&gt;元素而言，其 innerText 属性会返回下列字符串：
-This is a paragraph with a list following it.
-Item 1
-Item 2
-Item 3 
-</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6)小结"></a>(6)小结</h4><blockquote>
-<ul>
-<li>虽然 DOM 为与 XML 及 HTML 文档交互制定了一系列核心 API，但仍然有几个规范对标准的 DOM<br>进行了扩展。这些扩展中有很多原来是浏览器专有的，但后来成为了事实标准，于是其他浏览器也都提<br>供了相同的实现。本章介绍的三个这方面的规范如下。</li>
-<li>1 Selectors API，定义了两个方法，让开发人员能够基于 CSS 选择符从 DOM 中取得元素，这两个<br>方法是 querySelector()和 querySelectorAll()。</li>
-<li>2 Element Traversal，为 DOM 元素定义了额外的属性，让开发人员能够更方便地从一个元素跳到<br>另一个元素。之所以会出现这个扩展，是因为浏览器处理 DOM 元素间空白符的方式不一样。</li>
-<li>HTML5，为标准的 DOM 定义了很多扩展功能。其中包括在 innerHTML 属性这样的事实标准基<br>础上提供的标准定义，以及为管理焦点、设置字符集、滚动页面而规定的扩展 API。<br>虽然目前 DOM 扩展的数量还不多，但随着 Web 技术的发展，相信一定还会涌现出更多扩展来。很<br>多浏览器都在试验专有的扩展，而这些扩展一旦获得认可，就能成为“伪”标准，甚至会被收录到规范<br>的更新版本中。</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/十 demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/17/十 demo/" itemprop="url">第十章笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T13:54:51+08:00">
-                2018-06-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/17/十 demo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/十 demo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="1-DOM"><a href="#1-DOM" class="headerlink" title="(1)DOM"></a>(1)DOM</h4><p>这一章主要针对不同浏览器要使用功能时做出的检测是否支持这个功能的一章。<br>没啥意思。</p>
-<h4 id="2-Document类型"><a href="#2-Document类型" class="headerlink" title="(2)Document类型"></a>(2)Document类型</h4><p>  JavaScript 通过 Document 类型表示文档。在浏览器中，document 对象是 HTMLDocument（继承<br>自 Document 类型）的一个实例，表示整个 HTML 页面。而且，document 对象是 window 对象的一个<br>属性，因此可以将其作为全局对象来访问。<br>通过它可以访问到文档各种信息。 </p>
-<pre><code>//取得完整的 URL
- var url = document.URL;
- //取得域名
- var domain = document.domain;
- //取得来源页面的 URL
- var referrer = document.referrer; 
-</code></pre><h4 id="3-文档写入"><a href="#3-文档写入" class="headerlink" title="(3)文档写入"></a>(3)文档写入</h4><p>如果想要documen.write来写入我们需要插入到界面的JavaScript代码可以这样。  </p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-document.write(&quot;&lt;script type=\&quot;text/javascript\&quot;   src=\&quot;file.js\&quot; &gt;&quot; +&quot;&lt;\/script&gt;&quot;); 
-&lt;/script&gt; 
-</code></pre><h4 id="4-node遍历"><a href="#4-node遍历" class="headerlink" title="(4)node遍历"></a>(4)node遍历</h4><blockquote>
-<p>不过，如果想要遍历元素的特性，attributes 属性倒是可以派上用场。在需要将 DOM 结构序列<br>化为 XML 或 HTML 字符串时，多数都会涉及遍历元素特性。以下代码展示了如何迭代元素的每一个特<br>性，然后将它们构造成 name=”value” name=”value”这样的字符串格式<br>。  </p>
-</blockquote>
-<pre><code>function outputAttributes(element){
- var pairs = new Array(),
- attrName,
- attrValue,
- i,
- len;
- for (i=0, len=element.attributes.length; i &lt; len; i++){
- attrName = element.attributes[i].nodeName;
- attrValue = element.attributes[i].nodeValue;
- pairs.push(attrName + &quot;=\&quot;&quot; + attrValue + &quot;\&quot;&quot;);
- }
- return pairs.join(&quot; &quot;);
-} 
-</code></pre><h4 id="5-遍历元素子节点"><a href="#5-遍历元素子节点" class="headerlink" title="(5)遍历元素子节点"></a>(5)遍历元素子节点</h4><pre><code>&lt;html&gt;
-
-&lt;body&gt;
-    &lt;ul id=&quot;myList&quot;&gt;
-        &lt;li&gt;jlk&lt;/li&gt;
-        &lt;li&gt;jlksdjflk&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;script&gt;
-        var mylist = document.getElementById(&quot;myList&quot;);
-
-        for (var i = 0, len = mylist.childNodes.length; i &lt; len; i++) {
-            if (mylist.childNodes[i].nodeType == 1) {
-                alert(mylist.childNodes[i].nodeName);//LI
-            }
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;
-</code></pre><h4 id="6-用js代码实现加载js和css文件"><a href="#6-用js代码实现加载js和css文件" class="headerlink" title="(6)用js代码实现加载js和css文件"></a>(6)用js代码实现加载js和css文件</h4><p>比如在同级目录下有一个demo.js文件，我们不想用标签引用，只想用代码引入。我们可以</p>
-<pre><code>function loadScript(url){
-       var script=document.createElement(&quot;script&quot;);
-       script.type=&quot;text/javascript&quot;;
-       script.src=url;
-       document.body.appendChild(script);
-   }
-   loadScript(&quot;demo.js&quot;);
-
-    /*需要注意的是，必须将&lt;link&gt;元素添加到&lt;head&gt;
-    而不是&lt;body&gt;元素，才能保证在所有浏览器中的行为一致。整个过程可以用以下函数来表示：*/
-    function loadStyles(url){
-     var link = document.createElement(&quot;link&quot;);
-     link.rel = &quot;stylesheet&quot;;
-     link.type = &quot;text/css&quot;;
-     link.href = url;
-     var head = document.getElementsByTagName(&quot;head&quot;)[0];
-     head.appendChild(link);
-    }
-    调用 loadStyles()函数的代码如下所示：
-    loadStyles(&quot;styles.css&quot;); 
-</code></pre><h4 id="7-小结"><a href="#7-小结" class="headerlink" title="(7)小结"></a>(7)小结</h4><pre><code>  DOM 是语言中立的 API，用于访问和操作 HTML 和 XML 文档。DOM1 级将 HTML 和 XML 文档
-形象地看作一个层次化的节点树，可以使用 JavaScript 来操作这个节点树，进而改变底层文档的外观和
-结构。
-  DOM 由各种节点构成，简要总结如下。
-1 最基本的节点类型是 Node，用于抽象地表示文档中一个独立的部分；所有其他类型都继承自
-Node。
-2 Document 类型表示整个文档，是一组分层节点的根节点。在 JavaScript 中，document 对象是
-Document 的一个实例。使用 document 对象，有很多种方式可以查询和取得节点。
-3 Element 节点表示文档中的所有 HTML 或 XML 元素，可以用来操作这些元素的内容和特性。
-4 另外还有一些节点类型，分别表示文本内容、注释、文档类型、CDATA 区域和文档片段。
-访问 DOM 的操作在多数情况下都很直观，不过在处理&lt;script&gt;和&lt;style&gt;元素时还是存在一些
-复杂性。由于这两个元素分别包含脚本和样式信息，因此浏览器通常会将它们与其他元素区别对待。这
-些区别导致了在针对这些元素使用 innerHTML 时，以及在创建新元素时的一些问题。
-理解 DOM 的关键，就是理解 DOM 对性能的影响。DOM 操作往往是 JavaScript 程序中开销最大的
-部分，而因访问 NodeList 导致的问题为最多。NodeList 对象都是“动态的”，这就意味着每次访问
-NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就是尽量减少 DOM 操作。
-</code></pre>
           
         
       
@@ -3494,7 +3040,7 @@ NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3505,7 +3051,7 @@ NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -3516,7 +3062,7 @@ NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/九 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十一 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -281,7 +281,513 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/九 demo/" itemprop="url">第九章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/十一 demo/" itemprop="url">第十一章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T19:09:27+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/十一 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/十一 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-DOM扩展"><a href="#1-DOM扩展" class="headerlink" title="(1)DOM扩展"></a>(1)DOM扩展</h4><blockquote>
+<p>这难道不就是jquery干的事情吗？？</p>
+</blockquote>
+<pre><code>querySelector()方法
+querySelector()方法接收一个 CSS 选择符，返回与该模式匹配的第一个元素，如果没有找到匹
+配的元素，返回 null。请看下面的例子。
+&lt;html&gt;
+
+&lt;body&gt;
+
+    &lt;body&gt;
+
+        &lt;div id=&quot;myDiv&quot;&gt;
+               dlskajflk
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+      var body=document.querySelector(&quot;body&quot;);
+      var myDiv=document.querySelector(&quot;#myDiv&quot;);
+      alert(myDiv.outerHTML);//输出 &lt;div id=&quot;myDiv&quot;&gt; dlskajflk&lt;/div&gt;
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="2-Html5定义了大量的JavaScript的API"><a href="#2-Html5定义了大量的JavaScript的API" class="headerlink" title="(2)Html5定义了大量的JavaScript的API"></a>(2)Html5定义了大量的JavaScript的API</h4><p>  1  比较有特点的是插入标记。可以直接设置一个便签的innerHTML直接插入一些便签。</p>
+<pre><code>在读模式下，innerHTML 属性返回与调用元素的所有子节点（包括元素、注释和文本节点）对应
+的 HTML 标记。在写模式下，innerHTML 会根据指定的值创建新的 DOM 树，然后用这个 DOM 树完全
+替换调用元素原先的所有子节点。下面是一个例子。
+&lt;div id=&quot;content&quot;&gt;
+ &lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
+ &lt;ul&gt;
+ &lt;li&gt;Item 1&lt;/li&gt;
+ &lt;li&gt;Item 2&lt;/li&gt;
+ &lt;li&gt;Item 3&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;
+对于上面的&lt;div&gt;元素来说，它的 innerHTML 属性会返回如下字符串。
+&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Item 1&lt;/li&gt;
+ &lt;li&gt;Item 2&lt;/li&gt;
+ &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt; 
+</code></pre><p>而设置也超级简单。</p>
+<blockquote>
+<p>  div.innerHTML = “Hello &amp; welcome, <b>\”reader\”!</b>“; </p>
+</blockquote>
+<h4 id="3-不要频繁使用innerHTML"><a href="#3-不要频繁使用innerHTML" class="headerlink" title="(3)不要频繁使用innerHTML"></a>(3)不要频繁使用innerHTML</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+
+    &lt;body&gt;
+
+        &lt;div id=&quot;myDiv&quot;&gt;
+               dlskajflk
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+      for(var i=0,len=values.length;i&lt;len;i++){
+
+        ul.innerHTML+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+      }
+   /*这个算法不好，这样会频繁的访问ul.innerHTML，性能很差*/
+      var itemsHtml=&quot;&quot;;
+      for(var i=0,len=values.length;i&lt;len;i++){
+          itemsHtml+=&quot;&lt;li&gt;&quot;+values[i]+&quot;&lt;/li&gt;&quot;;
+      }
+      ul.innerHTML=itemsHtml;
+      /*我们应该不断累加，再一次性加给innerHTML。*/
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="4-contains-方法"><a href="#4-contains-方法" class="headerlink" title="(4)contains()方法"></a>(4)contains()方法</h4><p>   在实际开发中，经常需要知道某个节点是不是另一个节点的后代。IE 为此率先引入了 contains()<br>方法，以便不通过在 DOM 文档树中查找即可获得这个信息。调用 contains()方法的应该是祖先节点，<br>也就是搜索开始的节点，这个方法接收一个参数，即要检测的后代节点。如果被检测的节点是后代节点，<br>该方法返回 true；否则，返回 false。以下是一个例子：<br>alert(document.documentElement.contains(document.body)); //true<br>当然，考虑到不同浏览器之间的支持程度。我们可以使用一种通用的函数。比如。  </p>
+<pre><code>function contains(refNode, otherNode) {
+       if (typeof refNode.contains == &quot;function&quot; &amp;&amp;
+           (!client.engine.webkit || client.engine.webkit &gt;= 522)) {
+           return refNode.contains(otherNode);
+       } else if (typeof refNode.compareDocumentPosition == &quot;function&quot;) {
+           return !!(refNode.compareDocumentPosition(otherNode) &amp; 16);
+       } else {
+           var node = otherNode.parentNode;
+           do {
+               if (node === refNode) {
+                   return true;
+               } else {
+                   node = node.parentNode;
+               }
+           } while (node !== null);
+
+           return false;
+       }
+   } 
+
+   alert(contains(document.getElementById(&quot;myDiv&quot;)),document.getElementById(&quot;myLi&quot;))
+</code></pre><h4 id="5-innerText属性"><a href="#5-innerText属性" class="headerlink" title="(5)innerText属性"></a>(5)innerText属性</h4><p>通过 innertText 属性可以操作元素中包含的所有文本内容，包括子文档树中的文本。在通过<br>innerText 读取值时，它会按照由浅入深的顺序，将子文档树中的所有文本拼接起来。在通过<br>innerText 写入值时，<strong>结果会删除元素的所有子节点，插入包含相应文本值的文本节点。</strong>来看下面这<br>个 HTML 代码示例。  </p>
+<pre><code>&lt;div id=&quot;content&quot;&gt;
+ &lt;p&gt;This is a &lt;strong&gt;paragraph&lt;/strong&gt; with a list following it.&lt;/p&gt;
+ &lt;ul&gt;
+ &lt;li&gt;Item 1&lt;/li&gt;
+ &lt;li&gt;Item 2&lt;/li&gt;
+ &lt;li&gt;Item 3&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;
+InnerTextExample01.htm
+对于这个例子中的&lt;div&gt;元素而言，其 innerText 属性会返回下列字符串：
+This is a paragraph with a list following it.
+Item 1
+Item 2
+Item 3 
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6)小结"></a>(6)小结</h4><blockquote>
+<ul>
+<li>虽然 DOM 为与 XML 及 HTML 文档交互制定了一系列核心 API，但仍然有几个规范对标准的 DOM<br>进行了扩展。这些扩展中有很多原来是浏览器专有的，但后来成为了事实标准，于是其他浏览器也都提<br>供了相同的实现。本章介绍的三个这方面的规范如下。</li>
+<li>1 Selectors API，定义了两个方法，让开发人员能够基于 CSS 选择符从 DOM 中取得元素，这两个<br>方法是 querySelector()和 querySelectorAll()。</li>
+<li>2 Element Traversal，为 DOM 元素定义了额外的属性，让开发人员能够更方便地从一个元素跳到<br>另一个元素。之所以会出现这个扩展，是因为浏览器处理 DOM 元素间空白符的方式不一样。</li>
+<li>HTML5，为标准的 DOM 定义了很多扩展功能。其中包括在 innerHTML 属性这样的事实标准基<br>础上提供的标准定义，以及为管理焦点、设置字符集、滚动页面而规定的扩展 API。<br>虽然目前 DOM 扩展的数量还不多，但随着 Web 技术的发展，相信一定还会涌现出更多扩展来。很<br>多浏览器都在试验专有的扩展，而这些扩展一旦获得认可，就能成为“伪”标准，甚至会被收录到规范<br>的更新版本中。</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/十 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/十 demo/" itemprop="url">第十章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T13:54:51+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/十 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/十 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-DOM"><a href="#1-DOM" class="headerlink" title="(1)DOM"></a>(1)DOM</h4><p>这一章主要针对不同浏览器要使用功能时做出的检测是否支持这个功能的一章。<br>没啥意思。</p>
+<h4 id="2-Document类型"><a href="#2-Document类型" class="headerlink" title="(2)Document类型"></a>(2)Document类型</h4><p>  JavaScript 通过 Document 类型表示文档。在浏览器中，document 对象是 HTMLDocument（继承<br>自 Document 类型）的一个实例，表示整个 HTML 页面。而且，document 对象是 window 对象的一个<br>属性，因此可以将其作为全局对象来访问。<br>通过它可以访问到文档各种信息。 </p>
+<pre><code>//取得完整的 URL
+ var url = document.URL;
+ //取得域名
+ var domain = document.domain;
+ //取得来源页面的 URL
+ var referrer = document.referrer; 
+</code></pre><h4 id="3-文档写入"><a href="#3-文档写入" class="headerlink" title="(3)文档写入"></a>(3)文档写入</h4><p>如果想要documen.write来写入我们需要插入到界面的JavaScript代码可以这样。  </p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;&lt;script type=\&quot;text/javascript\&quot;   src=\&quot;file.js\&quot; &gt;&quot; +&quot;&lt;\/script&gt;&quot;); 
+&lt;/script&gt; 
+</code></pre><h4 id="4-node遍历"><a href="#4-node遍历" class="headerlink" title="(4)node遍历"></a>(4)node遍历</h4><blockquote>
+<p>不过，如果想要遍历元素的特性，attributes 属性倒是可以派上用场。在需要将 DOM 结构序列<br>化为 XML 或 HTML 字符串时，多数都会涉及遍历元素特性。以下代码展示了如何迭代元素的每一个特<br>性，然后将它们构造成 name=”value” name=”value”这样的字符串格式<br>。  </p>
+</blockquote>
+<pre><code>function outputAttributes(element){
+ var pairs = new Array(),
+ attrName,
+ attrValue,
+ i,
+ len;
+ for (i=0, len=element.attributes.length; i &lt; len; i++){
+ attrName = element.attributes[i].nodeName;
+ attrValue = element.attributes[i].nodeValue;
+ pairs.push(attrName + &quot;=\&quot;&quot; + attrValue + &quot;\&quot;&quot;);
+ }
+ return pairs.join(&quot; &quot;);
+} 
+</code></pre><h4 id="5-遍历元素子节点"><a href="#5-遍历元素子节点" class="headerlink" title="(5)遍历元素子节点"></a>(5)遍历元素子节点</h4><pre><code>&lt;html&gt;
+
+&lt;body&gt;
+    &lt;ul id=&quot;myList&quot;&gt;
+        &lt;li&gt;jlk&lt;/li&gt;
+        &lt;li&gt;jlksdjflk&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;script&gt;
+        var mylist = document.getElementById(&quot;myList&quot;);
+
+        for (var i = 0, len = mylist.childNodes.length; i &lt; len; i++) {
+            if (mylist.childNodes[i].nodeType == 1) {
+                alert(mylist.childNodes[i].nodeName);//LI
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre><h4 id="6-用js代码实现加载js和css文件"><a href="#6-用js代码实现加载js和css文件" class="headerlink" title="(6)用js代码实现加载js和css文件"></a>(6)用js代码实现加载js和css文件</h4><p>比如在同级目录下有一个demo.js文件，我们不想用标签引用，只想用代码引入。我们可以</p>
+<pre><code>function loadScript(url){
+       var script=document.createElement(&quot;script&quot;);
+       script.type=&quot;text/javascript&quot;;
+       script.src=url;
+       document.body.appendChild(script);
+   }
+   loadScript(&quot;demo.js&quot;);
+
+    /*需要注意的是，必须将&lt;link&gt;元素添加到&lt;head&gt;
+    而不是&lt;body&gt;元素，才能保证在所有浏览器中的行为一致。整个过程可以用以下函数来表示：*/
+    function loadStyles(url){
+     var link = document.createElement(&quot;link&quot;);
+     link.rel = &quot;stylesheet&quot;;
+     link.type = &quot;text/css&quot;;
+     link.href = url;
+     var head = document.getElementsByTagName(&quot;head&quot;)[0];
+     head.appendChild(link);
+    }
+    调用 loadStyles()函数的代码如下所示：
+    loadStyles(&quot;styles.css&quot;); 
+</code></pre><h4 id="7-小结"><a href="#7-小结" class="headerlink" title="(7)小结"></a>(7)小结</h4><pre><code>  DOM 是语言中立的 API，用于访问和操作 HTML 和 XML 文档。DOM1 级将 HTML 和 XML 文档
+形象地看作一个层次化的节点树，可以使用 JavaScript 来操作这个节点树，进而改变底层文档的外观和
+结构。
+  DOM 由各种节点构成，简要总结如下。
+1 最基本的节点类型是 Node，用于抽象地表示文档中一个独立的部分；所有其他类型都继承自
+Node。
+2 Document 类型表示整个文档，是一组分层节点的根节点。在 JavaScript 中，document 对象是
+Document 的一个实例。使用 document 对象，有很多种方式可以查询和取得节点。
+3 Element 节点表示文档中的所有 HTML 或 XML 元素，可以用来操作这些元素的内容和特性。
+4 另外还有一些节点类型，分别表示文本内容、注释、文档类型、CDATA 区域和文档片段。
+访问 DOM 的操作在多数情况下都很直观，不过在处理&lt;script&gt;和&lt;style&gt;元素时还是存在一些
+复杂性。由于这两个元素分别包含脚本和样式信息，因此浏览器通常会将它们与其他元素区别对待。这
+些区别导致了在针对这些元素使用 innerHTML 时，以及在创建新元素时的一些问题。
+理解 DOM 的关键，就是理解 DOM 对性能的影响。DOM 操作往往是 JavaScript 程序中开销最大的
+部分，而因访问 NodeList 导致的问题为最多。NodeList 对象都是“动态的”，这就意味着每次访问
+NodeList 对象，都会运行一次查询。有鉴于此，最好的办法就是尽量减少 DOM 操作。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/九 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/九 demo/" itemprop="url">第九章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -334,9 +840,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/九 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/九 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/九 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/九 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -436,7 +942,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/八 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/八 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -455,7 +961,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/八 demo/" itemprop="url">第八章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/八 demo/" itemprop="url">第八章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -508,9 +1014,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/八 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/八 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/八 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/八 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -652,7 +1158,7 @@ BOM 中还有两个对象：screen 和 history，但它们的功能有限。scre
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/七 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -671,7 +1177,7 @@ BOM 中还有两个对象：screen 和 history，但它们的功能有限。scre
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/七 demo/" itemprop="url">第七章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/七 demo/" itemprop="url">第七章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -724,9 +1230,9 @@ BOM 中还有两个对象：screen 和 history，但它们的功能有限。scre
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/七 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/七 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/七 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/七 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -932,7 +1438,7 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/六 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/六 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -951,7 +1457,7 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/17/六 demo/" itemprop="url">第六章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/六 demo/" itemprop="url">第六章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1004,9 +1510,9 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/17/六 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/17/javascript高级程序设计/六 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/17/六 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/六 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1212,7 +1718,7 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/五  demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/五  demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1231,7 +1737,7 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/16/五  demo/" itemprop="url">第五章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/五  demo/" itemprop="url">第五章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1284,9 +1790,9 @@ alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/16/五  demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/16/javascript高级程序设计/五  demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/16/五  demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/五  demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1492,7 +1998,7 @@ window.sayColor(); //&quot;red&quot;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/四  demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/四  demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1511,7 +2017,7 @@ window.sayColor(); //&quot;red&quot;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/16/四  demo/" itemprop="url">第四章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/四  demo/" itemprop="url">第四章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1564,9 +2070,9 @@ window.sayColor(); //&quot;red&quot;
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/16/四  demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/16/javascript高级程序设计/四  demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/16/四  demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/四  demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1668,7 +2174,7 @@ window.sayColor(); //&quot;red&quot;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/三  demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/三  demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1687,7 +2193,7 @@ window.sayColor(); //&quot;red&quot;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/16/三  demo/" itemprop="url">第三章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/三  demo/" itemprop="url">第三章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1740,9 +2246,9 @@ window.sayColor(); //&quot;red&quot;
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/16/三  demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/16/javascript高级程序设计/三  demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/16/三  demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/三  demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1824,7 +2330,7 @@ window.sayColor(); //&quot;red&quot;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/二 demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/二 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="鲍志强">
@@ -1843,7 +2349,7 @@ window.sayColor(); //&quot;red&quot;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/16/二 demo/" itemprop="url">第二章笔记</a></h1>
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/二 demo/" itemprop="url">第二章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1896,9 +2402,9 @@ window.sayColor(); //&quot;red&quot;
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/16/二 demo/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/16/javascript高级程序设计/二 demo/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/16/二 demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/二 demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1931,315 +2437,6 @@ window.sayColor(); //&quot;red&quot;
             <h2 id="1-重点介绍了script作为脚步的一些属性以及相关"><a href="#1-重点介绍了script作为脚步的一些属性以及相关" class="headerlink" title="1 重点介绍了script作为脚步的一些属性以及相关"></a>1 重点介绍了script作为脚步的一些属性以及相关</h2><h4 id="1-javascript居然是JavaScript语言和DOM以及BOM的结合体。"><a href="#1-javascript居然是JavaScript语言和DOM以及BOM的结合体。" class="headerlink" title="(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。"></a>(1) javascript居然是JavaScript语言和DOM以及BOM的结合体。</h4><h4 id="2-判断浏览器是否能够使用JavaScript语言"><a href="#2-判断浏览器是否能够使用JavaScript语言" class="headerlink" title="(2)  判断浏览器是否能够使用JavaScript语言"></a>(2)  判断浏览器是否能够使用JavaScript语言</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;noscript&gt;</span><br><span class="line">        &lt;p&gt;本页面需要浏览器支持JavaScript&lt;/p&gt;</span><br><span class="line">    &lt;/noscript&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; defer=&quot;defer&quot;&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="3-小结"><a href="#3-小结" class="headerlink" title="(3) 小结"></a>(3) 小结</h4><figure class="highlight plain"><figcaption><span>JavaScript 插入到 HTML 页面中要使用<script>元素。使用这个元素可以把 JavaScript 嵌入到</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTML 页面中，让脚本与标记混合在一起；也可以包含外部的 JavaScript 文件。而我们需要注意的地方有：</span><br><span class="line">1 在包含外部 JavaScript 文件时，必须将 src 属性设置为指向相应文件的 URL。而这个文件既可</span><br><span class="line">以是与包含它的页面位于同一个服务器上的文件，也可以是其他任何域中的文件。</span><br><span class="line">2 所有&lt;script&gt;元素都会按照它们在页面中出现的先后顺序依次被解析。在不使用 defer 和</span><br><span class="line">async 属性的情况下，只有在解析完前面&lt;script&gt;元素中的代码之后，才会开始解析后面</span><br><span class="line">&lt;script&gt;元素中的代码。</span><br><span class="line">3 由于浏览器会先解析完不使用 defer 属性的&lt;script&gt;元素中的代码，然后再解析后面的内容，</span><br><span class="line">所以一般应该把&lt;script&gt;元素放在页面最后，即主要内容后面，&lt;/body&gt;标签前面。</span><br><span class="line">4 使用 defer 属性可以让脚本在文档完全呈现之后再执行。延迟脚本总是按照指定它们的顺序执行。</span><br><span class="line">5 使用 async 属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚</span><br><span class="line">本按照它们在页面中出现的顺序执行。</span><br><span class="line">另外，使用&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。但在启用了脚本</span><br><span class="line">的情况下，浏览器不会显示&lt;noscript&gt;元素中的任何内容。</span><br></pre></td></tr></table></figure>
 </script></span></figcaption></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/subribe/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/03/subribe/" itemprop="url">原生JavaScript实现订阅/发布模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T09:48:54+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/03/subribe/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/03/subribe/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>###1 订阅/发布模式说明<br> 什么是订阅/发布模式呢？<br>举个简单的例子。我们在开发网站常常有这样的一种情况。就是用户登录过的主界面和没登录过<br>的主界面显示是不一样的，而没有使用订阅/发布模式的话。我们很可能会写出下面的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//登录成功情况下</span><br><span class="line">login.succ(function( data )&#123;  </span><br><span class="line"> header.setAvatar( data.avatar);   </span><br><span class="line">nav.setAvatar( data.avatar );   </span><br><span class="line">message.refresh();   </span><br><span class="line">cart.refresh();   </span><br><span class="line">address.refresh();  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//登录失败情况下</span><br><span class="line">login.fail(function( data )&#123;  </span><br><span class="line"> header.setAvatar( data.avatar);   </span><br><span class="line">nav.setAvatar( data.avatar );   </span><br><span class="line">message.refresh();   </span><br><span class="line">cart.refresh();   </span><br><span class="line">address.refresh();  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/*这两种情况都有相应的处理逻辑，假如现在又出现了新的模块的话。我们又要在上述的两种情况下  </span><br><span class="line">加入逻辑代码，十分不利于维护。*/</span><br></pre></td></tr></table></figure></p>
-<p>###2 订阅/发布模式的实践<br>如果我们利用订阅/发布模式的话，整个流程就十分清晰了。<br>   模式解释：发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象<br>的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模<br>型来替代传统的发布—订阅模式。<br>流程如下：</p>
-<blockquote>
-<ul>
-<li>创建发布者对象，它具有订阅者的对象数组（我们网页中的各个模块）。以及相应的发布通知这些对象执行相应方法。 </li>
-<li>创建订阅者。它具有接收到发布信息的执行方法（模块初始化方法）。</li>
-<li>发布者接收到通知（登录成功）。</li>
-<li>对所有订阅者对象数组进行通知。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//实践代码</span><br><span class="line"></span><br><span class="line">//创建发布者对象，它具有订阅者的对象数组  </span><br><span class="line">//（我们网页中的各个模块）。以及相应的发布通知这些对象执行相应方法。 </span><br><span class="line">var login = &#123;&#125;; // 定义发布者。</span><br><span class="line">login.modules = []; // 缓存列表，存放模块订阅者的回调函数</span><br><span class="line">login.listen = function( fn )&#123; // 增加订阅者</span><br><span class="line"> this.clientList.push( fn ); // 订阅的消息添加进缓存列表</span><br><span class="line">&#125;;</span><br><span class="line">login.trigger = function()&#123; // 发布消息</span><br><span class="line"> for( var i = 0, fn; fn = this.modules[ i++ ]; )&#123;</span><br><span class="line"> fn.apply( this, arguments ); // (2) // arguments 是发布消息时带上的参数</span><br><span class="line"> &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$.ajax( &apos;http:// xxx.com?login&apos;, function(data)&#123; // 登录成功</span><br><span class="line"> login.trigger( &apos;loginSucc&apos;, data); // 发布登录成功的消息</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">各模块监听登录成功的消息：</span><br><span class="line">var header = (function()&#123; // header 模块</span><br><span class="line"> login.listen( &apos;loginSucc&apos;, function( data)&#123;</span><br><span class="line"> header.setAvatar( data.avatar );</span><br><span class="line"> &#125;);</span><br><span class="line"> return &#123;</span><br><span class="line"> setAvatar: function( data )&#123;</span><br><span class="line"> console.log( &apos;设置 header 模块的头像&apos; );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">var nav = (function()&#123; // nav 模块</span><br><span class="line"> login.listen( &apos;loginSucc&apos;, function( data )&#123;</span><br><span class="line"> nav.setAvatar( data.avatar );</span><br><span class="line"> &#125;);</span><br><span class="line"> return &#123;</span><br><span class="line"> setAvatar: function( avatar )&#123;</span><br><span class="line"> console.log( &apos;设置 nav 模块的头像&apos; );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>###2.1改进<br>以上就是一个简单的订阅/发布的实现。但上述代码还有问题，比如我们给每一个发布者都赋予了订阅者的参数列表是一种<br>资源浪费。我们的订阅者至少需要知道发布者的名字才能接受到信息。硬编码十分明显。接下来。我们可以使用一个全局的订阅、<br>发布对象，抽象出一个“中介者”的对象。他负责把订阅者以及发布者隔离开。<br>以一个售楼处以及客户的关系作为例子。同样在程序中，发布—订阅模式可以用一个全局的 Event 对象来实现，订阅者不需要<br>了解消息来自哪个发布者，发布者也不知道消息会推送给哪些订阅者，Event 作为一个类似“中介者”的角色，把订阅者和发布<br>者联系起来。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">var Event = (function () &#123;</span><br><span class="line">              //创建订阅者对象数组</span><br><span class="line">              var clientList = &#123;&#125;,</span><br><span class="line">                  listen,</span><br><span class="line">                  trigger,</span><br><span class="line">                  remove;</span><br><span class="line">                  //订阅者订阅实现</span><br><span class="line">              listen = function (key, fn) &#123;</span><br><span class="line">                  if (!clientList[key]) &#123;</span><br><span class="line">                      clientList[key] = [];</span><br><span class="line">                  &#125;</span><br><span class="line">                  clientList[key].push(fn);</span><br><span class="line">              &#125;;</span><br><span class="line">              //发布者发布消息实现</span><br><span class="line">              trigger = function () &#123;</span><br><span class="line">                  var key = Array.prototype.shift.call(arguments),</span><br><span class="line">                      fns = clientList[key];</span><br><span class="line">                  if (!fns || fns.length === 0) &#123;</span><br><span class="line">                      return false;</span><br><span class="line">                  &#125;</span><br><span class="line">                  for (var i = 0, fn; fn = fns[i++];) &#123;</span><br><span class="line">                      fn.apply(this, arguments);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;;</span><br><span class="line">              //订阅者取消订阅</span><br><span class="line">              remove = function (key, fn) &#123;</span><br><span class="line">                  var fns = clientList[key];</span><br><span class="line">                  if (!fns) &#123;</span><br><span class="line">                      return false;</span><br><span class="line">                  &#125;</span><br><span class="line"></span><br><span class="line">                  if (!fn) &#123;</span><br><span class="line">                      fns &amp;&amp; (fns.length = 0);</span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                      for (var l = fns.length - 1; l &gt;= 0; l--) &#123;</span><br><span class="line">                          var _fn = fns[l];</span><br><span class="line">                          if (_fn === fn) &#123;</span><br><span class="line">                              fns.splice(l, 1);</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;;</span><br><span class="line">              //暴露的公共接口</span><br><span class="line">              return &#123;</span><br><span class="line">                  listen: listen,</span><br><span class="line">                  trigger: trigger,</span><br><span class="line">                  remove: remove</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;)();</span><br><span class="line">          //小红订阅消息</span><br><span class="line">          Event.listen(&apos;squareMeter88&apos;, function (price) &#123; </span><br><span class="line">              // 小红订阅消息，小红想要订阅88平方米的楼房价格。</span><br><span class="line">              //我们发现并不需要小红这个对象传入，只需要传入要监听的对象，以及回调函数即可</span><br><span class="line">              console.log(&apos;价格= &apos; + price); // 这里为小红接收到信息所做出的业务操作。输出：&apos;价格=2000000&apos;</span><br><span class="line">          &#125;);</span><br><span class="line">          //发布者发布消息</span><br><span class="line">          Event.trigger(&apos;squareMeter88&apos;, 2000000); // 售楼处发布88平方米的楼房价格消息。</span><br></pre></td></tr></table></figure></p>
-<p>到这里为止。一个比较完善的模式流程就差不多搞定了。  </p>
-<p>###2.2 界面实践<br>接下来我们用一个关于界面的示例来形象说明如何使用它。<br>需求：比如现在有两个模块，a 模块里面有一个按钮，每次点击按钮之后，b 模块里的 div 中会显示<br>按钮的总点击次数，我们用全局发布—订阅模式完成下面的代码，使得 a 模块和 b 模块可以在保<br>持封装性的前提下进行通信。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!--a模块触发点击点击事件--&gt;</span><br><span class="line">    &lt;button id=&quot;count&quot;&gt;点我&lt;/button&gt;</span><br><span class="line">    &lt;!--b模块，订阅点击事情，并作出反应--&gt;</span><br><span class="line">    &lt;div id=&quot;show&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var Event = (function () &#123;</span><br><span class="line">        //创建订阅者对象数组</span><br><span class="line">        var clientList = &#123;&#125;,</span><br><span class="line">            listen,</span><br><span class="line">            trigger,</span><br><span class="line">            remove;</span><br><span class="line">        //订阅者订阅实现</span><br><span class="line">        listen = function (key, fn) &#123;</span><br><span class="line">            if (!clientList[key]) &#123;</span><br><span class="line">                clientList[key] = [];</span><br><span class="line">            &#125;</span><br><span class="line">            clientList[key].push(fn);</span><br><span class="line">        &#125;;</span><br><span class="line">        //发布者发布消息实现</span><br><span class="line">        trigger = function () &#123;</span><br><span class="line">            var key = Array.prototype.shift.call(arguments),</span><br><span class="line">                fns = clientList[key];</span><br><span class="line">            if (!fns || fns.length === 0) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">            for (var i = 0, fn; fn = fns[i++];) &#123;</span><br><span class="line">                fn.apply(this, arguments);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        //订阅者取消订阅</span><br><span class="line">        remove = function (key, fn) &#123;</span><br><span class="line">            var fns = clientList[key];</span><br><span class="line">            if (!fns) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            if (!fn) &#123;</span><br><span class="line">                fns &amp;&amp; (fns.length = 0);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                for (var l = fns.length - 1; l &gt;= 0; l--) &#123;</span><br><span class="line">                    var _fn = fns[l];</span><br><span class="line">                    if (_fn === fn) &#123;</span><br><span class="line">                        fns.splice(l, 1);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        //暴露的公共接口</span><br><span class="line">        return &#123;</span><br><span class="line">            listen: listen,</span><br><span class="line">            trigger: trigger,</span><br><span class="line">            remove: remove</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">    var a = (function () &#123;</span><br><span class="line">        var count = 0;</span><br><span class="line">        var button = document.getElementById(&quot;count&quot;);</span><br><span class="line">        button.onclick = function () &#123;</span><br><span class="line">            console.log(&quot;发布点击add消息,并随需要传入参数&quot;);</span><br><span class="line">            Event.trigger(&quot;add&quot;, count++)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">    var b = (function () &#123;</span><br><span class="line">        var div = document.getElementById(&quot;show&quot;);</span><br><span class="line">        console.log(&quot;订阅点击add消息，并获得a模块的参数&quot;);</span><br><span class="line">        Event.listen(&quot;add&quot;, function (count) &#123;</span><br><span class="line">            div.innerHTML = count;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>本文小结：<br>   本章我们学习了发布—订阅模式，也就是常说的观察者模式。发布—订阅模式在实际开发中非<br>常有用。</p>
-<blockquote>
-<ul>
-<li>它的优点：一为时间上的解耦，二为对象之间的解耦。它的应用非常广泛，既可以用在异步编程<br>中，也可以帮助我们完成更松耦合的代码编写。发布—订阅模式还可以用来帮助实现一些别的设计<br>模式，比如中介者模式。从架构上来看，无论是 MVC 还是 MVVM，都少不了发布—订阅模式的参与<br>，而且 JavaScript 本身也是一门基于事件驱动的语言。</li>
-<li>它的缺点：创建订阅者本身要消耗一定的时间和内存，而且当你订阅一个消息后，也许此消息<br>最后都未发生，但这个订阅者会始终存在于内存中。另外，发布—订阅模式虽然可以弱化对象之间的<br>联系，但如果过度使用的话，对象和对象之间的必要联系也将被深埋在背后，会导致程序难以跟踪<br>维护和理解。特别是有多个发布者和订阅者嵌套到一起的时候，要跟踪一个 bug 不是件轻松的事情。</li>
-</ul>
-</blockquote>
-<p>#3  小发现<br>在编码的时候发现了原生JavaScript的onclick和click的区别，现在放入这里供大家参考<br>区别：</p>
-<blockquote>
-<ul>
-<li>原生javascript的click在w3c里边的阐述是DOM button对象，也是html DOM click() 方法,<br>可模拟在按钮上的一次鼠标单击。button 对象代表 HTML 文档中的一个按钮。button元素没有默<br>认的行为，但是必须有一个 onclick 事件句柄以便使用。  </li>
-<li>onclick是一个事件，Event对象 。支持该事件的 JavaScript 对象：button, document,<br>checkbox, link, radio, reset, submitHTML DOM Event 对象，代表事件的状态，比如事<br>件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。事件通常与函数结合使用，函数<br>不会在事件发生前被执行！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">function clickButton()</span><br><span class="line">  &#123;</span><br><span class="line">  document.getElementById(&apos;button1&apos;).click()</span><br><span class="line">  &#125;</span><br><span class="line">function alertMsg()</span><br><span class="line">  &#123;</span><br><span class="line">  alert(&quot;Button 1 was clicked!&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body onload=&quot;clickButton()&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;form&gt;</span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;button1&quot; onclick=&quot;alertMsg()&quot; value=&quot;Button 1&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/moban2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/03/moban2/" itemprop="url">原生JavaScript实现模板引擎</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:51:06+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/03/moban2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/03/moban2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>  本文实现来自《深入浅出node.js》第8章的模板小结<br>  本文主要阐述如何利用模板引擎来实现对模板的解析。很多时候<br>我们常常能在jsp中看到这样的语法结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &apos;Hello &lt;%=username%&gt;.&apos;;</span><br><span class="line">```  </span><br><span class="line">有经验的同学会想到一个问题。编译器是如何识别以及将username替换成我们</span><br><span class="line">真实数据的？  </span><br><span class="line">下面将用JavaScript实现对它的解析。  </span><br><span class="line">###1 准备工作  </span><br><span class="line">实现原理：</span><br><span class="line">&gt; * 语法分解</span><br><span class="line">&gt; * 处理表达式（上述的&lt;%=username%&gt;）</span><br><span class="line">&gt; * 生成可执行的语句</span><br><span class="line">&gt; * 和真实数据一起执行。生成最终字符串（类似于Hello Jackson Tian. ）</span><br><span class="line">###2 代码实践</span><br></pre></td></tr></table></figure></p>
-<p> //模板语法代码。<br>//引擎拼接字符串的原理还是通过正则表达式进行匹配替换。以此我们可以想到<br>//几乎所有的模板都可以用这种方法编译使用。vue中的模板也是。<br>    var render = function (str, data) {<br>        //先把我们的定义标签&lt;%=username%&gt;换成obj.name来解析  </p>
-<pre><code>    var tpl = str.replace(/&lt;%=([ % \s\S]+?)%&gt;/g, function (match, code) {
-        return &quot;&apos; + obj.&quot; + code + &quot;+ &apos;&quot;;
-    });
-    console.log(tpl);  //hello &apos; + obj.username+ &apos;.
-    tpl = &quot;var tpl = &apos;&quot; + tpl + &quot;&apos;\nreturn tpl;&quot;;  
-    console.log(tpl); //var tpl=&apos;Hello &apos; + obj.username+ &apos;.&apos;     return tpl;
-      //下面构造一个新的函数来实现解析obj中username 
-    var complied = new Function(&apos;obj&apos;, tpl);
-    return complied(data);
-};
-var tpl = &apos;Hello &lt;%=username%&gt;.&apos;;
-//调用模板函数，这里的参数为模板对象，以及模板中对应的字符串解析策略。
-//类似于策略模式中，给dom控件赋予相应的校验策略。
-console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
-</code></pre><p>  // =&gt; Hello Jackson Tian.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">###3注意点  </span><br><span class="line"></span><br><span class="line">这里的new Function（）代表</span><br></pre></td></tr></table></figure></p>
-<p>/<em> newFunction 解析<br>1 var message = new Function(‘msg’,’alert(msg)’);<br>2 // 等价于：<br>3 function message(msg) {<br>4     alert(msg);<br>5 }
-</em>/<br><code>`</code></p>
-
           
         
       
@@ -2328,7 +2525,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2339,7 +2536,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2350,7 +2547,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
