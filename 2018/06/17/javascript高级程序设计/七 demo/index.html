@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-javaScript之美," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="(1) 访问器属性    var book={}; Object.defineProperties(book,{    _year:{        writable:true,        value:2014    } })  /*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/ //当然，也可以读取属性的特性。 var descrip">
+<meta name="keywords" content="-javaScript之美">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第七章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/index.html">
+<meta property="og:site_name" content="baobaobao">
+<meta property="og:description" content="(1) 访问器属性    var book={}; Object.defineProperties(book,{    _year:{        writable:true,        value:2014    } })  /*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/ //当然，也可以读取属性的特性。 var descrip">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-17T03:25:02.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第七章笔记">
+<meta name="twitter:description" content="(1) 访问器属性    var book={}; Object.defineProperties(book,{    _year:{        writable:true,        value:2014    } })  /*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/ //当然，也可以读取属性的特性。 var descrip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'baobaobao'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/"/>
+
+
+
+
+
+  <title>第七章笔记 | baobaobao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">baobaobao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="http://www.scholat.com/zqbao" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于他
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            博客分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博客归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第七章笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:24:14+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/七 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/七 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="1-访问器属性"><a href="#1-访问器属性" class="headerlink" title="(1) 访问器属性"></a>(1) 访问器属性</h4><pre><code>    var book={};
+Object.defineProperties(book,{
+   _year:{
+       writable:true,
+       value:2014
+   }
+})
+
+/*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/
+//当然，也可以读取属性的特性。
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+alert(descriptor.value);  //2014
+alert(descriptor.configurable);  //false
+</code></pre><h4 id="2-在对象和原型中查找属性或者方法的顺序。"><a href="#2-在对象和原型中查找属性或者方法的顺序。" class="headerlink" title="(2) 在对象和原型中查找属性或者方法的顺序。"></a>(2) 在对象和原型中查找属性或者方法的顺序。</h4><blockquote>
+<p>如果按照字面意思来理解，那<br>么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以<br>让所有对象实例共享它所包含的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p>.hasOwnProperty方法可以用来检查某个属性在实例中还是原型中。</p>
+</blockquote>
+<p>同时使用 hasOwnProperty()方法和 in 操作符，就可以确定该属性到底是存在于对象中，还是存在于<br>原型中，如下所示。  </p>
+<pre><code> //这个函数实现认识某个属性在不在原型中，在的话，返回ture，否则返回false；
+function hasPrototypeProperty(object, name) {
+    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+}
+function Person() {
+}
+Person.prototype.name = &quot;nihao&quot;;
+var person = new Person();
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //ture,表明name在原型中。
+person.name = &quot;goobye&quot;;
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型中
+</code></pre><h4 id="3-组合使用构造函数和原型模式"><a href="#3-组合使用构造函数和原型模式" class="headerlink" title="(3)组合使用构造函数和原型模式"></a>(3)组合使用构造函数和原型模式</h4><blockquote>
+<p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实<br>例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，<br>但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参<br>数；可谓是集两种模式之长。下面的代码重写了前面的例子。  </p>
+</blockquote>
+<pre><code>/*构造函数用于实例化属性*/
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&apos;nihao&apos;, &quot;goobye&quot;];
+    }
+
+
+    /*原型模式用于定义方法和共享的属性*/
+    Person.prototype = {
+        constructor: Person,
+        sayName: function () {
+
+            alert(this.name);
+        }
+    }
+
+    var person1 = new Person(&quot;nihao&quot;, 29, &quot;software Engineer&quot;)
+
+    alert(person1.name);//nihao
+</code></pre><h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="(4) 原型链"></a>(4) 原型链</h4><blockquote>
+<ul>
+<li>子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎<br>样，给原型添加方法的代码一定要放在替换原型的语句之后。</li>
+</ul>
+</blockquote>
+<pre><code>function SuperType() {
+
+      this.property = true;
+  }
+  SuperType.prototype.getSuperValue = function () {
+      return this.property;
+  }
+
+  function SubType() {
+
+      this.subproperty = false;
+  }
+
+
+  //继承实现
+  SubType.prototype = new SuperType();
+  //添加新方法
+  SubType.prototype.getSubValue = function () {
+      return his.subproperty;
+  }
+  //重写超类型方法
+  SubType.prototype.getSuperValue = function () {
+
+      return false;
+  }
+  var instanc = new SubType();
+  alert(instanc.getSuperValue());  //false
+</code></pre><h4 id="5-原型继承的问题以及解决"><a href="#5-原型继承的问题以及解决" class="headerlink" title="(5) 原型继承的问题以及解决"></a>(5) 原型继承的问题以及解决</h4><blockquote>
+<p>它的问题就是当一个子类继承父类的时候，当定义子类对象时。子类某一个对象对父类中属性或者方法的改动都会反映到子类的其他对象中，<br>因为父类成了子类定义对象的原型。其他对象使用后也会有相应改变。那么可以使用借用构造函数来解决。  </p>
+</blockquote>
+<p>借用构造函数    </p>
+<pre><code>function SuperType() {
+     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+ }
+ function SubType() {
+     //继承了Suptype
+     SuperType.call(this);
+ }
+
+ var instance1 = new SubType();
+ instance1.colors.push(&quot;black&quot;);//&quot;red,blue,green,black&quot; 
+ alert(instance1.colors);
+ var instance2 = new SubType();
+ alert(instance2.colors);  //&quot;red,blue,green&quot; ,现在每个子类对象就保持了自己对父类的最初属性了。
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6) 小结"></a>(6) 小结</h4><blockquote>
+<pre><code> ECMAScript 支持面向对象（OO）编程，但不使用类或者接口。对象可以在代码执行过程中创建和
+ 增强，因此具有动态性而非严格定义的实体。在没有类的情况下，可以采用下列模式创建对象。
+ 1   工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来
+ 被构造函数模式所取代。
+ 2   构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不
+ 过，构造函数模式也有缺点，即它的每个成员都无法得到复用，包括函数。由于函数可以不局
+限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。
+ 3   原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造
+ 函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。
+  JavaScript 主要通过原型链实现继承。原型链的构建是通过将一个类型的实例赋值给另一个构造函
+ 数的原型实现的。这样，子类型就能够访问超类型的所有属性和方法，这一点与基于类的继承很相似。
+ 原型链的问题是对象实例共享所有继承的属性和方法，因此不适宜单独使用。解决这个问题的技术是借
+ 用构造函数，即在子类型构造函数的内部调用超类型构造函数。这样就可以做到每个实例都具有自己的
+ 属性，同时还能保证只使用构造函数模式来定义类型。使用最多的继承模式是组合继承，这种模式使用
+ 原型链继承共享的属性和方法，而通过借用构造函数继承实例属性。
+ 此外，还存在下列可供选择的继承模式。
+ 4   原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅
+ 复制。而复制得到的副本还可以得到进一步改造。
+ 5 寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强
+ 对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问
+ 题，可以将这个模式与组合继承一起使用。
+ 6  寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。
+</code></pre></blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/gongzonghao.jpg" alt="鲍志强 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎你扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的点赞是为了你的未来</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/WechatPay.png" alt="鲍志强 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaScript之美/" rel="tag"># -javaScript之美</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/17/javascript高级程序设计/六 demo/" rel="next" title="第六章笔记">
+                <i class="fa fa-chevron-left"></i> 第六章笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/17/javascript高级程序设计/八 demo/" rel="prev" title="第八章笔记">
+                第八章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar1.jpg"
+                alt="鲍志强" />
+            
+              <p class="site-author-name" itemprop="name">鲍志强</p>
+              <p class="site-description motion-element" itemprop="description">求道者</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baobaobaobaobao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="530420396@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/bao-zhi-qiang-2/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-访问器属性"><span class="nav-number">1.</span> <span class="nav-text">(1) 访问器属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在对象和原型中查找属性或者方法的顺序。"><span class="nav-number">2.</span> <span class="nav-text">(2) 在对象和原型中查找属性或者方法的顺序。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-组合使用构造函数和原型模式"><span class="nav-number">3.</span> <span class="nav-text">(3)组合使用构造函数和原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-原型链"><span class="nav-number">4.</span> <span class="nav-text">(4) 原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-原型继承的问题以及解决"><span class="nav-number">5.</span> <span class="nav-text">(5) 原型继承的问题以及解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-小结"><span class="nav-number">6.</span> <span class="nav-text">(6) 小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">baobaobao</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://baobaobao.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/';
+          this.page.identifier = '2018/06/17/javascript高级程序设计/七 demo/';
+          this.page.title = '第七章笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://baobaobao.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
