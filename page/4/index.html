@@ -252,6 +252,1568 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/九 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/九 demo/" itemprop="url">第九章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T13:47:11+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/九 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/九 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-客户端检测"><a href="#1-客户端检测" class="headerlink" title="(1)客户端检测"></a>(1)客户端检测</h4><p>这一章主要针对不同浏览器要使用功能时做出的检测是否支持这个功能的一章。<br>没啥意思。</p>
+<h4 id="2-小结"><a href="#2-小结" class="headerlink" title="(2)小结"></a>(2)小结</h4><pre><code>   客户端检测是 JavaScript 开发中最具争议的一个话题。由于浏览器间存在差别，通常需要根据不同
+浏览器的能力分别编写不同的代码。有不少客户端检测方法，但下列是最经常使用的。
+1  能力检测：在编写代码之前先检测特定浏览器的能力。例如，脚本在调用某个函数之前，可能
+要先检测该函数是否存在。这种检测方法将开发人员从考虑具体的浏览器类型和版本中解放出
+来，让他们把注意力集中到相应的能力是否存在上。能力检测无法精确地检测特定的浏览器和
+版本。
+
+2    怪癖检测：怪癖实际上是浏览器实现中存在的 bug，例如早期的 WebKit 中就存在一个怪癖，即
+它会在 for-in 循环中返回被隐藏的属性。怪癖检测通常涉及到运行一小段代码，然后确定浏
+览器是否存在某个怪癖。由于怪癖检测与能力检测相比效率更低，因此应该只在某个怪癖会干
+扰脚本运行的情况下使用。怪癖检测无法精确地检测特定的浏览器和版本。
+
+3   用户代理检测：通过检测用户代理字符串来识别浏览器。用户代理字符串中包含大量与浏览器
+有关的信息，包括浏览器、平台、操作系统及浏览器版本。用户代理字符串有过一段相当长的
+发展历史，在此期间，浏览器提供商试图通过在用户代理字符串中添加一些欺骗性信息，欺骗
+网站相信自己的浏览器是另外一种浏览器。用户代理检测需要特殊的技巧，特别是要注意 Opera
+会隐瞒其用户代理字符串的情况。即便如此，通过用户代理字符串仍然能够检测出浏览器所用
+的呈现引擎以及所在的平台，包括移动设备和游戏系统。
+   在决定使用哪种客户端检测方法时，一般应优先考虑使用能力检测。怪癖检测是确定应该如何处理
+代码的第二选择。而用户代理检测则是客户端检测的最后一种方案，因为这种方法对用户代理字符串具
+有很强的依赖性。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/八 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/八 demo/" itemprop="url">第八章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:49:20+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/八 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/八 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-window对象以及窗口框架"><a href="#1-window对象以及窗口框架" class="headerlink" title="(1) window对象以及窗口框架"></a>(1) window对象以及窗口框架</h4><blockquote>
+<p>由于 window 对象同时扮演着 ECMAScript 中 Global 对象的角色，因此所有在全局作用域中声明<br>的变量、函数都会变成 window 对象的属性和方法。</p>
+</blockquote>
+<h4 id="2-窗口位置相对于top的位置"><a href="#2-窗口位置相对于top的位置" class="headerlink" title="(2) 窗口位置相对于top的位置"></a>(2) 窗口位置相对于top的位置</h4><pre><code>var leftPos=(typeof window.screenLeft==&apos;number&apos;)?
+     window.screenLeft:window.screenX;
+     alert(leftPos);
+</code></pre><h4 id="3-检查弹出窗口是否被屏蔽了"><a href="#3-检查弹出窗口是否被屏蔽了" class="headerlink" title="(3)检查弹出窗口是否被屏蔽了"></a>(3)检查弹出窗口是否被屏蔽了</h4><p>如果浏览器扩展或者其他程序阻止弹出窗口的话。我们用try catch来判断</p>
+<pre><code>var blocked = false;
+try {
+    var wrpxWin = window.open(&quot;http://www.wrox.com&quot;, &quot;_blank&quot;); if (wrpxWin == null) {
+        blocked = true;//窗口被屏蔽了
+    }
+} catch (ex) {
+    blocked = true;
+}
+
+if (blocked) {
+    alert(&quot;the popupp was bolcked!&quot;);
+}
+</code></pre><h4 id="4-对话框"><a href="#4-对话框" class="headerlink" title="(4) 对话框"></a>(4) 对话框</h4><blockquote>
+<ul>
+<li>alert</li>
+<li>confirm</li>
+<li>prompt  </li>
+</ul>
+</blockquote>
+<p>重点是第三种，让你输入一个对话框，并要求你输入数据。</p>
+<pre><code> var result = prompt(&quot;what is you name?&quot;, &quot;&quot;);
+ if (result != null) {
+    alert(&quot;Welcome,&quot; + result);
+}
+</code></pre><h4 id="5-location对象"><a href="#5-location对象" class="headerlink" title="(5) location对象"></a>(5) location对象</h4><blockquote>
+<p>location 是最有用的 BOM 对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一<br>些导航功能。事实上，location 对象是很特别的一个对象，因为它既是 window 对象的属性，也是<br>document 对象的属性；换句话说，window.location 和 document.location 引用的是同一个对象。<br>location 对象的用处不只表现在它保存着当前文档的信息，还表现在它将 URL 解析为独立的片段，让<br>开发人员可以通过不同的属性访问这些片段。</p>
+</blockquote>
+<h4 id="6-navigator对象-检测插件"><a href="#6-navigator对象-检测插件" class="headerlink" title="(6) navigator对象 检测插件"></a>(6) navigator对象 检测插件</h4><pre><code>function hasPlugin(name) {
+    name = name.toLowerCase();
+    for (var i = 0; i &lt; navigator.plugins.length; i++) {
+        if (navigator.plugins[i].name.toLowerCase().indexOf(name) &gt; -1) {
+            return true;
+        }
+        return false;
+    }
+}
+alert(hasPlugin(&quot;Flash&quot;));//检查是否有Flash插件
+</code></pre><h4 id="6-history对象"><a href="#6-history对象" class="headerlink" title="(6) history对象"></a>(6) history对象</h4><blockquote>
+<p>浏览器内置对象，可以用它模仿前一个界面，后一个界面操作。</p>
+</blockquote>
+<h4 id="7-小结"><a href="#7-小结" class="headerlink" title="(7) 小结"></a>(7) 小结</h4><pre><code>   浏览器对象模型（BOM）以 window 对象为依托，表示浏览器窗口以及页面可见区域。同时，window
+对象还是 ECMAScript 中的 Global 对象，因而所有全局变量和函数都是它的属性，且所有原生的构造
+函数及其他函数也都存在于它的命名空间下。本章讨论了下列 BOM 的组成部分。
+1 在使用框架时，每个框架都有自己的 window 对象以及所有原生构造函数及其他函数的副本。
+每个框架都保存在 frames 集合中，可以通过位置或通过名称来访问。
+2 有一些窗口指针，可以用来引用其他框架，包括父框架。
+3 top 对象始终指向最外围的框架，也就是整个浏览器窗口。
+4 parent 对象表示包含当前框架的框架，而 self 对象则回指 window。
+5 使用 location 对象可以通过编程方式来访问浏览器的导航系统。设置相应的属性，可以逐段
+或整体性地修改浏览器的 URL。
+6 调用 replace()方法可以导航到一个新 URL，同时该 URL 会替换浏览器历史记录中当前显示
+的页面。
+7 *navigator 对象提供了与浏览器有关的信息。到底提供哪些信息，很大程度上取决于用户的浏
+览器；不过，也有一些公共的属性（如 userAgent）存在于所有浏览器中。
+BOM 中还有两个对象：screen 和 history，但它们的功能有限。screen 对象中保存着与客户端
+显示器有关的信息，这些信息一般只用于站点分析。history 对象为访问浏览器的历史记录开了一个
+小缝隙，开发人员可以据此判断历史记录的数量，也可以在历史记录中向后或向前导航到任意页面。*
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/七 demo/" itemprop="url">第七章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:24:14+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/七 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/七 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-访问器属性"><a href="#1-访问器属性" class="headerlink" title="(1) 访问器属性"></a>(1) 访问器属性</h4><pre><code>    var book={};
+Object.defineProperties(book,{
+   _year:{
+       writable:true,
+       value:2014
+   }
+})
+
+/*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/
+//当然，也可以读取属性的特性。
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+alert(descriptor.value);  //2014
+alert(descriptor.configurable);  //false
+</code></pre><h4 id="2-在对象和原型中查找属性或者方法的顺序。"><a href="#2-在对象和原型中查找属性或者方法的顺序。" class="headerlink" title="(2) 在对象和原型中查找属性或者方法的顺序。"></a>(2) 在对象和原型中查找属性或者方法的顺序。</h4><blockquote>
+<p>如果按照字面意思来理解，那<br>么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以<br>让所有对象实例共享它所包含的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p>.hasOwnProperty方法可以用来检查某个属性在实例中还是原型中。</p>
+</blockquote>
+<p>同时使用 hasOwnProperty()方法和 in 操作符，就可以确定该属性到底是存在于对象中，还是存在于<br>原型中，如下所示。  </p>
+<pre><code> //这个函数实现认识某个属性在不在原型中，在的话，返回ture，否则返回false；
+function hasPrototypeProperty(object, name) {
+    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+}
+function Person() {
+}
+Person.prototype.name = &quot;nihao&quot;;
+var person = new Person();
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //ture,表明name在原型中。
+person.name = &quot;goobye&quot;;
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型中
+</code></pre><h4 id="3-组合使用构造函数和原型模式"><a href="#3-组合使用构造函数和原型模式" class="headerlink" title="(3)组合使用构造函数和原型模式"></a>(3)组合使用构造函数和原型模式</h4><blockquote>
+<p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实<br>例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，<br>但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参<br>数；可谓是集两种模式之长。下面的代码重写了前面的例子。  </p>
+</blockquote>
+<pre><code>/*构造函数用于实例化属性*/
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&apos;nihao&apos;, &quot;goobye&quot;];
+    }
+
+
+    /*原型模式用于定义方法和共享的属性*/
+    Person.prototype = {
+        constructor: Person,
+        sayName: function () {
+
+            alert(this.name);
+        }
+    }
+
+    var person1 = new Person(&quot;nihao&quot;, 29, &quot;software Engineer&quot;)
+
+    alert(person1.name);//nihao
+</code></pre><h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="(4) 原型链"></a>(4) 原型链</h4><blockquote>
+<ul>
+<li>子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎<br>样，给原型添加方法的代码一定要放在替换原型的语句之后。</li>
+</ul>
+</blockquote>
+<pre><code>function SuperType() {
+
+      this.property = true;
+  }
+  SuperType.prototype.getSuperValue = function () {
+      return this.property;
+  }
+
+  function SubType() {
+
+      this.subproperty = false;
+  }
+
+
+  //继承实现
+  SubType.prototype = new SuperType();
+  //添加新方法
+  SubType.prototype.getSubValue = function () {
+      return his.subproperty;
+  }
+  //重写超类型方法
+  SubType.prototype.getSuperValue = function () {
+
+      return false;
+  }
+  var instanc = new SubType();
+  alert(instanc.getSuperValue());  //false
+</code></pre><h4 id="5-原型继承的问题以及解决"><a href="#5-原型继承的问题以及解决" class="headerlink" title="(5) 原型继承的问题以及解决"></a>(5) 原型继承的问题以及解决</h4><blockquote>
+<p>它的问题就是当一个子类继承父类的时候，当定义子类对象时。子类某一个对象对父类中属性或者方法的改动都会反映到子类的其他对象中，<br>因为父类成了子类定义对象的原型。其他对象使用后也会有相应改变。那么可以使用借用构造函数来解决。  </p>
+</blockquote>
+<p>借用构造函数    </p>
+<pre><code>function SuperType() {
+     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+ }
+ function SubType() {
+     //继承了Suptype
+     SuperType.call(this);
+ }
+
+ var instance1 = new SubType();
+ instance1.colors.push(&quot;black&quot;);//&quot;red,blue,green,black&quot; 
+ alert(instance1.colors);
+ var instance2 = new SubType();
+ alert(instance2.colors);  //&quot;red,blue,green&quot; ,现在每个子类对象就保持了自己对父类的最初属性了。
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6) 小结"></a>(6) 小结</h4><blockquote>
+<pre><code> ECMAScript 支持面向对象（OO）编程，但不使用类或者接口。对象可以在代码执行过程中创建和
+ 增强，因此具有动态性而非严格定义的实体。在没有类的情况下，可以采用下列模式创建对象。
+ 1   工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来
+ 被构造函数模式所取代。
+ 2   构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不
+ 过，构造函数模式也有缺点，即它的每个成员都无法得到复用，包括函数。由于函数可以不局
+限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。
+ 3   原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造
+ 函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。
+  JavaScript 主要通过原型链实现继承。原型链的构建是通过将一个类型的实例赋值给另一个构造函
+ 数的原型实现的。这样，子类型就能够访问超类型的所有属性和方法，这一点与基于类的继承很相似。
+ 原型链的问题是对象实例共享所有继承的属性和方法，因此不适宜单独使用。解决这个问题的技术是借
+ 用构造函数，即在子类型构造函数的内部调用超类型构造函数。这样就可以做到每个实例都具有自己的
+ 属性，同时还能保证只使用构造函数模式来定义类型。使用最多的继承模式是组合继承，这种模式使用
+ 原型链继承共享的属性和方法，而通过借用构造函数继承实例属性。
+ 此外，还存在下列可供选择的继承模式。
+ 4   原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅
+ 复制。而复制得到的副本还可以得到进一步改造。
+ 5 寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强
+ 对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问
+ 题，可以将这个模式与组合继承一起使用。
+ 6  寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。
+</code></pre></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/六 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/六 demo/" itemprop="url">第六章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T09:30:47+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/六 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/六 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-访问器属性"><a href="#1-访问器属性" class="headerlink" title="(1) 访问器属性"></a>(1) 访问器属性</h4><pre><code>    var book={};
+Object.defineProperties(book,{
+   _year:{
+       writable:true,
+       value:2014
+   }
+})
+
+/*以上的Object.defineProperties可以给book对象的加属性以及以及对属性的操作等*/
+//当然，也可以读取属性的特性。
+var descriptor=Object.getOwnPropertyDescriptor(book,&quot;_year&quot;);
+alert(descriptor.value);  //2014
+alert(descriptor.configurable);  //false
+</code></pre><h4 id="2-在对象和原型中查找属性或者方法的顺序。"><a href="#2-在对象和原型中查找属性或者方法的顺序。" class="headerlink" title="(2) 在对象和原型中查找属性或者方法的顺序。"></a>(2) 在对象和原型中查找属性或者方法的顺序。</h4><blockquote>
+<p>如果按照字面意思来理解，那<br>么 prototype 就是通过调用构造函数而创建的那个对象实例的原型对象。使用原型对象的好处是可以<br>让所有对象实例共享它所包含的属性和方法。</p>
+</blockquote>
+<blockquote>
+<p>.hasOwnProperty方法可以用来检查某个属性在实例中还是原型中。</p>
+</blockquote>
+<p>同时使用 hasOwnProperty()方法和 in 操作符，就可以确定该属性到底是存在于对象中，还是存在于<br>原型中，如下所示。  </p>
+<pre><code> //这个函数实现认识某个属性在不在原型中，在的话，返回ture，否则返回false；
+function hasPrototypeProperty(object, name) {
+    return !object.hasOwnProperty(name) &amp;&amp; (name in object);
+}
+function Person() {
+}
+Person.prototype.name = &quot;nihao&quot;;
+var person = new Person();
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //ture,表明name在原型中。
+person.name = &quot;goobye&quot;;
+alert(hasPrototypeProperty(person, &quot;name&quot;));  //false，不在原型中
+</code></pre><h4 id="3-组合使用构造函数和原型模式"><a href="#3-组合使用构造函数和原型模式" class="headerlink" title="(3)组合使用构造函数和原型模式"></a>(3)组合使用构造函数和原型模式</h4><blockquote>
+<p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实<br>例属性，而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，<br>但同时又共享着对方法的引用，最大限度地节省了内存。另外，这种混成模式还支持向构造函数传递参<br>数；可谓是集两种模式之长。下面的代码重写了前面的例子。  </p>
+</blockquote>
+<pre><code>/*构造函数用于实例化属性*/
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = [&apos;nihao&apos;, &quot;goobye&quot;];
+    }
+
+
+    /*原型模式用于定义方法和共享的属性*/
+    Person.prototype = {
+        constructor: Person,
+        sayName: function () {
+
+            alert(this.name);
+        }
+    }
+
+    var person1 = new Person(&quot;nihao&quot;, 29, &quot;software Engineer&quot;)
+
+    alert(person1.name);//nihao
+</code></pre><h4 id="4-原型链"><a href="#4-原型链" class="headerlink" title="(4) 原型链"></a>(4) 原型链</h4><blockquote>
+<ul>
+<li>子类型有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎<br>样，给原型添加方法的代码一定要放在替换原型的语句之后。</li>
+</ul>
+</blockquote>
+<pre><code>function SuperType() {
+
+      this.property = true;
+  }
+  SuperType.prototype.getSuperValue = function () {
+      return this.property;
+  }
+
+  function SubType() {
+
+      this.subproperty = false;
+  }
+
+
+  //继承实现
+  SubType.prototype = new SuperType();
+  //添加新方法
+  SubType.prototype.getSubValue = function () {
+      return his.subproperty;
+  }
+  //重写超类型方法
+  SubType.prototype.getSuperValue = function () {
+
+      return false;
+  }
+  var instanc = new SubType();
+  alert(instanc.getSuperValue());  //false
+</code></pre><h4 id="5-原型继承的问题以及解决"><a href="#5-原型继承的问题以及解决" class="headerlink" title="(5) 原型继承的问题以及解决"></a>(5) 原型继承的问题以及解决</h4><blockquote>
+<p>它的问题就是当一个子类继承父类的时候，当定义子类对象时。子类某一个对象对父类中属性或者方法的改动都会反映到子类的其他对象中，<br>因为父类成了子类定义对象的原型。其他对象使用后也会有相应改变。那么可以使用借用构造函数来解决。  </p>
+</blockquote>
+<p>借用构造函数    </p>
+<pre><code>function SuperType() {
+     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+ }
+ function SubType() {
+     //继承了Suptype
+     SuperType.call(this);
+ }
+
+ var instance1 = new SubType();
+ instance1.colors.push(&quot;black&quot;);//&quot;red,blue,green,black&quot; 
+ alert(instance1.colors);
+ var instance2 = new SubType();
+ alert(instance2.colors);  //&quot;red,blue,green&quot; ,现在每个子类对象就保持了自己对父类的最初属性了。
+</code></pre><h4 id="6-小结"><a href="#6-小结" class="headerlink" title="(6) 小结"></a>(6) 小结</h4><blockquote>
+<pre><code> ECMAScript 支持面向对象（OO）编程，但不使用类或者接口。对象可以在代码执行过程中创建和
+ 增强，因此具有动态性而非严格定义的实体。在没有类的情况下，可以采用下列模式创建对象。
+ 1   工厂模式，使用简单的函数创建对象，为对象添加属性和方法，然后返回对象。这个模式后来
+ 被构造函数模式所取代。
+ 2   构造函数模式，可以创建自定义引用类型，可以像创建内置对象实例一样使用 new 操作符。不
+ 过，构造函数模式也有缺点，即它的每个成员都无法得到复用，包括函数。由于函数可以不局
+限于任何对象（即与对象具有松散耦合的特点），因此没有理由不在多个对象间共享函数。
+ 3   原型模式，使用构造函数的 prototype 属性来指定那些应该共享的属性和方法。组合使用构造
+ 函数模式和原型模式时，使用构造函数定义实例属性，而使用原型定义共享的属性和方法。
+  JavaScript 主要通过原型链实现继承。原型链的构建是通过将一个类型的实例赋值给另一个构造函
+ 数的原型实现的。这样，子类型就能够访问超类型的所有属性和方法，这一点与基于类的继承很相似。
+ 原型链的问题是对象实例共享所有继承的属性和方法，因此不适宜单独使用。解决这个问题的技术是借
+ 用构造函数，即在子类型构造函数的内部调用超类型构造函数。这样就可以做到每个实例都具有自己的
+ 属性，同时还能保证只使用构造函数模式来定义类型。使用最多的继承模式是组合继承，这种模式使用
+ 原型链继承共享的属性和方法，而通过借用构造函数继承实例属性。
+ 此外，还存在下列可供选择的继承模式。
+ 4   原型式继承，可以在不必预先定义构造函数的情况下实现继承，其本质是执行对给定对象的浅
+ 复制。而复制得到的副本还可以得到进一步改造。
+ 5 寄生式继承，与原型式继承非常相似，也是基于某个对象或某些信息创建一个对象，然后增强
+ 对象，最后返回对象。为了解决组合继承模式由于多次调用超类型构造函数而导致的低效率问
+ 题，可以将这个模式与组合继承一起使用。
+ 6  寄生组合式继承，集寄生式继承和组合继承的优点与一身，是实现基于类型继承的最有效方式。
+</code></pre></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/五  demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/五  demo/" itemprop="url">第五章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T16:37:06+08:00">
+                2018-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/16/javascript高级程序设计/五  demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/五  demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-引用类型"><a href="#1-引用类型" class="headerlink" title="(1) 引用类型"></a>(1) 引用类型</h4><p>  在 ECMAScript 中，引用类型是一种数据结构。<br>用于将数据和功能组织在一起。它也常被称为类，但这种称呼并不妥当。尽管 ECMAScript<br>从技术上讲是一门面向对象的语言，但它不具备传统的面向对象语言所支持的类和接口等基<br>本结构。引用类型有时候也被称为对象定义，因为它们描述的是一类对象所具有的属性和方法。</p>
+<h4 id="2-object定义"><a href="#2-object定义" class="headerlink" title="(2) object定义"></a>(2) object定义</h4><p>推荐定义object用字面量定义    </p>
+<pre><code>var person = {    
+ name : &quot;Nicholas&quot;,  
+ age : 29  
+};   
+var person = {}; //与 new Object()相同  
+person.name = &quot;Nicholas&quot;;  
+person.age = 29;   
+</code></pre><h4 id="3-array定义推荐"><a href="#3-array定义推荐" class="headerlink" title="(3)array定义推荐"></a>(3)array定义推荐</h4><pre><code>var colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]; // 创建一个包含 3 个字符串的数组  
+var names = []; // 创建一个空数组 ,用它即可。 
+var values = [1,2,]; // 不要这样！这样会创建一个包含 2 或 3 项的数组  
+var options = [,,,,,]; // 不要这样！这样会创建一个包含 5 或 6 项的数组 
+</code></pre><p>一些知识点</p>
+<pre><code>/*1 动态给数组加数据，类似于线性表了。*/
+var colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;]; // 创建一个包含 3 个字符串的数组  
+colors[colors.length] = &quot;black&quot;; //（在位置 3）添加一种颜色  
+colors[colors.length] = &quot;brown&quot;; //（在位置 4）再添加一种颜色
+/*2 数组的toLocaleString（）方法，其实是调用每一项的toString方法，输出。*/    
+/*数组的栈以及队列方法  
+push，pop，shift    
+其中push和shift结合可以实现队列方法。*/ 
+ var colors=new Array();    
+     var count=colors.push(&quot;red&quot;,&quot;green&quot;);  //这个函数调用会返回2，有意思  
+       alert(count);  
+       count=colors.push(&quot;black&quot;);  
+       alert(count);  
+       var item=colors.shift();  //取得第一项,厉害了  
+       alert(item);
+</code></pre><h4 id="4-数组的迭代方法"><a href="#4-数组的迭代方法" class="headerlink" title="(4) 数组的迭代方法"></a>(4) 数组的迭代方法</h4><blockquote>
+<ul>
+<li>every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回 true，则返回 true。</li>
+<li>filter()：对数组中的每一项运行给定函数，返回该函数会返回 true 的项组成的数组。</li>
+<li>forEach()：对数组中的每一项运行给定函数。这个方法没有返回值。</li>
+<li>map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。</li>
+<li>some()：对数组中的每一项运行给定函数，如果该函数对任一项返回 true，则返回 true。<br>以上方法都不会修改数组中的包含的值。<br>在这些方法中，最相似的是 every()和 some()，它们都用于查询数组中的项是否满足某个条件。<br>对 every()来说，传入的函数必须对每一项都返回 true，这个方法才返回 true；否则，它就返回<br>false。而 some()方法则是只要传入的函数对数组中的某一项返回 true，就会返回 true。请看以下<br>例子。</li>
+</ul>
+</blockquote>
+<pre><code>var numbers = [1, 2, 4, 343, 43, 423, 4];    
+       var everyResult = numbers.every(function (item, index, array) {  
+        return (item&gt;2)
+       })
+   alert(everyResult);  //false,他要求所有item都&gt;2才可以。
+   var evetyResultq=numbers.some(function(item,index,array){  
+   return  (item&gt;2)
+   })
+   alert(everyResult);//ture，他只要求其中有一个到几个&gt;2即可。
+var filteResult=numbers.filter(function(item,index,array){
+       return (item&gt;2);
+   })
+   alert(filteResult)  //返回这个数组所有大于2的数，并组成一个数组，这个牛逼了
+</code></pre><h4 id="5-作为值的函数"><a href="#5-作为值的函数" class="headerlink" title="(5) 作为值的函数"></a>(5) 作为值的函数</h4><pre><code>/*因为 ECMAScript 中的函数名本身就是变量，所以函数也可以作为值来使用。也就是说，不仅可以  
+像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的结果返回。来看  
+一看下面的函数。*/
+  function callSomeFunction(someFunction, someArgument) {  
+        return someFunction(someArgument);  //函数返回一个值，这个值就是一个函数
+    }
+    function add10num(num) {
+        return num + 10;
+    }
+    var result = callSomeFunction(add10num, 10);
+    alert(result);//20
+</code></pre><h4 id="6-作为值的函数以及call"><a href="#6-作为值的函数以及call" class="headerlink" title="(6) 作为值的函数以及call"></a>(6) 作为值的函数以及call</h4><pre><code>  function callSomeFunction(someFunction, someArgument) {
+      return someFunction(someArgument);  //函数返回一个值，这个值就是一个函数
+  }
+  function add10num(num) {
+      return num + 10;
+  }
+  var result = callSomeFunction(add10num, 10);
+  alert(result);//20
+window.color = &quot;red&quot;;
+  var o = { color: &quot;blue&quot; };
+  function sayColor() {
+      alert(this.color);
+  }
+  sayColor();
+  sayColor.call(this);//red,这是全局变量使用
+  sayColor.call(o);//blue，call可以帮我们指定this对象所指向的位置。完美
+</code></pre><h4 id="7-基本包装类型的生存期以及后台解析成对象"><a href="#7-基本包装类型的生存期以及后台解析成对象" class="headerlink" title="(7)基本包装类型的生存期以及后台解析成对象"></a>(7)基本包装类型的生存期以及后台解析成对象</h4><pre><code>var s1=&quot;some text&quot;;
+var s2=s1.substring(2);
+/*后台其实是执行了这样的一个过程
+
+(1) 创建 String 类型的一个实例；
+(2) 在实例上调用指定的方法；
+(3) 销毁这个实例。
+可以将以上三个步骤想象成是执行了下列 ECMAScript 代码。
+var s1 = new String(&quot;some text&quot;);
+var s2 = s1.substring(2);
+s1 = null;
+经过此番处理，基本的字符串值就变得跟对象一样了。而且，上面这三个步骤也分别适用于 Boolean
+和 Number 类型对应的布尔值和数字值。
+引用类型与基本包装类型的主要区别就是对象的生存期。使用 new 操作符创建的引用类型的实例，
+在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一
+行代码的执行瞬间，然后立即被销毁。这意味着我们不能在运行时为基本类型值添加属性和方法。如下代码所示
+ */
+
+var s1 = &quot;some text&quot;;
+s1.color = &quot;red&quot;;
+alert(s1.color); //undefined
+</code></pre><h4 id="（8）单体内置对象Global对象"><a href="#（8）单体内置对象Global对象" class="headerlink" title="（8）单体内置对象Global对象"></a>（8）单体内置对象Global对象</h4><blockquote>
+<p>不属于任何其他对象的属性和方法，最终都是Global对象中的属性和方法。<br>winow对象,  </p>
+</blockquote>
+<p>  ECMAScript 虽然没有指出如何直接访问 Global 对象，但 Web 浏览器都是将这个全局对象作为<br>window 对象的一部分加以实现的。因此，在全局作用域中声明的所有变量和函数，就都成为了 window<br>对象的属性。来看下面的例子。  </p>
+<pre><code>var color = &quot;red&quot;;
+function sayColor(){
+ alert(window.color);
+}
+window.sayColor(); //&quot;red&quot; 
+</code></pre><h4 id="（9）小结"><a href="#（9）小结" class="headerlink" title="（9）小结"></a>（9）小结</h4><pre><code>对象在 JavaScript 中被称为引用类型的值，而且有一些内置的引用类型可以用来创建特定的对象，
+现简要总结如下：
+1 引用类型与传统面向对象程序设计中的类相似，但实现不同；
+2 Object 是一个基础类型，其他所有类型都从 Object 继承了基本的行为；
+3 Array 类型是一组值的有序列表，同时还提供了操作和转换这些值的功能；
+4  Date 类型提供了有关日期和时间的信息，包括当前日期和时间以及相关的计算功能；
+5 RegExp 类型是 ECMAScript 支持正则表达式的一个接口，提供了最基本的和一些高级的正则表
+达式功能。
+函数实际上是 Function 类型的实例，因此函数也是对象；而这一点正是 JavaScript 最有特色的地
+方。由于函数是对象，所以函数也拥有方法，可以用来增强其行为。
+因为有了基本包装类型，所以 JavaScript 中的基本类型值可以被当作对象来访问。三种基本包装类
+型分别是：Boolean、Number 和 String。以下是它们共同的特征：
+6 每个包装类型都映射到同名的基本类型；
+7 在读取模式下访问基本类型值时，就会创建对应的基本包装类型的一个对象，从而方便了数据
+操作；
+8 操作基本类型值的语句一经执行完毕，就会立即销毁新创建的包装对象。
+在所有代码执行之前，作用域中就已经存在两个内置对象：Global 和 Math。在大多数 ECMAScript
+实现中都不能直接访问 Global 对象；不过，Web 浏览器实现了承担该角色的 window 对象。全局变
+量和函数都是 Global 对象的属性。Math 对象提供了很多属性和方法，用于辅助完成复杂的数学计算
+任务。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/四  demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/四  demo/" itemprop="url">第四章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T15:56:19+08:00">
+                2018-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/16/javascript高级程序设计/四  demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/四  demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-访问变量有基本类型与引用类型"><a href="#1-访问变量有基本类型与引用类型" class="headerlink" title="(1) 访问变量有基本类型与引用类型"></a>(1) 访问变量有基本类型与引用类型</h4><p>  你不能给基本类型加属性和方法，但是引用类型可以。如果你给一个引用类型<br>加了属性和方法，另一个也会有，其实他们之间都是地址传递。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript中，参数都是按值传递的。但是，向函数传递基本类型的值时  </span><br><span class="line">它会复制并传递。而传引用类型的参数，直接都是传送地址，会同时反映到该引用上。  </span><br><span class="line">  /*基本类型传递*/  </span><br><span class="line">    function   addTe(num)&#123;  </span><br><span class="line">        num+=10;  </span><br><span class="line">        return num;  </span><br><span class="line">    &#125;  </span><br><span class="line">    var numbe=10;  </span><br><span class="line">    alert(addTe(numbe));//30  </span><br><span class="line">    alert(numbe); //还是10  </span><br><span class="line"></span><br><span class="line">/*引用类型传递*/  </span><br><span class="line">function setName(boj)&#123;  </span><br><span class="line">    obj.name=&quot;nihao&quot;;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"> var person=new Object();  </span><br><span class="line"> setName(person);  </span><br><span class="line"> alert(person.name);  //“nihao”</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-检测类型"><a href="#2-检测类型" class="headerlink" title="(2)  检测类型"></a>(2)  检测类型</h4><p>多用instanceof，但是他不能检测object<br>如果变量是给定引用类型（根据它的原型链来识别；第 6 章将介绍原型链的实例那么<br>instanceof 操作符就会返回 true。<br>请看下面的例子：<br>alert(person instanceof Object); // 变量 person 是 Object 吗？<br>alert(colors instanceof Array); // 变量 colors 是 Array 吗？<br>alert(pattern instanceof RegExp); // 变量 pattern 是 RegExp 吗？<br>根据规定，<em>所有引用类型的值都是 Object 的实例</em>。因此，在检测一个引用类型值和 Object 构造<br>函数时，instanceof 操作符始终会返回 true。当然如果使用 instanceof 操作符检测基本类型的<br>值，则该操作符始终会返回 false，因为基本类型不是对象。  </p>
+<h4 id="3-垃圾收集机制"><a href="#3-垃圾收集机制" class="headerlink" title="(3) 垃圾收集机制"></a>(3) 垃圾收集机制</h4><p>1  标记清楚收集方式,用一个标志位来标记变量何时“进环境”，何时“出环境”<br>垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记（当然，可以使用任何标记方<br>式）。然后，它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记<br>的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后，垃圾收集器<br>完成内存清除工作，销毁那些带标记的值并回收它们所占用的内存空间。<br>2  引用计数方式<br>3  管理内存，当不再使用一个变量时，请手动设置其为null</p>
+<h4 id="4-小结"><a href="#4-小结" class="headerlink" title="(4) 小结"></a>(4) 小结</h4><p>JavaScript 变量可以用来保存两种类型的值：基本类型值和引用类型值。基本类型的值源自以下 5<br>种基本数据类型：Undefined、Null、Boolean、Number 和 String。基本类型值和引用类型值具<br>有以下特点：  </p>
+<blockquote>
+<ul>
+<li>基本类型值在内存中占据固定大小的空间，因此被保存在栈内存中；  </li>
+<li>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本；  </li>
+<li>引用类型的值是对象，保存在<em>堆内存</em>中；  </li>
+<li>包含引用类型值的变量实际上包含的并不是对象本身，而是一个指向该对象的指针；</li>
+<li>从一个变量向另一个变量复制引用类型的值，复制的其实是指针，因此两个变量最终都指向同<br>一个对象；</li>
+<li>确定一个值是哪种基本类型可以使用 typeof 操作符，而确定一个值是哪种引用类型可以使用<br>instanceof 操作符。<br>所有变量（包括基本类型和引用类型）都存在于一个执行环境（也称为作用域）当中，这个执<br>行环境决定了变量的生命周期，以及哪一部分代码可以访问其中的变量。以下是关于执行环境的几<br>点总结：  </li>
+<li>执行环境有全局执行环境（也称为全局环境）和函数执行环境之分；  </li>
+<li>每次进入一个新执行环境，都会创建一个用于搜索变量和函数的作用域链；  </li>
+<li>函数的局部环境不仅有权访问函数作用域中的变量，而且有权访问其包含（父）环境，乃至全<br>局环境；  </li>
+<li>全局环境只能访问在全局环境中定义的变量和函数，而不能直接访问局部环境中的任何数据；  </li>
+<li>变量的执行环境有助于确定应该何时释放内存。<br>JavaScript 是一门具有自动垃圾收集机制的编程语言，开发人员不必关心内存分配和回收问题。可<br>以对 JavaScript 的垃圾收集例程作如下总结。  </li>
+<li>离开作用域的值将被自动标记为可以回收，因此将在垃圾收集期间被删除。  </li>
+<li>“标记清除”是目前主流的垃圾收集算法，这种算法的思想是给当前不使用的值加上标记，然<br>后再回收其内存。  </li>
+<li>另一种垃圾收集算法是“引用计数”，这种算法的思想是跟踪记录所有值被引用的次数。JavaScript<br>引擎目前都不再使用这种算法；但在 IE 中访问非原生 JavaScript 对象（如 DOM 元素）时，这种<br>算法仍然可能会导致问题。  </li>
+<li>当代码中存在循环引用现象时，“引用计数”算法就会导致问题。</li>
+<li>解除变量的引用不仅有助于消除循环引用现象，而且对垃圾收集也有好处。为了确保有效地回<br>收内存，应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/三  demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/16/javascript高级程序设计/三  demo/" itemprop="url">第三章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-16T15:27:33+08:00">
+                2018-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/16/javascript高级程序设计/三  demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/16/javascript高级程序设计/三  demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-未初始化值会被赋予“undefined”这个值。"><a href="#1-未初始化值会被赋予“undefined”这个值。" class="headerlink" title="(1) 未初始化值会被赋予“undefined”这个值。"></a>(1) 未初始化值会被赋予“undefined”这个值。</h4><p>   即便未初始化的变量会自动被赋予 undefined 值，但显式地初始化<br>变量依然是明智的选择。如果能够做到这一点，那么当 typeof 操作符<br>返回”undefined”值时，我们就知道被检测的变量还没有被声明，而不是<br>尚未初始化。</p>
+<h4 id="2-null和object是一样的，用typeof是辨认不出的。"><a href="#2-null和object是一样的，用typeof是辨认不出的。" class="headerlink" title="(2)  null和object是一样的，用typeof是辨认不出的。"></a>(2)  null和object是一样的，用typeof是辨认不出的。</h4><h4 id="3-object类似于java中的终极对象object，"><a href="#3-object类似于java中的终极对象object，" class="headerlink" title="(3) object类似于java中的终极对象object，"></a>(3) object类似于java中的终极对象object，</h4><p>JavaScript中所有对象都是在object复制而来。而终极对象object拥有很多性质。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">仅仅创建 Object 的实例并没有什么用处，但关键是要理解一个重要的思想：即在  </span><br><span class="line"> ECMAScript 中，（就像 Java 中的 java.lang.Object 对象一样）Object   </span><br><span class="line">类型是所有它的实例的基础。换句话说，Object 类型所具有的任何属性和方法也  </span><br><span class="line">同样存在于更具体的对象中。Object 的每个实例都具有下列属性和方法。</span><br><span class="line">1 constructor：保存着用于创建当前对象的函数。对于前面的例子而言，构造函数  </span><br><span class="line">（constructor）就是 Object()。</span><br><span class="line">2 hasOwnProperty(propertyName)：用于检查给定的属性在当前对象实例中（而  </span><br><span class="line">不是在实例</span><br><span class="line">的原型中）是否存在。其中，作为参数的属性名（propertyName）必须以字符串形式指定（例</span><br><span class="line">如：o.hasOwnProperty(&quot;name&quot;)）。</span><br><span class="line">3 isPrototypeOf(object)：用于检查传入的对象是否是传入对象的原型（第 5 章将讨论原</span><br><span class="line">型）。</span><br><span class="line">4 propertyIsEnumerable(propertyName)：用于检查给定的属性是否能够使用 for-in 语句</span><br><span class="line">（本章后面将会讨论）来枚举。与 hasOwnProperty()方法一样，作为参数的属性名必须以字符</span><br><span class="line">串形式指定。</span><br><span class="line">5 toLocaleString()：返回对象的字符串表示，该字符串与执行环境的地区对应。</span><br><span class="line">6 toString()：返回对象的字符串表示。</span><br><span class="line">7 valueOf()：返回对象的字符串、数值或布尔值表示。通常与 toString()方法的返回值</span><br><span class="line">相同。</span><br></pre></td></tr></table></figure>
+<h4 id="4-小结"><a href="#4-小结" class="headerlink" title="(4) 小结"></a>(4) 小结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">也已经着手开始实现第 5 版了。以下简要总结了 ECMAScript 中基本的要素。  </span><br><span class="line">1 ECMAScript 中的基本数据类型包括 Undefined、Null、Boolean、Number 和 String。</span><br><span class="line">2 与其他语言不同，ECMScript 没有为整数和浮点数值分别定义不同的数据类型，Number 类型可</span><br><span class="line">用于表示所有数值。</span><br><span class="line">3 ECMAScript 中也有一种复杂的数据类型，即 Object 类型，该类型是这门语言中所有对象的基</span><br><span class="line">础类型。</span><br><span class="line">4 严格模式为这门语言中容易出错的地方施加了限制。  </span><br><span class="line">5 ECMAScript 提供了很多与 C 及其他类 C 语言中相同的基本操作符，包括算术操作符、布尔操作</span><br><span class="line">符、关系操作符、相等操作符及赋值操作符等。  </span><br><span class="line">6 ECMAScript 从其他语言中借鉴了很多流控制语句，例如 if 语句、for 语句和 switch 语句等。</span><br><span class="line">ECMAScript 中的函数与其他语言中的函数有诸多不同之处。  </span><br><span class="line">7 无须指定函数的返回值，因为任何 ECMAScript 函数都可以在任何时候返回任何值。  </span><br><span class="line">8 实际上，未指定返回值的函数返回的是一个特殊的 undefined 值。  </span><br><span class="line">9 ECMAScript 中也没有函数签名的概念，因为其函数参数是以一个包含零或多个值的数组的形式</span><br><span class="line">传递的。</span><br><span class="line">10 可以向 ECMAScript 函数传递任意数量的参数，并且可以通过 arguments 对象来访问这些参数。</span><br><span class="line">11 由于不存在函数签名的特性，ECMAScript 函数不能重载</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/javascript高级程序设计/二 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -702,831 +2264,11 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/javascript高级程序设计/moban1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/03/javascript高级程序设计/moban1/" itemprop="url">原生JavaScript实现模板引擎</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T00:33:32+08:00">
-                2018-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/03/javascript高级程序设计/moban1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/03/javascript高级程序设计/moban1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="欢迎使用-Cmd-Markdown-编辑阅读器"><a href="#欢迎使用-Cmd-Markdown-编辑阅读器" class="headerlink" title="欢迎使用 Cmd Markdown 编辑阅读器"></a>欢迎使用 Cmd Markdown 编辑阅读器</h1><hr>
-<p>·<br>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
-<blockquote>
-<ul>
-<li>整理知识，学习笔记</li>
-<li>发布日记，杂文，所见所想</li>
-<li>撰写发布技术文稿（代码支持）</li>
-<li>撰写发布学术论文（LaTeX 公式支持）</li>
-</ul>
-</blockquote>
-<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
-<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
-<h3 id="Windows-Mac-Linux-全平台客户端"><a href="#Windows-Mac-Linux-全平台客户端" class="headerlink" title="Windows/Mac/Linux 全平台客户端"></a><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="noopener">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
-<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
-</blockquote>
-<hr>
-<h2 id="什么是-Markdown"><a href="#什么是-Markdown" class="headerlink" title="什么是 Markdown"></a>什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
-<h3 id="1-制作一份待办事宜-Todo-列表"><a href="#1-制作一份待办事宜-Todo-列表" class="headerlink" title="1. 制作一份待办事宜 Todo 列表"></a>1. 制作一份待办事宜 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表" target="_blank" rel="noopener">Todo 列表</a></h3><ul>
-<li style="list-style: none"><input type="checkbox"> 支持以 PDF 格式导出文稿</li>
-<li style="list-style: none"><input type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
-<li style="list-style: none"><input type="checkbox" checked> 新增 Todo 列表功能</li>
-<li style="list-style: none"><input type="checkbox" checked> 修复 LaTex 公式渲染问题</li>
-<li style="list-style: none"><input type="checkbox" checked> 新增 LaTex 公式编号功能</li>
-</ul>
-<h3 id="2-书写一个质能守恒公式-LaTeX"><a href="#2-书写一个质能守恒公式-LaTeX" class="headerlink" title="2. 书写一个质能守恒公式[^LaTeX]"></a>2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
-<h3 id="3-高亮一段代码-code"><a href="#3-高亮一段代码-code" class="headerlink" title="3. 高亮一段代码[^code]"></a>3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-高效绘制-流程图"><a href="#4-高效绘制-流程图" class="headerlink" title="4. 高效绘制 流程图"></a>4. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图" target="_blank" rel="noopener">流程图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
-<h3 id="5-高效绘制-序列图"><a href="#5-高效绘制-序列图" class="headerlink" title="5. 高效绘制 序列图"></a>5. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图" target="_blank" rel="noopener">序列图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
-<h3 id="6-高效绘制-甘特图"><a href="#6-高效绘制-甘特图" class="headerlink" title="6. 高效绘制 甘特图"></a>6. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图" target="_blank" rel="noopener">甘特图</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title 项目开发流程</span><br><span class="line">section 项目确定</span><br><span class="line">    需求分析       :a1, 2016-06-22, 3d</span><br><span class="line">    可行性报告     :after a1, 5d</span><br><span class="line">    概念验证       : 5d</span><br><span class="line">section 项目实施</span><br><span class="line">    概要设计      :2016-07-05  , 5d</span><br><span class="line">    详细设计      :2016-07-08, 10d</span><br><span class="line">    编码          :2016-07-15, 10d</span><br><span class="line">    测试          :2016-07-22, 5d</span><br><span class="line">section 发布验收</span><br><span class="line">    发布: 2d</span><br><span class="line">    验收: 3d</span><br></pre></td></tr></table></figure>
-<h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table>
-<thead>
-<tr>
-<th>项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计算机</td>
-<td style="text-align:right">\$1600</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>手机</td>
-<td style="text-align:right">\$12</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td>管线</td>
-<td style="text-align:right">\$1</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-更详细语法说明"><a href="#8-更详细语法说明" class="headerlink" title="8. 更详细语法说明"></a>8. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="noopener">Cmd Markdown 简明语法手册</a>，进阶用户可以参考 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册" target="_blank" rel="noopener">Cmd Markdown 高阶语法手册</a> 了解更多高级功能。</p>
-<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
-<hr>
-<h2 id="什么是-Cmd-Markdown"><a href="#什么是-Cmd-Markdown" class="headerlink" title="什么是 Cmd Markdown"></a>什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
-<h3 id="1-实时同步预览"><a href="#1-实时同步预览" class="headerlink" title="1. 实时同步预览"></a>1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
-<h3 id="2-编辑工具栏"><a href="#2-编辑工具栏" class="headerlink" title="2. 编辑工具栏"></a>2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
-<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
-<h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3. 编辑模式"></a>3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右侧的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
-<h3 id="4-实时的云端文稿"><a href="#4-实时的云端文稿" class="headerlink" title="4. 实时的云端文稿"></a>4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
-<h3 id="5-离线模式"><a href="#5-离线模式" class="headerlink" title="5. 离线模式"></a>5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
-<h3 id="6-管理工具栏"><a href="#6-管理工具栏" class="headerlink" title="6. 管理工具栏"></a>6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
-<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
-<p>通过管理工具栏可以：</p>
-<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
-<h3 id="7-阅读工具栏"><a href="#7-阅读工具栏" class="headerlink" title="7. 阅读工具栏"></a>7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
-<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
-<p>工具栏上的五个图标依次为：</p>
-<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
-<h3 id="8-阅读模式"><a href="#8-阅读模式" class="headerlink" title="8. 阅读模式"></a>8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
-<h3 id="9-标签、分类和搜索"><a href="#9-标签、分类和搜索" class="headerlink" title="9. 标签、分类和搜索"></a>9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
-<p>标签： 未分类</p>
-<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
-<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
-<h3 id="10-文稿发布和分享"><a href="#10-文稿发布和分享" class="headerlink" title="10. 文稿发布和分享"></a>10. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
-<hr>
-<p>再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！</p>
-<p>作者 <a href="http://weibo.com/ghosert" target="_blank" rel="noopener">@ghosert</a><br>2016 年 07月 07日    </p>
-<p>[^LaTeX]: 支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax</a> 参考更多使用方法。</p>
-<p>[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，<strong>四十一</strong>种主流编程语言。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/javascript高级程序设计/npm1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/01/javascript高级程序设计/npm1/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T02:30:30+08:00">
-                2018-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/01/javascript高级程序设计/npm1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/01/javascript高级程序设计/npm1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/javascript高级程序设计/mocha1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/01/javascript高级程序设计/mocha1/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T00:39:24+08:00">
-                2018-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/01/javascript高级程序设计/mocha1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/01/javascript高级程序设计/mocha1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h2 id="mocha测试JavaScript代码教程"><a href="#mocha测试JavaScript代码教程" class="headerlink" title="mocha测试JavaScript代码教程"></a>mocha测试JavaScript代码教程</h2><p>   Mocha诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。它是一个富特征的JavaScript测试框架。基于node.js和浏览器内置对象。</p>
-<p>  本文全面介绍如何使用Mocha，让你轻松上手。如果你以前对测试一无所知，本文也可以当作JavaScript单元测试入门。值得说明的是，除了Mocha以外，类似的测试框架还有Jasmine、Karma、Tape等，也很值得学习。</p>
-<p>###1 首先，我们先来快速体验一下最简单的JavaScript单元测试使用。<br> 1 你的电脑请先安装好node.js。<br>  2 打开cmd终端。进入node.js的根目录下，执行以下代码<br>首先我们要全局安装Mocha：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g mocha      </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"> 3 接下来，我们为我们的项目创建一个新的文件夹并在其中运行下面的代码：</span><br></pre></td></tr></table></figure>
-<p>npm install chai<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">  4上面的代码将会在我们的项目中安装一个Chai的本地副本。接着，我们需要在项目目录下创建一个叫做test的文件夹，它用作Mocha默认的测试路径。所有的测试代码请放在这个test下面。</span><br><span class="line">在同样新建一个lib文件夹，所有的被测代码都放在这个lib下。然后，我们需要明白一个概念就是TDD，简介在[这里](https://baike.baidu.com/item/%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/3328831?fr=aladdin) ,利用TDD测试，我们必须要明白TDD的是我们只编写测试通过的功能代码，这样减少编码量。  </span><br><span class="line"></span><br><span class="line">接下来，我们按照TDD规则，先编写测试代码。当然，我们模拟的都是及其简单的方法。这里是测试lib文件下的tags.js文件（读者请自已建造）中暴露的parse方法。</span><br></pre></td></tr></table></figure></p>
-<p>var expect =require(‘chai’).expect; //引入我们需要chai断言库<br>var tags=require(“../lib/tags”);//这是引入的被测代码，在后面会给出<br>describe(‘Tags’, function () {<br>    describe(‘#parse()’, function () {<br>        it(‘should parse long formed tags’, function () {<br>            var results = tags.parse();<br>            expect(results).equal(4);</p>
-<pre><code>    });
-
-});
-</code></pre><p>}<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5通过以上代码我们知道，它构造一个Tags的describe(组件)，这个组件随开发人员定义，并在里面嵌套一个测试parse方法的describ（组件）。并在里面放入了真正要测试的测试用例。参数为测试说明和回调函数。  </span><br><span class="line">对于我们而言，Mocha只关心项目结构，对实现以及结果则不太关注，所以我们只需要明白这种结构定义，以及如何使用它，下面我们编写被测试代码。</span><br></pre></td></tr></table></figure></p>
-<p>在lib下新建tags.js文件。放入以下代码<br>exports = module.exports = {};</p>
-<p>exports.parse = function(){</p>
-<p>  var result=4;<br>  return result;</p>
-<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6以上代码就是我们要测试的代码，我们向外暴露了parse接口，方便测试代码进行调用。我们在终端输入mocha，便可以发现测试通过，这样一个简单的js测试用例便搭建完毕。通常，测试脚本与所要测试的源码脚本同名，但是后缀名为.test.js（表示测试）或者.spec.js（表示规格）。比如，add.js的测试脚本名字就是add.test.js。我们这里并没有严格按照惯例，仅仅作为示例使用。</span><br><span class="line">这些代码将会基于它们所在的describe块运行，你甚至可以使用beforeEach或者afterEach函数来让它们在所有的it块之前或之后运行。这些函数本身仅仅是使用了标准的Node命令来创建或移除文件。让我们再来看看如何使用before以及after吧。</span><br></pre></td></tr></table></figure></p>
-<p>var expect =require(‘chai’).expect;<br>var tags=require(“../lib/tags”);</p>
-<p>describe(‘Tags’, function () {</p>
-<pre><code>describe(&apos;#parse()&apos;, function () {
-
-    before(function() {
-        console.log(&quot;本条测试开始！&quot;+1);
-    });
-    beforeEach(function(){
-        console.log(&quot;每个it测试我都会执行&quot;+2);
-    });
-    it(&apos;should parse long formed tags&apos;, function () {
-
-        var results = tags.parse();  
-        expect(results).equal(4);
-
-    });
-    after(function() {
-        console.log(&quot;本条测试完成了&quot;+3);
-   });
-   afterEach(function(){
-    console.log(&quot;每个it执行我都要执行&quot;+4);
-   });
-});
-</code></pre><p>}<br>);<br>//我们会看到控制台输出<br>// Tags<br>//    #parse()<br>//本条测试开始！   1<br>//每个it我都要执行  2<br>//      √ should parse long formed tags<br>//每个it执行我都要执行下   3<br>//本条测试完成了    4</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###2 异步测试用例</span><br><span class="line">我们在测试前台js会经常遇到一些涉异步回调函数的测试。那么如何测试它们呢？Mocha已经给出了很好的方案。  </span><br><span class="line"></span><br><span class="line">我们只需要在用例函数里边加一个done回调函数（无需定义），异步代码执行完毕后调用一下done，就可以通知mocha，已经执行完毕，去执行下一个用例函数吧！</span><br><span class="line">就像下面这样：</span><br></pre></td></tr></table></figure>
-<p>describe(‘User’, function() {<br>  describe(‘#save()’, function() {<br>    it(‘should save without error’, function(done) {<br>      var user = new User(‘Luna’);<br>      user.save(function(err) {<br>        if (err) throw err;<br>        done();<br>      });<br>    });<br>  });<br>});<br><code>`</code><br>这里我们测试了user对象的save异步方法。等待它执行完毕后，我们调用Mocha的done函数就会通知Mocha本测试用例跑完了，直接跑下一个。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/javascript高级程序设计/nibuhao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/22/javascript高级程序设计/nibuhao/" itemprop="url">这是我的第一篇示例博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T08:52:07+08:00">
-                2018-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/22/javascript高级程序设计/nibuhao/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/22/javascript高级程序设计/nibuhao/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-问题："><a href="#1-问题：" class="headerlink" title="1   问题："></a>1   问题：</h2><p>为了想明白为什么java可以用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
-<p>这一句话来输出不同类型的数值，比如数字，字符串，要知道java是强类型语言。</p>
-<h2 id="2-实验："><a href="#2-实验：" class="headerlink" title="2  实验："></a>2  实验：</h2><p>代码</p>
-<h2 id="3-原理："><a href="#3-原理：" class="headerlink" title="3 原理："></a>3 原理：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/javascript高级程序设计/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/21/javascript高级程序设计/hello-world/" itemprop="url">js高级特性</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T11:08:46+08:00">
-                2018-05-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript之美/" itemprop="url" rel="index">
-                    <span itemprop="name">javaScript之美</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/21/javascript高级程序设计/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/21/javascript高级程序设计/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>js极其灵活，我们可以用js来构造我们想要的很多东西，包括java中的类，私有变量，共有方法等。请看以下代码</p>
-<h3 id="js实现封装私有变量以及函数"><a href="#js实现封装私有变量以及函数" class="headerlink" title="js实现封装私有变量以及函数"></a>js实现封装私有变量以及函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myObject = (</span><br><span class="line">           function() &#123;</span><br><span class="line">               //私有变量</span><br><span class="line">               var _name = &quot;私有变量&quot;;</span><br><span class="line">               return &#123;</span><br><span class="line">                   //共有方法，暴露的公共接口</span><br><span class="line">                   getName: function () &#123;</span><br><span class="line">                       return _name;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)();</span><br><span class="line">   alert(myObject.getName());//输出：“私有变量”</span><br><span class="line">       console.log(myObject._name);//输出&quot;undefine&quot;</span><br></pre></td></tr></table></figure>
-<p>以上就可以实现共有方法和私有变量。ts中的类底层就是如此。</p>
-<h3 id="变量作用域的问题"><a href="#变量作用域的问题" class="headerlink" title="变量作用域的问题"></a>变量作用域的问题</h3><p>js中的函数内可以访问到函数外部变量，外部却不能访问到函数内部变量。而且在每次函数调用完毕后。在函数体内定义的变量都会被清空。每当函数体内使用一个变量时，函数会先从本函数体内寻找定义，后延伸到外部直到找到为止。下面这段包含了嵌套函数的代码，也许能帮助我们加深对变量搜索过程的理解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">var func1 = function()&#123;</span><br><span class="line"> var b = 2;</span><br><span class="line"> var func2 = function()&#123;</span><br><span class="line"> var c = 3;</span><br><span class="line"> alert ( b ); // 输出：2</span><br><span class="line"> alert ( a ); // 输出：1</span><br><span class="line"> &#125;</span><br><span class="line"> func2();</span><br><span class="line"> alert ( c ); // 输出：Uncaught ReferenceError: c is not defined</span><br><span class="line">&#125;;</span><br><span class="line">func1();</span><br></pre></td></tr></table></figure>
-<h3 id="异步函数调用"><a href="#异步函数调用" class="headerlink" title="异步函数调用"></a>异步函数调用</h3><p>每次我们使用闭包都要谨慎对待闭包中的变量使用。比如：如果在for循环中的函数体是异步操作话，就会存在很多问题。我们看以下代码</p>
-<figure class="highlight plain"><figcaption><span>i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nodes[ i ].onclick = function()&#123;</span><br><span class="line">alert ( i );//输出5</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这里为什么每次都是输出5呢？因为for循环函数体内为异步操作，在异步操作进行时，for早已经循环完毕。i为5.<br>我们来看下改进后的代码<br><figure class="highlight plain"><figcaption><span>( var i </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> (function( i )&#123;</span><br><span class="line"> nodes[ i ].onclick = function()&#123;</span><br><span class="line"> console.log(i);</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;)( i )</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>这里，我们使用闭包将每次的i封在内部，保持每次对它的使用。</p>
-<h3 id="下面来看看这段跟闭包相关的代码："><a href="#下面来看看这段跟闭包相关的代码：" class="headerlink" title="下面来看看这段跟闭包相关的代码："></a>下面来看看这段跟闭包相关的代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var extent = function()&#123;</span><br><span class="line"> var value = 0;</span><br><span class="line"> return &#123;</span><br><span class="line"> call: function()&#123;</span><br><span class="line"> value++;</span><br><span class="line"> console.log( value );</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var extent = extent();</span><br><span class="line">extent.call(); // 输出：1</span><br><span class="line">extent.call(); // 输出：2</span><br><span class="line">extent.call(); // 输出：3</span><br></pre></td></tr></table></figure>
-<p>这里的extent相当于一个对象，有外部接口call方法以及内部私有变量value。闭包很方便的帮助了我们来构建一个对象等等。</p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1576,7 +2318,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1587,7 +2329,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
