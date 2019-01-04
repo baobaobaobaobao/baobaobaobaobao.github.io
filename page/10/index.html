@@ -252,6 +252,222 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/八 demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="鲍志强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="baobaobao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/17/javascript高级程序设计/八 demo/" itemprop="url">第八章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T11:49:20+08:00">
+                2018-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript高级程序设计读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript高级程序设计读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/17/javascript高级程序设计/八 demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/17/javascript高级程序设计/八 demo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-window对象以及窗口框架"><a href="#1-window对象以及窗口框架" class="headerlink" title="(1) window对象以及窗口框架"></a>(1) window对象以及窗口框架</h4><blockquote>
+<p>由于 window 对象同时扮演着 ECMAScript 中 Global 对象的角色，因此所有在全局作用域中声明<br>的变量、函数都会变成 window 对象的属性和方法。</p>
+</blockquote>
+<h4 id="2-窗口位置相对于top的位置"><a href="#2-窗口位置相对于top的位置" class="headerlink" title="(2) 窗口位置相对于top的位置"></a>(2) 窗口位置相对于top的位置</h4><pre><code>var leftPos=(typeof window.screenLeft==&apos;number&apos;)?
+     window.screenLeft:window.screenX;
+     alert(leftPos);
+</code></pre><h4 id="3-检查弹出窗口是否被屏蔽了"><a href="#3-检查弹出窗口是否被屏蔽了" class="headerlink" title="(3)检查弹出窗口是否被屏蔽了"></a>(3)检查弹出窗口是否被屏蔽了</h4><p>如果浏览器扩展或者其他程序阻止弹出窗口的话。我们用try catch来判断</p>
+<pre><code>var blocked = false;
+try {
+    var wrpxWin = window.open(&quot;http://www.wrox.com&quot;, &quot;_blank&quot;); if (wrpxWin == null) {
+        blocked = true;//窗口被屏蔽了
+    }
+} catch (ex) {
+    blocked = true;
+}
+
+if (blocked) {
+    alert(&quot;the popupp was bolcked!&quot;);
+}
+</code></pre><h4 id="4-对话框"><a href="#4-对话框" class="headerlink" title="(4) 对话框"></a>(4) 对话框</h4><blockquote>
+<ul>
+<li>alert</li>
+<li>confirm</li>
+<li>prompt  </li>
+</ul>
+</blockquote>
+<p>重点是第三种，让你输入一个对话框，并要求你输入数据。</p>
+<pre><code> var result = prompt(&quot;what is you name?&quot;, &quot;&quot;);
+ if (result != null) {
+    alert(&quot;Welcome,&quot; + result);
+}
+</code></pre><h4 id="5-location对象"><a href="#5-location对象" class="headerlink" title="(5) location对象"></a>(5) location对象</h4><blockquote>
+<p>location 是最有用的 BOM 对象之一，它提供了与当前窗口中加载的文档有关的信息，还提供了一<br>些导航功能。事实上，location 对象是很特别的一个对象，因为它既是 window 对象的属性，也是<br>document 对象的属性；换句话说，window.location 和 document.location 引用的是同一个对象。<br>location 对象的用处不只表现在它保存着当前文档的信息，还表现在它将 URL 解析为独立的片段，让<br>开发人员可以通过不同的属性访问这些片段。</p>
+</blockquote>
+<h4 id="6-navigator对象-检测插件"><a href="#6-navigator对象-检测插件" class="headerlink" title="(6) navigator对象 检测插件"></a>(6) navigator对象 检测插件</h4><pre><code>function hasPlugin(name) {
+    name = name.toLowerCase();
+    for (var i = 0; i &lt; navigator.plugins.length; i++) {
+        if (navigator.plugins[i].name.toLowerCase().indexOf(name) &gt; -1) {
+            return true;
+        }
+        return false;
+    }
+}
+alert(hasPlugin(&quot;Flash&quot;));//检查是否有Flash插件
+</code></pre><h4 id="6-history对象"><a href="#6-history对象" class="headerlink" title="(6) history对象"></a>(6) history对象</h4><blockquote>
+<p>浏览器内置对象，可以用它模仿前一个界面，后一个界面操作。</p>
+</blockquote>
+<h4 id="7-小结"><a href="#7-小结" class="headerlink" title="(7) 小结"></a>(7) 小结</h4><pre><code>   浏览器对象模型（BOM）以 window 对象为依托，表示浏览器窗口以及页面可见区域。同时，window
+对象还是 ECMAScript 中的 Global 对象，因而所有全局变量和函数都是它的属性，且所有原生的构造
+函数及其他函数也都存在于它的命名空间下。本章讨论了下列 BOM 的组成部分。
+1 在使用框架时，每个框架都有自己的 window 对象以及所有原生构造函数及其他函数的副本。
+每个框架都保存在 frames 集合中，可以通过位置或通过名称来访问。
+2 有一些窗口指针，可以用来引用其他框架，包括父框架。
+3 top 对象始终指向最外围的框架，也就是整个浏览器窗口。
+4 parent 对象表示包含当前框架的框架，而 self 对象则回指 window。
+5 使用 location 对象可以通过编程方式来访问浏览器的导航系统。设置相应的属性，可以逐段
+或整体性地修改浏览器的 URL。
+6 调用 replace()方法可以导航到一个新 URL，同时该 URL 会替换浏览器历史记录中当前显示
+的页面。
+7 *navigator 对象提供了与浏览器有关的信息。到底提供哪些信息，很大程度上取决于用户的浏
+览器；不过，也有一些公共的属性（如 userAgent）存在于所有浏览器中。
+BOM 中还有两个对象：screen 和 history，但它们的功能有限。screen 对象中保存着与客户端
+显示器有关的信息，这些信息一般只用于站点分析。history 对象为访问浏览器的历史记录开了一个
+小缝隙，开发人员可以据此判断历史记录的数量，也可以在历史记录中向后或向前导航到任意页面。*
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/javascript高级程序设计/七 demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2088,136 +2304,6 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/javascript高级程序设计/npm1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="鲍志强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="baobaobao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/01/javascript高级程序设计/npm1/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-01T02:30:30+08:00">
-                2018-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/01/javascript高级程序设计/npm1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/01/javascript高级程序设计/npm1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2272,7 +2358,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">103</span>
+                  <span class="site-state-item-count">104</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2353,7 +2439,7 @@ console.log(render(tpl, { username: &apos;Jackson Tian&apos; }));
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
